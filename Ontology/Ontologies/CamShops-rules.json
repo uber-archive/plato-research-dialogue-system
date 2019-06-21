@@ -1,0 +1,72 @@
+{
+   "discourseAct":[
+      "ack",
+      "hello",
+      "none",
+      "repeat",
+      "silence",
+      "thankyou"
+   ],
+   "informable":{
+      "shopkind":[
+         "hospital",
+         "bank",
+         "supermarket",
+         "policestation",
+         "postoffice",
+         "shoppingcentre",
+         "touristinfo"
+      ],
+      "name":[
+         "addenbrooke's hospital",
+         "barclays bank plc",
+         "budgens",
+         "cambridge police station",
+         "central post office",
+         "christ's lane centre",
+         "foodwell vegetable processors",
+         "grafton shopping centre",
+         "grand arcade",
+         "h.f.c bank",
+         "hilarys wholesale",
+         "hsbc bank",
+         "iceland foods plc",
+         "nu-mega ingredients ltd",
+         "premier foods",
+         "sainsbury's",
+         "saint john's post office",
+         "tesco",
+         "the cambridge visitor information centre",
+         "trinity street post office",
+         "winfield"
+      ],
+      "area":[
+            "centre", 
+            "north", 
+            "west", 
+            "south", 
+            "east"
+      ]
+   },
+   "requestable":[
+      "name",
+      "area",
+      "phone",
+      "postcode",
+      "shopkind",
+      "addr"
+   ],
+   "system_requestable":[
+      "area",
+      "shopkind"
+   ],
+   "type":"shop",
+   "method":[
+      "none",
+      "byconstraints",
+      "byname",
+      "finished",
+      "byalternatives",
+      "restart"
+   ]
+}

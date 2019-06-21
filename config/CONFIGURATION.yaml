@@ -1,0 +1,65 @@
+---
+
+#
+# This file contains all definitions and examples of available configuration options.
+#
+# Author: Alexandros Papangelis, 2019
+
+GENERAL:
+  # Defines mode of interaction, which can be: speech, text, simulation, data
+  interaction_mode: text
+
+
+DIALOGUE:
+  # Specifies how many dialogues the system should iterate over
+  num_dialogues: 10
+
+  # Specifies the domain(s) of each dialogue
+  domain: CamRestaurants
+
+  # Specifies the path to the ontology (json file)
+  ontology_path: ...
+
+  # Specifies the path to the database (db dile)
+  db_path: ...
+
+
+# Specifies settings for agent X (X is an integer, starting from 0)
+AGENT_X:
+
+  USER_SIMULATOR:
+    # Specifies the kind of simulator that will be used. For example: agenda
+    simulator: agenda
+
+
+  NLU:
+    # Specifies which NLU will be used. For example: dummy
+    nlu: dummy
+
+    # Specifies path to model directory
+    model_path: ...
+
+  DM:
+    # Specifies dialogue policy to be used. For example: handcrafted, dqn
+    policy:
+      type: q_learning
+
+      train: False
+      learning_rate: 0.9
+      exploration_rate: 0.995
+      discount_factor: 0.95
+      learning_decay_rate: 0.95
+      exploration_decay_rate: 0.995
+
+      policy_path: ...
+
+  DST:
+    # Specifies which DST will be used. For example: dummy
+    dst: dummy
+    model_path: ...
+
+  NLG:
+    # Specifies which NLG will be used. For example: dummy
+    nlg: dummy
+    model_path: ...
+
