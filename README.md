@@ -517,7 +517,8 @@ Coming soon!
 
 # Acknowledgements
 
-Special thanks to Piero Molino, Yi-Chia Wang, and Gokhan Tur.
+Special thanks to Mahdi Namazifar, Chandra Khatri, Piero Molino, Yi-Chia Wang, 
+Michael Pearce and Gokhan Tur for their contributions and support.
 
 # Conclusion
 
