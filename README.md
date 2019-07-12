@@ -156,6 +156,12 @@ might encounter while installation.
 
 ## Running Plato Agents
 
+Plato uses a Controller class to orchestrate the conversation between the
+agents. The Controller will instantiate the agents, initialize them for each
+dialogue, pass input and output appropriately, and keep track of statistics.
+
+![PlatoRDS-Controller](Resources/PlatoRDS-Controller.png)
+
 To run the Plato Research Dialogue System, you need to run the following 
 command with the appropriate configuration file 
 (see Examples/config/simulate_agenda.yaml for an example configuration file):
@@ -302,10 +308,17 @@ python runPlatoRDS.py -config Examples/config/simulate_agenda_supervised.yaml
 ````
 
 Note that you may load your experience into Plato and then keep training your
-model with Reinforcement Learning or other learning methods.
+model with Reinforcement Learning or other learning methods. 
+
+While each component has its own training parameters (e.g. learning rate), the 
+Conversational Agent defines the meta-parameters of training such as:
+- length of the experience
+- length of the minibatch 
+- training interval (train after that many dialogues)
+- how many epochs to train for at each training interval
 
 
-## Training with Ludwig
+## Training with Plato and Ludwig
 Ludwig (https://uber.github.io/ludwig/) is an open source deep 
 learning framework that allows you to train models without writing any code. 
 You only need to parse your data into .csv files, create a ludwig config 
@@ -474,9 +487,9 @@ MODULE_i:
 
 ````
 
-**Be careful!** *You are responsible for guaranteeing that the I/O of this 
+**Be careful!** You are responsible for guaranteeing that the I/O of this 
 module can be processed and consumed appropriately by modules before and after, 
-as provided in your generic configuration file.*
+as provided in your generic configuration file.
 
 Plato also supports parallel execution of modules. To enable that you need to
 have the following structure in your config:
