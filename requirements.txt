@@ -1,7 +1,0 @@
-faker>=0.9.2
-gtts>=2.0.1
-google-cloud-speech>=0.36.0
-google-cloud-texttospeech>=0.2.0
-ludwig>=0.1
-pyaudio>=0.2.11
-pyyaml>=3.13
