@@ -1,0 +1,8 @@
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+
+# Except directories used in the tutorials
+!Sys
+!User_0
