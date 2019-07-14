@@ -472,7 +472,7 @@ ONTOLOGY:
 and run the script:
 
 ````
-python createSQLiteDB.py -config config/create_flowershop_DB.yaml
+python createSQLiteDB.py -config Examples/config/create_flowershop_DB.yaml
 ````
 
 If all went well, you should have a ````flowershop.json```` and a 
