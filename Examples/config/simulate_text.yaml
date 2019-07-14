@@ -1,0 +1,34 @@
+---
+
+GENERAL:
+  interaction_mode: text
+
+DIALOGUE:
+  num_dialogues: 10
+  initiative: system
+
+  domain: CamRest
+
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+
+AGENT_0:
+  role: system
+
+  DM:
+    policy:
+      type: handcrafted
+
+    nlu: dummy
+    nlg: dummy
+
+
+  NLU:
+    nlu: dummy
+
+  DST:
+    dst: dummy
+
+  NLG:
+    nlg: dummy
+

@@ -1,0 +1,123 @@
+---
+
+GENERAL:
+  # Can be: simulation, text, speech, or multi-agent
+  interaction_mode: simulation
+
+  # How many conversational agents to spawn
+  agents: 1
+
+  # How many times to run this experiment. Each experiment will run the
+  # number of dialogues specified in the DIALOGUE section. This is useful
+  # for example when evaluating stochastic dialogue policies, where we want
+  # to calculate the average performance over several runs.
+  runs: 1
+
+  # Handle Plato internal experience logs. These are logs produced by the
+  # Dialogue Episode Recorder (under Utilities) and contain information about
+  # what has happened during the dialogue(s). Plato agents use these logs as
+  # data for training.
+  experience_logs:
+    save: True
+    load: False
+    path: Logs/simulate_agenda
+
+DIALOGUE:
+  # How many dialogues to run for
+  num_dialogues: 10
+
+  # Which role has the initiative (speaks first): system or user
+  initiative: system
+
+  # The current domain, e.g. CamRest, SlotFilling
+  domain: CamRest
+
+  # The path to the ontology .json file
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+
+  # The path to the database .db file
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+
+  # The database type
+  db_type: sql
+
+  # We can provide a path to saved goals instead of randomly sampling at
+  # the beginning of each dialogue. The goals file should be a .pkl file.
+  # For more details see Data/Parse_DSTC2.py
+  # goals_path: Data/data/goals.pkl
+
+# For each agent i specified in the GENERAL section we need to have an
+# AGENT_<i> section, containing the configuration for that particular agent.
+AGENT_0:
+  # The role of the agent: system or user
+  role: system
+
+  USER_SIMULATOR:
+    # Types of User Simulator, for example:
+    # agenda, dtl
+    simulator: agenda
+
+    # Natural Language Understanding of the User Simulator
+    nlu: dummy
+
+    # Natural Language Generation of the User Simulator
+    nlg: dummy
+
+    # Simulator specific arguments
+    patience: 5
+    pop_distribution: [1.0]
+    slot_confuse_prob: 0.0
+    op_confuse_prob: 0.0
+    value_confuse_prob: 0.0
+
+  # The following sections are the main components of a conversational agent.
+  # They can be rule-based or model-based.
+
+  # Models for each component can be trained:
+  #   - online (during the interaction), in batches, or offline,
+  #   - within Plato or outside Plato,
+  #   - using any learning framework.
+
+  # Look at the README.md for instructions on how to create custom models.
+
+  # Dialogue Manager
+  DM:
+    # Dialogue policy type, for example:
+    # q_learning, minimax_q, wolf_phc, pol_grad, supervised, calculated
+    # handcrafted, reinforce
+    policy:
+      type: handcrafted
+
+      # Policy-specific arguments will go here (e.g. model path, learning rate)
+
+  # Natural Language Understanding
+  NLU:
+    # NLU type, for example:
+    # dummy, CamRestNLU (Ludwig-based NLU for Cambridge Restaurants)
+    nlu: dummy
+
+    # NLU-specific arguments will go here
+
+  # Dialogue State Tracker
+  DST:
+    # DST type, for example:
+    #  - dummy,
+    #  - CamRestDST (DST for Cambridge Restaurants trained with Ludwig,
+    #                that resides in Models/CamRestDST/ and is
+    #                interfaced to by DialogueStateTracker/CamRestLudwigDST)
+    #  - your own DST (trained online or offline, )
+    dst: dummy
+
+    # DST-specific arguments will go here
+
+  # Natural Language Generation
+  NLG:
+    # NLG type, for example:
+    # dummy, CamRestNLG (Ludwig-based NLG for Cambridge Restaurants)
+    nlg: dummy
+
+    # NLG-specific arguments will go here
+
+# If you have more than one agents, include an AGENT_i section for each of them
+# AGENT_1:
+# ...

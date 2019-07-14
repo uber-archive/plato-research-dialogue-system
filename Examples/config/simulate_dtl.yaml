@@ -1,0 +1,48 @@
+---
+
+GENERAL:
+  interaction_mode: simulation
+
+  experience_logs:
+    save: False
+  
+DIALOGUE:
+  num_dialogues: 10
+  initiative: system
+
+  domain: CamRest
+
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+  db_type: sql
+
+AGENT_0:
+  role: system
+
+  DM:
+    policy:
+      type: handcrafted
+
+  USER_SIMULATOR:
+    simulator: dtl
+    patience: 5
+    pop_distribution: [0.85, 0.10, 0.05]
+    slot_confuse_prob: 0
+    op_confuse_prob: 0.0
+    value_confuse_prob: 0
+    policy_file: Models/UserSimulator/user_policy_reactive.pkl
+
+
+  NLU:
+    nlu: CamRest
+    model_path: Models/CamRestNLU/Sys/model
+    metadata_path: Models/CamRestNLU/Sys/dstc2_traindev_nlu_sys.json
+
+  DST:
+    dst: dummy
+
+  NLG:
+    nlg: CamRest
+    model_path: Models/CamRestNLG/Sys/model
+    metadata_path: Models/CamRestNLG/Sys/dstc2_traindev_nlg_sys.json
+  

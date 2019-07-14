@@ -1,0 +1,15 @@
+---
+
+GENERAL:
+  csv_file_name: Data/data/flowershop.csv
+  db_table_name: flowershop
+  db_file_path: Domain/Domains/flowershop-dbase.db
+  ontology_file_path: Domain/Domains/flowershop-rules.json
+
+
+ONTOLOGY:
+  informable_slots: [type, price, occasion]
+
+  requestable_slots: [price, color]
+
+  system_requestable_slots: [price, occasion]

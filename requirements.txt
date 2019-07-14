@@ -1,0 +1,6 @@
+gtts>=2.0.1
+SpeechRecognition>=3.8.1
+ludwig>=0.1
+pandas>=0.23.4
+#pyaudio>=0.2.11 # if you want to use speech, uncomment pyaudio
+pyyaml>=3.13

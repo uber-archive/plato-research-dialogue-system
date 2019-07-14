@@ -1,0 +1,116 @@
+---
+
+GENERAL:
+  interaction_mode: multi_agent
+  agents: 2
+  generic: True
+
+  experience_logs:
+    save: False
+    load: False
+    path: Logs/CamRest_MultiAgent_Test_Generic
+
+  global_arguments:
+    ontology: Domain/Domains/CamRestaurants-rules.json
+    database: Domain/Domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+
+DIALOGUE:
+  num_dialogues: 10
+  domain: CamRest
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+  db_type: sql
+
+
+AGENT_0:
+  role: system
+  modules: 3
+
+  MODULE_0:
+    package: NLU.DummyNLU
+    class: DummyNLU
+        
+#    If you have a Ludwig-trained NLU model, you can do the following:
+#    package: NLU.CamRestNLU
+#    class: CamRestNLU
+#    arguments:
+#      model_path: Models/CamRestNLU/Sys/model
+
+  MODULE_1:
+    package: DialogueManagement.DialogueManager
+    class: DialogueManager
+    arguments:
+      DST:
+        dst: dummy
+
+      policy:
+        type: wolf_phc
+
+        train: False
+        learning_rate: 0.25
+        exploration_rate: 0.995
+        discount_factor: 0.8
+        learning_decay_rate: 0.995
+        exploration_decay_rate: 0.995
+
+        policy_path: Models/Policies/Sys/wolf_phc_policy_sys.pkl
+
+  MODULE_2:
+    package: NLG.DummyNLG
+    class: DummyNLG
+        
+#    If you have a Ludwig-trained NLG model, you can do the following:
+#    package: NLG.CamRestNLG
+#    class: CamRestNLG
+#    arguments:
+#      model_path: Models/CamRestNLG/Sys/model
+
+
+
+AGENT_1:
+  role: user
+  modules: 3
+
+  MODULE_0:
+    package: NLU.DummyNLU
+    class: DummyNLU
+        
+#    If you have a Ludwig-trained NLU model, you can do the following:
+#    package: NLU.CamRestNLU
+#    class: CamRestNLU
+#    arguments:
+#      model_path: Models/CamRestNLU/Usr/model
+
+  MODULE_1:
+    package: DialogueManagement.DialogueManager
+    class: DialogueManager
+    arguments:
+      DST:
+        dst: dummy
+
+      policy:
+        type: wolf_phc
+
+        train: False
+        learning_rate: 0.25
+        exploration_rate: 0.995
+        discount_factor: 0.8
+        learning_decay_rate: 0.995
+        exploration_decay_rate: 0.995
+
+        policy_path: Models/Policies/User_0/wolf_phc_policy_usr.pkl
+
+  MODULE_2:
+    package: NLG.DummyNLG
+    class: DummyNLG
+
+#    If you have a Ludwig-trained NLG model, you can do the following:
+#    package: NLG.CamRestNLG
+#    class: CamRestNLG
+#    arguments:
+#      model_path: Models/CamRestNLG/Usr/model
+
+
+

@@ -1,0 +1,104 @@
+---
+
+GENERAL:
+  interaction_mode: multi_agent
+  agents: 2
+
+  experience_logs:
+    save: False
+    load: False
+    path: Logs/CamRest_MultiAgent_Train
+
+  global_arguments:
+    ontology: Domain/Domains/CamRestaurants-rules.json
+    database: Domain/Domains/CamRestaurants-dbase.db
+    domain: CamRest
+    db_type: sql
+
+DIALOGUE:
+  num_dialogues: 10000
+  domain: CamRest
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+  db_type: sql
+
+
+AGENT_0:
+  role: system
+
+  DM:
+    policy:
+      type: wolf_phc
+  
+      train: True
+      learning_rate: 0.25
+      exploration_rate: 0.995
+      discount_factor: 0.8
+      learning_decay_rate: 0.995
+      exploration_decay_rate: 0.995
+
+      policy_path: Models/Policies/Sys/wolf_phc_policy_sys.pkl
+  
+  NLU:
+    nlu: dummy
+
+#    If you have Ludwig-trained NLU, you can do the following:
+#    nlu: CamRest
+#    model_path: Models/CamRestNLU/Sys/model
+
+
+#    Remember, you can skip NLG and NLU and let the agents interact via
+#    Dialogue Acts
+
+  NLG:
+    nlg: dummy
+
+#    If you have Ludwig-trained NLG, you can do the following:
+#    nlg: CamRest
+#    model_path: Models/CamRestNLG/Sys/model
+
+
+#    Remember, you can skip NLG and NLU and let the agents interact via
+#    Dialogue Acts
+
+
+AGENT_1:
+  role: user
+
+  DM:
+    policy:
+      type: wolf_phc
+  
+      train: True
+      learning_rate: 0.25
+      exploration_rate: 0.995
+      discount_factor: 0.8
+      learning_decay_rate: 0.995
+      exploration_decay_rate: 0.995
+
+      policy_path: Models/Policies/User_0/wolf_phc_policy_usr.pkl
+  
+  NLU:
+    nlu: dummy
+
+#    If you have Ludwig-trained NLU, you can do the following:
+#    nlu: CamRest
+#    model_path: Models/CamRestNLU/Usr/model
+
+#    Remember, you can skip NLG and NLU and let the agents interact via
+#    Dialogue Acts
+
+  NLG:
+    nlg: dummy
+
+#    If you have Ludwig-trained NLG, you can do the following:
+#    nlg: CamRest
+#    model_path: Models/CamRestNLG/Usr/model
+
+
+#    Remember, you can skip NLG and NLU and let the agents interact via
+#    Dialogue Acts
+
+
+
+

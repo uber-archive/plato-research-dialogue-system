@@ -1,0 +1,111 @@
+---
+
+GENERAL:
+  interaction_mode: multi_agent
+  agents: 2
+
+  experience_logs:
+    save: False
+    load: False
+    path: Logs/CamRest_MultiAgent_Test
+
+DIALOGUE:
+  num_dialogues: 100
+  domain: CamRest
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+  db_type: sql
+#  goals_path: Models/UserSimulator/goals_test.pkl
+  goals_path: Models/UserSimulator/goals_traindev.pkl
+
+
+AGENT_0:
+  role: system
+  
+  DM:
+    DST:
+      dst: dummy
+
+    policy:
+  #    type: q_learning
+    #  type: distr_q
+  #    type: minimax_q
+      type: wolf_phc
+  #    type: pol_grad
+  #    type: supervised
+  #    type: calculated
+  #    type: handcrafted
+  #    type: online_drl
+  #    type: reinforce
+  
+      train: False
+      learning_rate: 0.0
+      exploration_rate: 0.0
+      discount_factor: 0.0
+      learning_decay_rate: 0.0
+      exploration_decay_rate: 0.0
+  
+  #    policy_path: Models/Policies/Sys/q_policy_sys.pkl
+    #  policy_path: Models/Policies/Sys/distr_q_policy_sys.pkl
+  #    policy_path: Models/Policies/Sys/minimax_q_policy_sys.pkl
+      policy_path: Models/Policies/Sys/wolf_phc_policy_sys.pkl
+  #    policy_path: Models/Policies/Sys/PG/pg_policy_sys
+  #    policy_path: Models/Policies/Sys/Supervised/sp_policy_sys
+  #    policy_path: Models/CamRestPolicy/Sys/sys_supervised_data
+  #    policy_path: Models/CamRestPolicy/system_policy_reactive.pkl
+  #    policy_path: Models/JointModel/results/System_Joint_run/model
+  #    policy_path: Models/Policies/Sys/PG/reinforce_sys.pkl
+  
+  NLU:
+    nlu: CamRest
+    model_path: Models/CamRestNLU/Sys/model
+  
+  NLG:
+    nlg: CamRest
+    model_path: Models/CamRestNLG/Sys/model
+
+
+AGENT_1:
+  role: user
+
+  DM:
+    DST:
+      dst: dummy
+
+    policy:
+  #    type: q_learning
+      #  type: distr_q
+  #    type: minimax_q
+      type: wolf_phc
+  #    type: pol_grad
+  #    type: supervised
+  #    type: calculated
+  #    type: reinforce
+  
+      train: False
+      learning_rate: 0.0
+      exploration_rate: 0.0
+      discount_factor: 0.0
+      learning_decay_rate: 0.0
+      exploration_decay_rate: 0.0
+  
+  #    policy_path: Models/Policies/User_0/q_policy_usr.pkl
+    #  policy_path: Models/Policies/User_0/distr_q_policy_usr.pkl
+  #    policy_path: Models/Policies/User_0/minimax_q_policy_usr.pkl
+      policy_path: Models/Policies/User_0/wolf_phc_policy_usr.pkl
+  #    policy_path: Models/Policies/User_0/PG/pg_policy_usr
+  #    policy_path: Models/Policies/User_0/Supervised/sp_policy_usr
+  #    policy_path: Models/CamRestPolicy/Usr/usr_supervised_data
+  #    policy_path: Models/UserSimulator/user_policy_reactive.pkl
+  #    policy_path: Models/Policies/User_0/PG/reinforce_usr.pkl
+  
+  NLU:
+    nlu: CamRest
+    model_path: Models/CamRestNLU/Usr/model
+  
+  NLG:
+    nlg: CamRest
+    model_path: Models/CamRestNLG/Usr/model
+
+
+

@@ -1,0 +1,47 @@
+---
+
+GENERAL:
+  interaction_mode: simulation
+
+  experience_logs:
+    save: True
+    load: False
+    path: Logs/simulate_agenda
+  
+DIALOGUE:
+  num_dialogues: 10
+  initiative: system
+
+  domain: CamRest
+
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+
+
+AGENT_0:
+  role: system
+
+  DM:
+    policy:
+      type: handcrafted
+  
+  USER_SIMULATOR:
+    simulator: agenda
+    patience: 5
+    pop_distribution: [1.0]
+    slot_confuse_prob: 0.0
+    op_confuse_prob: 0.0
+    value_confuse_prob: 0.0
+    nlu: dummy
+    nlg: dummy
+    
+  NLU:
+    nlu: dummy
+    
+  DST:
+    dst: dummy
+    
+  NLG:
+    nlg: CamRest
+    model_path: Models/CamRestNLG/Sys/experiment_run_0/model
+  

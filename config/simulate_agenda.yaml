@@ -1,0 +1,100 @@
+---
+
+GENERAL:
+  interaction_mode: simulation
+
+  experience_logs:
+    save: True
+    load: False
+    path: Logs/simulate_agenda
+
+  global_arguments:
+    ontology: Domain/Domains/CamRestaurants-rules.json
+    database: Domain/Domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+  
+DIALOGUE:
+  num_dialogues: 100
+  initiative: system
+
+  domain: CamRest
+
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+  db_type: sql
+  
+#  ontology_path: Domain/Domains/CamAttractions-rules.json
+#  db_path: Domain/Domains/CamAttractions-dbase.db
+
+#  ontology_path: Domain/Domains/CamHotels-rules.json
+#  db_path: Domain/Domains/CamHotels-dbase.db
+
+#  ontology_path: Domain/Domains/CamShops-rules.json
+#  db_path: Domain/Domains/CamShops-dbase.db
+
+#  ontology_path: Domain/Domains/CamTransport-rules.json
+#  db_path: Domain/Domains/CamTransport-dbase.db
+
+#  ontology_path: Domain/Domains/Laptops6-rules.json
+#  db_path: Domain/Domains/Laptops6-dbase.db
+
+#  ontology_path: Domain/Domains/Laptops11-rules.json
+#  db_path: Domain/Domains/Laptops11-dbase.db
+
+#  ontology_path: Domain/Domains/SFHotels-rules.json
+#  db_path: Domain/Domains/SFHotels-dbase.db
+
+#  ontology_path: Domain/Domains/SFRestaurants-rules.json
+#  db_path: Domain/Domains/SFRestaurants-dbase.db
+
+#  ontology_path: Domain/Domains/TV-rules.json
+#  db_path: Domain/Domains/TV-dbase.db
+
+AGENT_0:
+  role: system
+
+  DM:
+    DST:
+      dst: dummy
+
+    policy:
+#      type: handcrafted
+  #    type: wolf_phc
+      type: pol_grad
+  #    type: supervised
+#      type: reinforce
+#      type: q_learning
+  
+      train: False
+      learning_rate: 0.9
+      exploration_rate: 0.995
+      discount_factor: 0.95
+      learning_decay_rate: 0.95
+      exploration_decay_rate: 0.995
+  
+  #    policy_path: Models/Policies/Sys/wolf_phc_policy_sys.pkl
+      policy_path: Models/Policies/Sys/PG/pg_policy_sys
+  #    policy_path: Models/CamRestPolicy/Sys/sys_supervised
+#      policy_path: Models/Policies/Sys/PG/reinforce_sys.pkl
+#      policy_path: Models/Policies/Sys/q_policy_sys.pkl
+  
+  USER_SIMULATOR:
+    simulator: agenda
+    patience: 5
+    pop_distribution: [1.0]
+    slot_confuse_prob: 0.0
+    op_confuse_prob: 0.0
+    value_confuse_prob: 0.0
+    nlu: dummy
+    nlg: dummy
+  #  goals_path: Models/UserSimulator/goals_traindev.pkl
+  #  goals_path: Models/UserSimulator/goals_test.pkl
+  #  policy_file: Models/UserSimulator/user_policy_reactive.pkl
+    
+  NLU:
+    nlu: dummy
+    
+  NLG:
+    nlg: dummy
+  
