@@ -4,7 +4,7 @@ GENERAL:
   interaction_mode: text
 
 DIALOGUE:
-  num_dialogues: 10
+  num_dialogues: 1s
   initiative: system
 
   domain: CamRest
