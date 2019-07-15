@@ -71,6 +71,7 @@ class ConversationalGenericAgent(ConversationalAgent):
         self.SAVE_LOG = True
         self.SAVE_INTERVAL = 10000
         self.MAX_TURNS = 15
+        self.INTERACTION_MODE = 'simulation'
 
         self.reward_func = SlotFillingGoalAdvancementReward()
 
@@ -85,6 +86,10 @@ class ConversationalGenericAgent(ConversationalAgent):
                 raise ValueError('No GENERAL section in config!')
             if 'AGENT_'+str(agent_id) not in self.configuration:
                 raise ValueError(f'NO AGENT_{agent_id} section in config!')
+
+            if 'interaction_mode' in self.configuration['GENERAL']:
+                self.INTERACTION_MODE = \
+                    self.configuration['GENERAL']['interaction_mode']
 
             if 'experience_logs' in self.configuration['GENERAL']:
                 dialogues_path = None
@@ -311,6 +316,10 @@ class ConversationalGenericAgent(ConversationalAgent):
         :param args: input to this agent
         :return: output of this agent
         """
+
+        if self.INTERACTION_MODE == 'text':
+            self.prev_m_out = input('USER > ')
+
         for m in self.ConversationalModules:
             # If executing parallel sub-modules
             if isinstance(m, list):
