@@ -574,8 +574,9 @@ Tutorial coming soon!
 # Acknowledgements
 
 Special thanks to Yi-Chia Wang, Mahdi Namazifar, Chandra Khatri, Piero Molino, 
-Michael Pearce, and Gokhan Tur for their contributions and support, and to 
-[studio FF3300](http://ff3300.com/) for allowing us to use the Messapia font.
+Michael Pearce, Zack Kaden, and Gokhan Tur for their contributions and support,
+and to [studio FF3300](http://ff3300.com/) for allowing us to use the Messapia 
+font.
 
 # Conclusion
 
