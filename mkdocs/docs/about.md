@@ -22,14 +22,6 @@ Alexandros Papangelis, Mahdi Namazifar, Chandra Khatri, "Plato Research
 Dialogue System: A Flexible Conversational AI Research Platform", ArXiv 
 (to appear)
 
-Intelligent conversational agents have evolved significantly over the past few decades, from keyword-spotting interactive voice response (IVR) systems to the cross-platform intelligent personal assistants that are becoming an integral part of daily life. 
-
-Along with this growth comes the need for intuitive, flexible, and comprehensive research and development platforms that can act as open testbeds to help evaluate new algorithms, quickly prototype, and reliably deploy conversational agents.
-
-At Uber AI, we developed the Plato Research Dialogue System, a platform for building, training, and deploying conversational AI agents that allows us to conduct state of the art research in conversational AI, quickly create prototypes and demonstration systems, as well as facilitate conversational data collection. We designed Plato for users with a limited background in conversational AI as well as seasoned researchers in the field, by providing a clean and understandable design, integrating with existing deep-learning and Bayesian optimisation frameworks (for tuning the models), and reducing the need to write code.
-
-
-
 # How does the Plato Research Dialogue System work?
 Conceptually, a conversational agent needs to go through various steps in order to process information it receives as input (e.g., “What’s the weather like today?”) and produce an appropriate output (“Windy but not too cold.”). The primary steps, which correspond to the main components of a standard architecture (see Figure 1), are: 
 
