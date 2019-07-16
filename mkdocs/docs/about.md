@@ -1,6 +1,26 @@
+# Plato Research Dialogue System
 
-# **Plato Research Dialogue System: A Flexible Conversational AI Platform**
+This is a v 0.1 release.
 
+The Plato Research Dialogue System is a flexible framework that can be used to 
+create, train, and evaluate conversational AI agents in various environments. 
+It supports interactions through speech, text, or dialogue acts and each 
+conversational agent can interact with data, human users, or other 
+conversational agents (in a multi-agent setting). Every component of every 
+agent can be trained independently online or offline and Plato provides an 
+easy way of wrapping around virtually any existing model, as long as Plato's 
+interface is adhered to. 
+
+
+Publication citations:
+
+Alexandros Papangelis, Yi-Chia Wang, Piero Molino, and Gokhan Tur, 
+“Collaborative Multi-Agent Dialogue Model Training Via Reinforcement Learning”, 
+SIGDIAL 2019
+
+Alexandros Papangelis, Mahdi Namazifar, Chandra Khatri, "Plato Research 
+Dialogue System: A Flexible Conversational AI Research Platform", ArXiv 
+(to appear)
 
 Intelligent conversational agents have evolved significantly over the past few decades, from keyword-spotting interactive voice response (IVR) systems to the cross-platform intelligent personal assistants that are becoming an integral part of daily life. 
 

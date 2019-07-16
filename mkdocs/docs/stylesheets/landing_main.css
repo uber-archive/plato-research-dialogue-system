@@ -64,11 +64,11 @@ body {
 }
 
 body {
-    background: #141515;
+    background: #ffffff;
     font-family: "muli-regular", sans-serif;
     font-size: 1.6rem;
     line-height: 1.875;
-    color: #cccccc;
+    color: #444444;
     margin: 0;
     padding: 0;
 }
@@ -80,14 +80,14 @@ body {
 
 a,
 a:visited {
-    color: #ececec;
+    color: #222222;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
 a:hover,
 a:focus {
-    color: #ffffff;
+    color: #666666;
 }
 
 
@@ -98,7 +98,7 @@ a:focus {
 
 h1, h2, h3, h4, h5, h6, .h01, .h02, .h03, .h04, .h05, .h06 {
     font-family: "montserrat-regular", sans-serif;
-    color: #ffffff;
+    color: #222222;
     font-style: normal;
     text-rendering: optimizeLegibility;
     margin-bottom: 2.4rem;
@@ -163,7 +163,7 @@ p.lead {
     font-family: "muli-light", sans-serif;
     font-size: 2.1rem;
     line-height: 1.857;
-    color: #cccccc;
+    color: #444444;
     margin-bottom: 3.6rem;
 }
 
@@ -231,7 +231,7 @@ blockquote cite:before {
 
 blockquote cite a,
 blockquote cite a:visited {
-    color: #cccccc;
+    color: #444444;
     border: none;
 }
 
@@ -240,7 +240,7 @@ abbr {
     font-variant: small-caps;
     text-transform: lowercase;
     letter-spacing: .05rem;
-    color: #cccccc;
+    color: #444444;
 }
 
 var, kbd, samp, code, pre {
@@ -257,9 +257,9 @@ code {
     margin: 0 .2rem;
     padding: .3rem .6rem;
     white-space: nowrap;
-    color: #f8f8f2;
-    background: #2f3032;
-    border: 1px solid #3d3436;
+    color: #555555;
+    background: #cccccc;
+    border: 1px solid #aaaaaa;
     border-radius: 3px;
 }
 
@@ -347,7 +347,7 @@ ul.disc li::before {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #cccccc;
+    background: #444444;
     position: absolute;
     left: -17px;
     top: 11px;
@@ -356,7 +356,7 @@ ul.disc li::before {
 
 dt {
     margin: 0;
-    color: #cccccc;
+    color: #444444;
 }
 
 dd {
@@ -460,7 +460,7 @@ td {
 }
 
 th {
-    color: #ffffff;
+    color: #222222;
     font-family: "montserrat-bold", sans-serif;
 }
 
@@ -527,7 +527,7 @@ td:last-child {
     right: 100%;
     height: 100%;
     width: 100%;
-    background: #cccccc;
+    background: #444444;
 }
 
 .pace.pace-inactive {
@@ -550,7 +550,7 @@ td:last-child {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #1e1f20;
+    background: #dddddd;
     z-index: 800;
     height: 100%;
     width: 100%;
@@ -668,7 +668,7 @@ legend {
     font-family: "montserrat-bold", sans-serif;
     font-size: 1.4rem;
     margin-bottom: .6rem;
-    color: #ffffff;
+    color: #222222;
     display: block;
 }
 
@@ -697,25 +697,25 @@ label > input[type="radio"] {
  * ------------------------------------------------------------------- */
 
 ::-webkit-input-placeholder {
-    color: #cccccc;
+    color: #444444;
 }
 
 :-moz-placeholder {
-    color: #cccccc;
+    color: #444444;
     /* Firefox 18- */
 }
 
 ::-moz-placeholder {
-    color: #cccccc;
+    color: #444444;
     /* Firefox 19+ */
 }
 
 :-ms-input-placeholder {
-    color: #cccccc;
+    color: #444444;
 }
 
 .placeholder {
-    color: #cccccc !important;
+    color: #444444 !important;
 }
 
 
@@ -787,9 +787,9 @@ button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
-    background-color: #cccccc;
-    border-color: #cccccc;
-    color: #1e1f20;
+    background-color: #ececec;
+    border-color: #ececec;
+    color: #111111;
 }
 
 .button.button-primary:hover,
@@ -832,8 +832,8 @@ button.stroke,
 
 button.stroke:hover,
 .button.stroke:hover {
-    border: 0.3rem solid #cccccc;
-    color: #cccccc;
+    border: 0.3rem solid #444444;
+    color: #444444;
 }
 
 button.pill,
@@ -914,7 +914,7 @@ input::-moz-focus-inner {
     line-height: 6rem;
     text-indent: 0;
     background: transparent;
-    color: #ffffff;
+    color: #222222;
 }
 
 
@@ -1054,11 +1054,11 @@ input::-moz-focus-inner {
     font-size: 2.5rem;
     font-family: "montserrat-semibold", sans-serif;
     border: none;
-    color: #ffffff;
+    color: #222222;
 }
 
 .stats-tabs li a:hover {
-    color: #cccccc;
+    color: #444444;
 }
 
 .stats-tabs li a em {
@@ -1079,7 +1079,7 @@ h1.intro-header {
     font-family: "montserrat-regular", sans-serif;
     font-size: 3.4rem;
     line-height: 1.324;
-    color: #ffffff;
+    color: #222222;
     position: relative;
     padding-bottom: 3.6rem;
 }
@@ -1089,7 +1089,7 @@ h1.intro-header::before {
     content: "";
     height: 2px;
     width: 70px;
-    background-color: #cccccc;
+    background-color: #444444;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1130,7 +1130,7 @@ h1.intro-header::before {
 #header {
     width: 100%;
     height: 72px;
-    background-color: #111111;
+    background-color: #4696ec;
     position: fixed;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -1164,7 +1164,7 @@ h1.intro-header::before {
     border: none;
     width: 100px;
     height: 30px;
-    background: url("../images/plato_logo.svg") no-repeat center;
+    background: url("../images/plato_grey.svg") no-repeat center;
     background-size: 100px 30px;
     font: 0/0 a;
     text-shadow: none;
@@ -1224,7 +1224,7 @@ h1.intro-header::before {
 
 .header-menu-toggle:hover,
 .header-menu-toggle:focus {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 .header-menu-toggle span {
@@ -1328,11 +1328,11 @@ h1.intro-header::before {
 
 #header-nav-wrap .header-main-nav li a:hover,
 #header-nav-wrap .header-main-nav li a:focus {
-    color: #ffffff;
+    color: #fdfdfd;
 }
 
 #header-nav-wrap .header-main-nav li.current a {
-    color: #ffffff;
+    color: #222222;
 }
 
 #header-nav-wrap .cta {
@@ -1347,7 +1347,7 @@ h1.intro-header::before {
 }
 
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * header
  * ------------------------------------------------------------------- */
@@ -1472,7 +1472,7 @@ h1.intro-header::before {
 }
 
 .no-js #home {
-    background: #ffffff;
+    background: #222222;
 }
 
 .home-content {
@@ -1506,7 +1506,7 @@ h1.intro-header::before {
     font-size: 5.2rem;
     letter-spacing: -.05rem;
     line-height: 1.269;
-    color: #1e1f20;
+    color: #dddddd;
     margin-bottom: 9rem;
 }
 
@@ -1584,7 +1584,7 @@ h1.intro-header::before {
 
 .home-social-list li a,
 .home-social-list li a:visited {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 .home-social-list li a:hover,
@@ -1615,7 +1615,7 @@ h1.intro-header::before {
 
 .home-scrolldown a:hover,
 .home-scrolldown a:focus {
-    color: #ffffff !important;
+    color: #222222 !important;
 }
 
 html[data-useragent*='MSIE 10.0'] .home-scrolldown,
@@ -1702,9 +1702,9 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
- * home section 
+ * home section
  * ------------------------------------------------------------------- */
 
 @media only screen and (max-width: 1300px) {
@@ -1894,7 +1894,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 
 #about {
     min-height: 786px;
-    background: #1e1f20;
+    background: #dddddd;
     padding-top: 18rem;
     overflow: hidden;
 }
@@ -1918,14 +1918,14 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 .about-features .feature .icon i {
-    color: #cccccc;
+    color: #444444;
     font-size: 4.8rem;
 }
 
 .about-features .feature h3 {
     font-family: "montserrat-regular", sans-serif;
     font-size: 1.9rem;
-    color: #ffffff;
+    color: #222222;
     margin-bottom: 3rem;
 }
 
@@ -1994,14 +1994,14 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
     font-family: "muli-bold";
     font-size: 2rem;
     content: attr(data-item);
-    color: #1e1f20;
+    color: #dddddd;
     height: 54px;
     width: 54px;
     line-height: 54px;
     text-align: center;
     border-radius: 50%;
-    background-color: #cccccc;
-    box-shadow: 0 0 0 15px #1e1f20;
+    background-color: #444444;
+    box-shadow: 0 0 0 15px #dddddd;
     z-index: 500;
     position: absolute;
     top: -12px;
@@ -2018,9 +2018,9 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
     margin-right: auto;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
- * about 
+ * about
  * ------------------------------------------------------------------- */
 
 @media only screen and (max-width: 1200px) {
@@ -2174,7 +2174,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 .pricing-table .plan-block {
-    background: #1e1f20;
+    background: #dddddd;
     border-radius: 5px;
     padding: 4.8rem 4rem 5.4rem;
     margin-bottom: 4.8rem;
@@ -2195,7 +2195,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 .pricing-table .plan-block .plan-block-price {
     font-family: "montserrat-medium", sans-serif;
     font-size: 7.8rem;
-    color: #ffffff;
+    color: #222222;
     line-height: 1;
     margin-bottom: 0;
 }
@@ -2228,18 +2228,18 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 .pricing-table .plan-block .plan-block-features li span {
-    color: #cccccc;
+    color: #444444;
     font-family: "muli-bold", sans-serif;
 }
 
 .pricing-table .plan-block.primary {
-    background: #cccccc;
+    background: #444444;
     color: rgba(255, 255, 255, 0.8);
 }
 
 .pricing-table .plan-block.primary .plan-block-title,
 .pricing-table .plan-block.primary .plan-block-price {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 .pricing-table .plan-block.primary .plan-block-features {
@@ -2251,18 +2251,18 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 .pricing-table .plan-block.primary .plan-block-features li span {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 .pricing-table .plan-block.primary .button.button-primary {
-    background: #1e1f20;
-    color: #ffffff;
-    border-color: #1e1f20;
+    background: #dddddd;
+    color: #222222;
+    border-color: #dddddd;
 }
 
 .pricing-table .plan-block.primary .button.button-primary:hover,
 .pricing-table .plan-block.primary .button.button-primary:focus {
-    color: #cccccc;
+    color: #444444;
 }
 
 .pricing-table .plan-bottom-part {
@@ -2270,9 +2270,9 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
- * pricing 
+ * pricing
  * ------------------------------------------------------------------- */
 
 @media only screen and (max-width: 1024px) {
@@ -2352,7 +2352,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
  * ------------------------------------------------------------------- */
 
 #testimonials {
-    /* background: #1e1f20; */
+    /* background: #dddddd; */
     background: #ebebeb;
     padding: 15rem 0 9rem;
     text-align: center;
@@ -2426,7 +2426,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
     font-size: 1.9rem;
     margin-top: .9rem;
     margin-bottom: 3rem;
-    color: #ffffff;
+    color: #222222;
 }
 
 #testimonial-slider .testimonial-author .author-info span {
@@ -2451,7 +2451,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 #testimonial-slider .owl-nav [class*='owl-'] {
-    color: #1e1f20;
+    color: #dddddd;
     font-family: "montserrat-regular", sans-serif;
     font-size: 1.4rem;
     height: 3rem;
@@ -2468,7 +2468,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 
 #testimonial-slider .owl-nav [class*='owl-']:hover {
     background: rgba(0, 0, 0, 0.7);
-    color: #1e1f20;
+    color: #dddddd;
     text-decoration: none;
 }
 
@@ -2508,11 +2508,11 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 
 #testimonial-slider .owl-dots .owl-dot.active span,
 #testimonial-slider .owl-dots .owl-dot:hover span {
-    background-color: #cccccc;
+    background-color: #444444;
 }
 
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * testimonials
  * ------------------------------------------------------------------- */
@@ -2569,19 +2569,19 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
  * ------------------------------------------------------------------- */
 
 #download {
-    background: #cccccc;
-    color: #1e1f20;
+    background: #444444;
+    color: #dddddd;
     padding-top: 12rem;
     padding-bottom: 12rem;
     text-align: center;
 }
 
 #download h1 {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 #download h1::before {
-    background-color: #1e1f20;
+    background-color: #dddddd;
     left: 50%;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -2589,7 +2589,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 }
 
 #download .lead {
-    color: #1e1f20;
+    color: #dddddd;
     margin-top: 4.8rem;
 }
 
@@ -2634,6 +2634,18 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
     color: #ccc;
     text-align: left;
     line-height: 1.4;
+}
+
+#team {
+    min-height: 286px;
+    background: #ffffff;
+    padding-top: 8rem;
+    overflow: hidden;
+}
+
+.team-intro {
+    padding-bottom: 3.6rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 /* -------------------------------------------------------------------
@@ -2714,7 +2726,7 @@ footer ul a:visited {
     border: none;
     width: 70px;
     height: 21px;
-    background: url("../images/plato_logo.svg") no-repeat center;
+    background: url("../images/plato_grey.svg") no-repeat center;
     background-size: 70px 21px;
     font: 0/0 a;
     text-shadow: none;
@@ -2731,7 +2743,7 @@ footer ul a:visited {
     border: none;
     width: 70px;
     height: 21px;
-    background: url("../images/plato_logo.svg") no-repeat center;
+    background: url("../images/plato_grey.svg") no-repeat center;
     background-size: 70px 21px;
     font: 0/0 a;
     text-shadow: none;
@@ -2781,22 +2793,22 @@ footer ul a:visited {
 }
 */
 .footer-subscribe #mc-form input[type="email"]:focus {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 .footer-subscribe #mc-form input[type=submit] {
     position: absolute;
     top: 0;
     right: 0;
-    color: #1e1f20;
-    background: #cccccc;
-    border-color: #cccccc;
+    color: #dddddd;
+    background: #444444;
+    border-color: #444444;
     border-radius: 0 .5rem .5rem 0;
     padding: 0 15px;
 }
 
 .footer-subscribe #mc-form label {
-    color: #1e1f20;
+    color: #dddddd;
     font-family: "montserrat-regular", sans-serif;
     font-size: 1.3rem;
     padding: 0 2rem;
@@ -2887,7 +2899,7 @@ footer ul a:visited {
 
 #go-top a:hover,
 #go-top a:focus {
-    color: #1e1f20;
+    color: #dddddd;
 }
 
 

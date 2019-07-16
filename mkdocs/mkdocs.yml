@@ -1,7 +1,7 @@
 # Project information
-site_name: 'PlatoRDS'
+site_name: 'Plato RDS'
 site_description: 'Plato Research Dialogue System'
-site_author: 'Alexandros Pap'
+site_author: 'Alexandros Papangelis'
 site_url: 'https://uber.github.io/plato-research-dialogue-system/'
 
 # Repository
@@ -28,20 +28,17 @@ site_dir: '../docs/'
 theme:
   name: 'material'
   language: 'en'
-  logo: 'images/ludwig_logo.svg'
+  logo: 'images/plato_grey.svg'
   favicon: 'favicon.ico'
   custom_dir: 'custom/'
   palette:
-    primary: 'grey'
-    accent: 'grey'
+    primary: 'blue'
+    accent: 'blue'
 
 # Customization
 extra_css:
   - 'stylesheets/extra.css'
-  - 'stylesheets/monokai.css'
-
-#extra_javascript:
-#  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
+  - 'stylesheets/manni.css'
 
 # Extensions
 markdown_extensions:
@@ -50,9 +47,3 @@ markdown_extensions:
       permalink: true
       baselevel: 2
   - codehilite:
-      guess_lang: false
-#  - pymdownx.superfences:
-#      custom_fences:
-#        - name: mermaid
-#          class: mermaid
-#          format: !!python/name:pymdownx.superfences.fence_div_format
