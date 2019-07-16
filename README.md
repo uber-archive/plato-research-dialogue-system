@@ -99,8 +99,9 @@ conversational agent architecture and supports any kind of architecture
 any other set-up) and allows loading existing or pre-trained models into Plato.
 
 ![PlatoRDS-GenericAgent](Resources/PlatoRDS-GenericAgent.png)
-Figure 4: The most abstract version of a Plato agent (referred to as generic 
-agent).
+Figure 4: Plato's generic agent architecture supports a wide range of 
+customization, including joint components, speech-to-speech components, and 
+text-to-text components, all of which can be executed serially or in parallel.
 
 Users can define their own architecture and/or plug their own components into 
 Plato by simply providing a Python class name and package path to that module, 
