@@ -20,7 +20,7 @@ nav:
   #- Examples: 'examples.md'
   #- User Guide: 'user_guide.md'
   #- Developer Guide: 'developer_guide.md'
-  - API: 'api.md'
+#  - API: 'api.md'
   #- FAQ: 'faq.md'
 
 # Configuration

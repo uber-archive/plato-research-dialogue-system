@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://uber.github.io/plato-research-dialogue-system/examples/">
       
       
-        <meta name="author" content="Alexandros Pap">
+        <meta name="author" content="Alexandros Papangelis">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Examples - PlatoRDS</title>
+        <title>Examples - Plato RDS</title>
       
     
     
@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#757575">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -71,7 +71,7 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../stylesheets/monokai.css">
+      <link rel="stylesheet" href="../stylesheets/manni.css">
     
     
       
@@ -81,7 +81,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="grey" data-md-color-accent="grey">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -105,8 +105,8 @@
         <div class="md-flex">
             <div class="md-flex__cell md-flex__cell--shrink">
                 <a class="md-header-nav__button md-logo"
-                   href="https://uber.github.io/plato-research-dialogue-system/" title="PlatoRDS">
-                    <img src="../images/ludwig_logo.svg" style="height:1.4rem;">
+                   href="https://uber.github.io/plato-research-dialogue-system/" title="Plato RDS">
+                    <img src="../images/plato_grey.svg" style="height:1.2rem;">
                 </a>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -193,8 +193,8 @@
                     <nav class="md-nav md-nav--primary" data-md-level="0">
     <label class="md-nav__title md-nav__title--site" for="__drawer">
         <a class="md-nav__button md-logo" href="https://uber.github.io/plato-research-dialogue-system/"
-           title="PlatoRDS">
-            <img src="../images/ludwig_logo.svg" style="width: 10rem">
+           title="Plato RDS">
+            <img src="../images/plato_grey.svg" style="width: 10rem">
         </a>
     </label>
     
@@ -840,16 +840,16 @@ cd mnist_png/
 
 <h3 id="create-train-and-test-csvs">Create train and test CSVs.<a class="headerlink" href="#create-train-and-test-csvs" title="Permanent link">&para;</a></h3>
 <p>Open python shell in the same directory and run this:</p>
-<div class="codehilite"><pre><span></span>import os
-for name in [&#39;training&#39;, &#39;testing&#39;]:
-    with open(&#39;mnist_dataset_{}.csv&#39;.format(name), &#39;w&#39;) as output_file:
-        print(&#39;=== creating {} dataset ===&#39;.format(name))
-        output_file.write(&#39;image_path,label\n&#39;)
-        for i in range(10):
-            path = &#39;{}/{}&#39;.format(name, i)
-            for file in os.listdir(path):
-                if file.endswith(&quot;.png&quot;):
-                    output_file.write(&#39;{},{}\n&#39;.format(os.path.join(path, file), str(i)))
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;training&#39;</span><span class="p">,</span> <span class="s1">&#39;testing&#39;</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mnist_dataset_{}.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;=== creating {} dataset ===&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;image_path,label</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;{}/{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.png&quot;</span><span class="p">):</span>
+                    <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;{},{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">file</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
 </pre></div>
 
 
@@ -1273,41 +1273,41 @@ disaster. Here's a sample of the data:</p>
 <p>Dowload and unpack historical hourly weather data available on Kaggle
 https://www.kaggle.com/selfishgene/historical-hourly-weather-data</p>
 <p>Run the following python script to prepare the training dataset:</p>
-<div class="codehilite"><pre><span></span>import pandas as pd
-from ludwig.utils.data_utils import add_sequence_feature_column
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ludwig.utils.data_utils</span> <span class="kn">import</span> <span class="n">add_sequence_feature_column</span>
 
-df = pd.read_csv(
-    &#39;&lt;PATH_TO_FILE&gt;/temperature.csv&#39;,
-    usecols=[&#39;Los Angeles&#39;]
-).rename(
-    columns={&quot;Los Angeles&quot;: &quot;temperature&quot;}
-).fillna(method=&#39;backfill&#39;).fillna(method=&#39;ffill&#39;)
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;&lt;PATH_TO_FILE&gt;/temperature.csv&#39;</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Los Angeles&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Los Angeles&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;backfill&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
 
-# normalize
-df.temperature = ((df.temperature-df.temperature.mean()) /
-                  df.temperature.std())
+<span class="c1"># normalize</span>
+<span class="n">df</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">temperature</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span>
+                  <span class="n">df</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 
-train_size = int(0.6 * len(df))
-vali_size = int(0.2 * len(df))
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.6</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="n">vali_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 
-# train, validation, test split
-df[&#39;split&#39;] = 0
-df.loc[
-    (
-        (df.index.values &gt;= train_size) &amp;
-        (df.index.values &lt; train_size + vali_size)
-    ),
-    (&#39;split&#39;)
-] = 1
-df.loc[
-    df.index.values &gt;= train_size + vali_size,
-    (&#39;split&#39;)
-] = 2
+<span class="c1"># train, validation, test split</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;split&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">(</span>
+        <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="n">train_size</span><span class="p">)</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="o">&lt;</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">vali_size</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;split&#39;</span><span class="p">)</span>
+<span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">vali_size</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;split&#39;</span><span class="p">)</span>
+<span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 
-# prepare timeseries input feature colum
-# (here we are using 20 preceeding values to predict the target)
-add_sequence_feature_column(df, &#39;temperature&#39;, 20)
-df.to_csv(&#39;&lt;PATH_TO_FILE&gt;/temperature_la.csv&#39;)
+<span class="c1"># prepare timeseries input feature colum</span>
+<span class="c1"># (here we are using 20 preceeding values to predict the target)</span>
+<span class="n">add_sequence_feature_column</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;&lt;PATH_TO_FILE&gt;/temperature_la.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1761,8 +1761,8 @@ df.to_csv(&#39;&lt;PATH_TO_FILE&gt;/temperature_la.csv&#39;)
                 Website by <a href="http://w4nderlu.st">w4nderlust</a> powered by
                 <a href="https://www.mkdocs.org">MkDocs</a>,
                 <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>,
-                <a href="http://www.styleshout.com/">styleshout</a> and
-                <a href="http://cables.gl/">cables</a>.
+                <a href="http://www.styleshout.com/">styleshout</a>.
+                Uses the <a href="http://www.ff3300.com/works/sistema-museale-ugento">Messapia</a> font by <a href="http://ff3300.com/">FF3300</a>.
             </div>
 
             <!-- Social links -->
