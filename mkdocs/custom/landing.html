@@ -279,38 +279,70 @@
 
                 <div class="bgrid step" data-item="1">
                     <h3>Install</h3>
-                    <p>Just run <code>pip install ludwig</code> and it will be ready to use. Some features may require
-                        further steps, read <a href="#">Getting Started</a>.
+                    <p>Clone the following repository:
+                        <code>git@github.com:uber-research/<br>
+                            plato-research-dialogue-system.git</br></code>
+                        Install the requirements:
+                    <code> pip install -r requirements.txt </code>
+
+                    </p>
+                    <p>
+                    For MacOS:
+                    <code>
+                        brew install portaudio
+                        pip install -r requirements.txt
+                    </code>
+                    </p>
+                    <p>
+                    For Ubuntu/Debian:
+                    <code>sudo apt-get install python3-pyaudio<br>
+                    pip install -r requirements.txt</br>
+                    </code>
+                    </p>
+                    <p>
+                    For Windows:
+                    <code>
+                    pip install -r requirements.txt
+                    </code>
                     </p>
                 </div>
 
+
                 <div class="bgrid step" data-item="2">
-                    <h3>Train</h3>
-                    <p>Prepare your data in a CSV file, define input and output feature in a model definition YAML file
-                        and run:
-                    <pre><code>ludwig train
---data_csv file.csv
---model_definition definition.yaml</code></pre>
+                    <h3>Running Simulators</h3>
+                    <p>
+                    To run a simulation using the agenda based user simulator in the Cambridge Restaurants domain:
+                        <code> python runPlatoRDS.py -config Examples/config/simulate_agenda.yaml </code>
+                    </p>
+                    <p>
+                    To run a text based interaction using the agenda based simulator in the Cambridge Restaurants domain:
+                    <code> python runPlatoRDS.py -config Examples/config/simulate_text.yaml </code>
+                    </p>
+                    <p>
+                    To run a speech based interaction using the agenda based simulator in the Cambridge Restaurants domain:
+                    <code>python runPlatoRDS.py -config Examples/config/simulate_speech.yaml </code>
                     </p>
                 </div>
 
                 <div class="bgrid step" data-item="3">
-                    <h3>Predict</h3>
-                    <p>Prepare your data in a CSV file and use a pre-trained model to predict the output targets:
-                    <pre><code>ludwig predict
---data_csv data.csv
---model path_to_model</code></pre>
+                    <h3>Training Multiple Agents</h3>
+                    <p>
+                        <code>python runPlatoRDS.py -config <br>Examples/config/CamRest_MA_train.yaml </br></code>
                     </p>
+                    <p>
+                    <code>python runPlatoRDS.py -config <br>Examples/config/CamRest_MA_test.yaml</br></code>
+                    </p>
+
                 </div>
 
                 <div class="bgrid step" data-item="4">
-                    <h3>Visualize</h3>
-                    <p>Ludwig comes with many visualization options. If you want to look at the learning curves of your
-                        model for instance, run:
-                    <pre><code>ludwig visualize
---visualization learning_curves
---training_statistics train_statistics.json</code></pre>
+                    <h3>Training with Ludwig</h3>
+                    <p>
+                    Ludwig is a toolbox that allows to train and test <br> deep learning models without the need to write code.</br>
                     </p>
+                    Prepare your data in csv format. Train your model with Ludwig:<br> (https://uber.github.io/ludwig/user_guide/) <br>
+                    Update your Plato configuration file to include the path to the ludwig model
+                    Run a Plato agent. For a walk-through, look at the <a href="https://uber-research.github.io/plato-research-dialogue-system/getting_started/#training-with-plato-and-ludwig"> <b> User Guide </b></a>
                 </div>
 
             </div>
@@ -378,7 +410,7 @@ predictions = model.predict(test_dataframe)</code></pre>
             <h1 class="intro-header" data-aos="fade-up">Team</h1>
 
             <p class="lead" data-aos="fade-up">
-                Alexandros, Mahdi, Chandra
+                <a href="https://sites.google.com/view/alex-papangelis/home">Alexandros Papangelis</a> , <a href="http://www.namazifar.com/">Mahdi Namazifar</a>, <a href="https://scholar.google.com/citations?user=iUdSjWYAAAAJ&hl=en">Chandra Khatri</a>
             </p>
 
             <!--
