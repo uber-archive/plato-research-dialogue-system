@@ -30,9 +30,6 @@ At Uber AI, we developed the Plato Research Dialogue System, a platform for buil
 
 
 
-## **How does the Plato Research Dialogue System work?** ##
-
-
 # How does the Plato Research Dialogue System work?
 Conceptually, a conversational agent needs to go through various steps in order to process information it receives as input (e.g., “What’s the weather like today?”) and produce an appropriate output (“Windy but not too cold.”). The primary steps, which correspond to the main components of a standard architecture (see Figure 1), are: 
 
