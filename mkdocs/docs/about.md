@@ -18,9 +18,9 @@ Alexandros Papangelis, Yi-Chia Wang, Piero Molino, and Gokhan Tur,
 “Collaborative Multi-Agent Dialogue Model Training Via Reinforcement Learning”, 
 SIGDIAL 2019
 
-Alexandros Papangelis, Mahdi Namazifar, Chandra Khatri, "Plato Research 
-Dialogue System: A Flexible Conversational AI Research Platform", ArXiv 
-(to appear)
+Alexandros Papangelis, Yi-Chia Wang, Piero Molino, and Gokhan Tur, "Plato 
+Research Dialogue System: A Flexible Conversational AI Research Platform", 
+ArXiv (to appear)
 
 # How does the Plato Research Dialogue System work?
 Conceptually, a conversational agent needs to go through various steps in order to process information it receives as input (e.g., “What’s the weather like today?”) and produce an appropriate output (“Windy but not too cold.”). The primary steps, which correspond to the main components of a standard architecture (see Figure 1), are: 

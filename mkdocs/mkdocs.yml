@@ -2,7 +2,7 @@
 site_name: 'Plato RDS'
 site_description: 'Plato Research Dialogue System'
 site_author: 'Alexandros Papangelis'
-site_url: 'https://uber.github.io/plato-research-dialogue-system/'
+site_url: 'https://uber-research.github.io/plato-research-dialogue-system/'
 
 # Repository
 repo_name: 'uber-research/plato-research-dialogue-system'
