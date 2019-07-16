@@ -3,24 +3,29 @@
 ## Installation
 
 1. Clone this repository:
+
     ````
     git clone git@github.com:uber-research/plato-research-dialogue-system.git
     ````
+    
 2. Install the requirements:
 
     For MacOS:
+    
     ````
     brew install portaudio
     pip install -r requirements.txt
     ````
     
     For Ubuntu/Debian:
+    
     ````
     sudo apt-get install python3-pyaudio
     pip install -r requirements.txt
     ````
     
     For Windows:
+    
     ````
     pip install -r requirements.txt
     ````
@@ -83,6 +88,7 @@ python runPlatoRDS.py -config Examples/config/simulate_text.yaml
 To run a speech based interaction using the agenda based simulator in the 
 Cambridge Restaurants domain:
 
+
 ````
 python runPlatoRDS.py -config Examples/config/simulate_speech.yaml
 ````
@@ -103,11 +109,13 @@ dialogue policies and test them:
 
 
 - Training phase
+
     ````
     python runPlatoRDS.py -config Examples/config/CamRest_MA_train.yaml
     ````
 
 - Testing phase
+
     ````
     python runPlatoRDS.py -config Examples/config/CamRest_MA_test.yaml
     ````
@@ -142,6 +150,7 @@ existing, pre-trained statistical models:
 
 - Multiple generic agents, same as above but for multiple agents (assuming you 
 have trained dialogue policies using Examples/config/CamRest_MA_train.yaml):
+
     ````
     python runPlatoRDS.py -config Examples/config/MultiAgent_test_generic.yaml
     ````
