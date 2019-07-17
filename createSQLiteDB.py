@@ -134,7 +134,7 @@ def arg_parse():
             if len(parts) > 1:
                 if parts[1] == 'yaml':
                     with open(cfg_filename, 'r') as file:
-                        cfg_parser = yaml.load(file, Loader=yaml.CLoader)
+                        cfg_parser = yaml.load(file, Loader=yaml.Loader)
                 else:
                     raise ValueError('Unknown configuration file type: %s'
                                      % parts[1])
