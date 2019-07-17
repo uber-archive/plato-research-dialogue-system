@@ -430,6 +430,10 @@ practice you need to write very little code to build, train, and evaluate a
 new deep learning component in Plato. 
 
 
+## Train a simple Seq2Seq model for MetalWOZ
+
+Coming the week of July 22nd, stay tuned!
+
 
 # Create a new domain
 
