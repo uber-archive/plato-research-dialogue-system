@@ -461,7 +461,7 @@ system-requestable slots, you may do so in the configuration file:
 ````
 GENERAL:
   csv_file_name: Data/data/flowershop.csv
-  db_table_name: estore
+  db_table_name: flowershop
   db_file_path: Ontology/Ontologies/flowershop-dbase.db
   ontology_file_path: Ontology/Ontologies/flowershop-rules.json
 
