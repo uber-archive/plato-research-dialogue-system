@@ -24,8 +24,16 @@ Alexandros Papangelis, Yi-Chia Wang, Mahdi Namazifar, Chandra Khatri, Piero
 Molino, and Gokhan Tur, "Plato Research Dialogue System: A Flexible 
 Conversational AI Research Platform", ArXiv (to appear)
 
+#### **News**
+New tutorial on how to train a simple sequence to sequence model on MetalWOZ 
+data. 
+
 # How does the Plato Research Dialogue System work?
-Conceptually, a conversational agent needs to go through various steps in order to process information it receives as input (e.g., “What’s the weather like today?”) and produce an appropriate output (“Windy but not too cold.”). The primary steps, which correspond to the main components of a standard architecture (see Figure 1), are: 
+Conceptually, a conversational agent needs to go through various steps in order 
+to process information it receives as input (e.g., “What’s the weather like 
+today?”) and produce an appropriate output (“Windy but not too cold.”). The 
+primary steps, which correspond to the main components of a standard 
+architecture (see Figure 1), are: 
 
 * Speech recognition (transcribe speech to text)
 * Language understanding (extract meaning from that text)
@@ -396,8 +404,10 @@ training:
 and train your model:
 
 ````
-ludwig experiment --model_definition_file Examples/config/ludwig_nlg_train.yaml 
---data_csv Data/data/DSTC2_NLG_sys.csv --output_directory Models/CamRestNLG/Sys/
+ludwig experiment 
+       --model_definition_file Examples/config/ludwig_nlg_train.yaml 
+       --data_csv Data/data/DSTC2_NLG_sys.csv 
+       --output_directory Models/CamRestNLG/Sys/
 ````
 
 The next step is to load the model in Plato. Go to the 
@@ -430,10 +440,101 @@ practice you need to write very little code to build, train, and evaluate a
 new deep learning component in Plato. 
 
 
-## Train a simple Seq2Seq model for MetalWOZ
+## Train a simple end-to-end Seq2Seq model for MetalWOZ
 
-Coming the week of July 22nd, stay tuned!
+You can download MetalWOZ from [here](https://www.microsoft.com/en-us/research/project/metalwoz/).
 
+Plato supports jointly trained models through Generic Agents. Here we will see
+the steps needed to create a simple seq2seq conversational agent from scratch.
+Using MetalWOZ as an example, we need to do the following:
+
+####1. Write a MetalWOZ data parser that reads the data and procudes CSV files
+As we are only training a simple seq2seq model (text to text), we need our 
+parser to extract user and system utterances. These will be saved in .csv files
+that will be used by Ludwig in step 4.
+
+For a simple implementation of a MetalWOZ parser, see 
+````Data/data/Parse_MetalWOZ.py````
+
+Please note that this parser will only parse one single file (one domain). You
+can easily modify it, however, to fit your needs. Here is a sample of the 
+output produced by the parser for the pizza ordering domain:
+
+| user | system |
+|------|--------|
+|hi	   |Hello how may I help you?|
+|I need placing an order for a pizza need help* | Certainly, what would you like to add to your order?|
+|I want a pizza with mushroom, pepperoni, and bacon toppings |Unfortunately, this location is out of the bacon topping you requested. Would there be a different topping you'd like to replace it with?|
+|How about pineapple|That topping is available. I've added a pizza with mushroom, pepperoni, and pineapple to your order. What size would you like?|
+|Medium	| Alright, updated. Would you like to add more to your order?|
+|That's all, thanks| Alright, your total is 14.99. Your pizza will be ready for pickup in approx. 20 mins.|
+
+Note the first user utterance does not actually exist in the data. However,
+we need something to prompt the model to produce the system's greeting - we 
+could have used an empty sentence, or any other greeting (or a combination of 
+these).
+
+####2. Write a "run" script that calls the MetalWOZ data parser
+You can run the example script as follows:
+
+````python runMetalWOZDataParser.py -data_path <PATH_TO_METALWOZ_DATA>/dialogues/FILE.txt````
+ 
+####3. Train an end-to-end model
+To get started we can train a very simple model using Ludwig (feel free to use
+your favourite deep learning framework here):
+
+````
+
+input_features:
+    -
+        name: user
+        type: text
+        level: word
+        encoder: rnn
+        cell_type: lstm
+        reduce_output: null
+
+output_features:
+    -
+        name: system
+        type: text
+        level: word
+        decoder: generator
+        cell_type: lstm
+        attention: bahdanau
+        loss:
+            type: sampled_softmax_cross_entropy
+
+training:
+  epochs: 100
+````
+
+You can modify this config to reflect the architecture of your choice and train
+using Ludwig:
+
+````
+ludwig train 
+       --data_csv Data/data/metalwoz.csv 
+       --model_definition_file Examples/config/metalWOZ_seq2seq_ludwig.yaml
+       --output_directory "Models/JointModels/"
+````
+
+####4. Write a class inheriting from Conversational Module that loads and queries the model
+This class simply needs to handle loading of the model, querying it 
+appropriately and formatting its output appropriately. In our case, we need to 
+wrap the input text into a pandas dataframe, grab the predicted tokens from 
+the output and join them in a string that will be returned. See the class here:
+````JointModels/MetalWOZSeq2Seq.py````
+
+####5. Write a Plato generic yaml config and run your agent!
+See ````Examples/config/metalwoz_generic.yaml```` for an example generic 
+configuration file that interacts with the seq2seq agent over text. You can try
+it out as follows:
+
+````python runPlatoRDS.py -config Examples/config/metalwoz_generic.yaml````
+
+**Remember** to update the path to your trained model if necessary! The default
+path assumes you run the ludwig train command from Plato's root directory.
 
 # Create a new domain
 
