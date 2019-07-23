@@ -448,7 +448,7 @@ Plato supports jointly trained models through Generic Agents. Here we will see
 the steps needed to create a simple seq2seq conversational agent from scratch.
 Using MetalWOZ as an example, we need to do the following:
 
-####1. Write a MetalWOZ data parser that reads the data and procudes CSV files
+#### 1. Write a MetalWOZ data parser that reads the data and procudes CSV files
 As we are only training a simple seq2seq model (text to text), we need our 
 parser to extract user and system utterances. These will be saved in .csv files
 that will be used by Ludwig in step 4.
@@ -474,12 +474,12 @@ we need something to prompt the model to produce the system's greeting - we
 could have used an empty sentence, or any other greeting (or a combination of 
 these).
 
-####2. Write a "run" script that calls the MetalWOZ data parser
+#### 2. Write a "run" script that calls the MetalWOZ data parser
 You can run the example script as follows:
 
 ````python runMetalWOZDataParser.py -data_path <PATH_TO_METALWOZ_DATA>/dialogues/FILE.txt````
  
-####3. Train an end-to-end model
+#### 3. Train an end-to-end model
 To get started we can train a very simple model using Ludwig (feel free to use
 your favourite deep learning framework here):
 
@@ -519,14 +519,14 @@ ludwig train
        --output_directory "Models/JointModels/"
 ````
 
-####4. Write a class inheriting from Conversational Module that loads and queries the model
+#### 4. Write a class inheriting from Conversational Module that loads and queries the model
 This class simply needs to handle loading of the model, querying it 
 appropriately and formatting its output appropriately. In our case, we need to 
 wrap the input text into a pandas dataframe, grab the predicted tokens from 
 the output and join them in a string that will be returned. See the class here:
 ````JointModels/MetalWOZSeq2Seq.py````
 
-####5. Write a Plato generic yaml config and run your agent!
+#### 5. Write a Plato generic yaml config and run your agent!
 See ````Examples/config/metalwoz_generic.yaml```` for an example generic 
 configuration file that interacts with the seq2seq agent over text. You can try
 it out as follows:
