@@ -1,0 +1,29 @@
+---
+
+GENERAL:
+  interaction_mode: text
+  agents: 1
+  generic: True
+
+  experience_logs:
+    save: False
+    load: False
+    path: Logs/DTL_Generic
+
+  global_arguments:
+    domain: SlotFilling
+
+DIALOGUE:
+  num_dialogues: 10
+  domain: SlotFilling
+
+
+AGENT_0:
+  role: system
+  modules: 1
+
+  MODULE_0:
+    package: JointModels.MetalWOZSeq2Seq
+    class: MetalWOZSeq2Seq
+    arguments:
+      model_path: Models/JointModels/experiment_run_0/model
