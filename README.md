@@ -18,14 +18,14 @@ Publication citations:
 
 Alexandros Papangelis, Yi-Chia Wang, Piero Molino, and Gokhan Tur, 
 “Collaborative Multi-Agent Dialogue Model Training Via Reinforcement Learning”, 
-SIGDIAL 2019
+SIGDIAL 2019 [[paper](https://arxiv.org/abs/1907.05507)]
 
 Alexandros Papangelis, Yi-Chia Wang, Mahdi Namazifar, Chandra Khatri, Piero 
 Molino, and Gokhan Tur, "Plato Research Dialogue System: A Flexible 
 Conversational AI Research Platform", ArXiv (to appear)
 
 #### **News**
-New tutorial on how to train a simple sequence to sequence model on MetalWOZ 
+**New** tutorial on how to train a simple sequence to sequence model on MetalWOZ 
 data. 
 
 # How does the Plato Research Dialogue System work?
