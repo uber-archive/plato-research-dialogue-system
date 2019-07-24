@@ -23,7 +23,7 @@ GENERAL:
   experience_logs:
     save: False
     load: False
-    path: Logs/DTL_Generic
+    path: Logs/ABUS_Generic
 
   # These are global arguments (only used in Generic Agent mode) and are added
   # to the arguments of each module of each agent. In this simple example we
