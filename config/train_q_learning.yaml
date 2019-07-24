@@ -32,23 +32,16 @@ AGENT_0:
       dst: dummy
 
     policy:
-#      type: handcrafted
-      type: pol_grad
-  #    type: supervised
-#      type: reinforce
-#      type: q_learning
+      type: q_learning
   
-      train: False
+      train: True
       learning_rate: 0.9
       exploration_rate: 0.995
       discount_factor: 0.95
       learning_decay_rate: 0.95
       exploration_decay_rate: 0.995
 
-      policy_path: Models/Policies/Sys/PG/pg_policy_sys
-  #    policy_path: Models/CamRestPolicy/Sys/sys_supervised
-#      policy_path: Models/Policies/Sys/PG/reinforce_sys.pkl
-#      policy_path: Models/Policies/Sys/q_policy_sys.pkl
+      policy_path: Models/Policies/Sys/q_policy_sys.pkl
   
   USER_SIMULATOR:
     simulator: agenda
@@ -59,9 +52,6 @@ AGENT_0:
     value_confuse_prob: 0.0
     nlu: dummy
     nlg: dummy
-  #  goals_path: Models/UserSimulator/goals_traindev.pkl
-  #  goals_path: Models/UserSimulator/goals_test.pkl
-  #  policy_file: Models/UserSimulator/user_policy_reactive.pkl
     
   NLU:
     nlu: dummy
