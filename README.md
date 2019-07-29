@@ -113,10 +113,11 @@ text-to-text components, all of which can be executed serially or in parallel.
 
 Users can define their own architecture and/or plug their own components into 
 Plato by simply providing a Python class name and package path to that module, 
-as well as the model’s initialization arguments. All the user needs do is list 
-the modules in the order they should be executed and Plato takes care of the 
-rest, including wrapping the input/output, chaining the modules, and handling 
-the dialogues. Plato supports serial and parallel execution of modules.
+as well as the model’s initialization arguments. All the user needs to do is 
+list the modules in the order they should be executed and Plato takes care of 
+the rest, including wrapping the input/output, chaining the modules, and 
+handling the dialogues. Plato supports serial and parallel execution of 
+modules.
 
 Plato also provides support for Bayesian optimization of conversational AI 
 architectures or individual module parameters through Bayesian Optimisation of 
