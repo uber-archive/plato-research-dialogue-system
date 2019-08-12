@@ -270,7 +270,7 @@ class Controller(object):
         return statistics
 
 
-def arg_parse():
+def arg_parse(args=None):
     """
     This function will parse the configuration file that was provided as a
     system argument into a dictionary.
@@ -279,15 +279,22 @@ def arg_parse():
     """
 
     cfg_parser = None
+    
+    arg_vec = args if args else sys.argv
 
     # Parse arguments
-    if len(sys.argv) < 3:
+    if len(arg_vec) < 3:
         print('WARNING: No configuration file.')
+
+    test_mode = arg_vec[1] == '-t'
+
+    if test_mode:
+        return {'test_mode': test_mode}
 
     # Initialize random seed
     random.seed(time.time())
 
-    cfg_filename = sys.argv[2]
+    cfg_filename = arg_vec[2]
     if isinstance(cfg_filename, str):
         if os.path.isfile(cfg_filename):
             # Choose config parser
@@ -380,12 +387,15 @@ def run_controller(args):
             else:
                 ValueError('Unknown interaction mode: {0}'.format(
                     interaction_mode))
+                return -1
 
         except (ValueError, FileNotFoundError, TypeError, AttributeError) \
                 as err:
             print('\nPlato error! {0}\n'.format(err))
+            return -1
 
     print(f'Results:\n{statistics}')
+    return 0
 
 
 if __name__ == '__main__':
@@ -396,7 +406,42 @@ if __name__ == '__main__':
     
     python runPlatoRDS.py -c <path_to_config.yaml>
     
-    Remember, Plato runs with Python 3.
+    (testing mode)
+    python runPlatoRDS.py -t 
+    
+    Remember, Plato runs with Python 3.6
     """
     arguments = arg_parse()
-    run_controller(arguments)
+
+    if arguments['test_mode']:
+        # Runs Plato with all configuration files in the config/tests/
+        # directory and prints a FAIL message upon any exception raised.
+        passed = []
+        failed = []
+
+        for (dirpath, dirnames, filenames) in \
+                os.walk('Tests/'):
+            if not filenames or filenames[0] == '.DS_Store':
+                continue
+                
+            for config_file in filenames:
+                print(f'\n\nRunning test with configuration {config_file}\n')
+
+                args = arg_parse(['_', '-c', dirpath + config_file])
+
+                if run_controller(args) < 0:
+                    print(f'FAIL! With {config_file}')
+                    failed.append(config_file)
+
+                else:
+                    print('PASS!')
+                    passed.append(config_file)
+
+        print('\nTEST RESULTS:')
+        print(f'Passed {len(passed)} out of {(len(passed) + len(failed))}')
+
+        print(f'Failed on: {failed}')
+
+    else:
+        # Normal Plato execution
+        run_controller(arguments)

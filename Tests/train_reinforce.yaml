@@ -15,7 +15,7 @@ GENERAL:
     domain: CamRest
   
 DIALOGUE:
-  num_dialogues: 100
+  num_dialogues: 10
   initiative: system
 
   domain: CamRest

@@ -1,0 +1,159 @@
+---
+
+GENERAL:
+  # Can be: simulation, text, speech, or multi-agent
+  interaction_mode: simulation
+
+  # How many conversational agents to spawn
+  agents: 1
+
+  # Define whether the agents will be generic or not
+  generic: True
+
+  # How many times to run this experiment. Each experiment will run the
+  # number of dialogues specified in the DIALOGUE section. This is useful
+  # for example when evaluating stochastic dialogue policies, where we want
+  # to calculate the average performance over several runs.
+  runs: 1
+
+  # Handle Plato internal experience logs. These are logs produced by the
+  # Dialogue Episode Recorder (under Utilities) and contain information about
+  # what has happened during the dialogue(s). Plato agents use these logs as
+  # data for training.
+  experience_logs:
+    save: False
+    load: False
+    path: Logs/ABUS_Generic
+
+  # These are global arguments (only used in Generic Agent mode) and are added
+  # to the arguments of each module of each agent. In this simple example we
+  # provide the ontology, database, and domain that every module needs.
+  global_arguments:
+    ontology: Domain/Domains/CamRestaurants-rules.json
+    database: Domain/Domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+
+DIALOGUE:
+  # How many dialogues to run for
+  num_dialogues: 10
+
+  # Which role has the initiative (speaks first): system or user
+  initiative: system
+
+  # The current domain, e.g. CamRest, SlotFilling
+  domain: CamRest
+
+  # The path to the ontology .json file
+  ontology_path: Domain/Domains/CamRestaurants-rules.json
+
+  # The path to the database .db file
+  db_path: Domain/Domains/CamRestaurants-dbase.db
+
+  # The database type
+  db_type: sql
+
+  # We can provide a path to saved goals instead of randomly sampling at
+  # the beginning of each dialogue. The goals file should be a .pkl file.
+  # For more details see Data/Parse_DSTC2.py
+  # goals_path:
+
+# For each agent i specified in the GENERAL section we need to have an
+# AGENT_<i> section, containing the configuration for that particular agent.
+AGENT_0:
+  # The role of the agent: system or user
+  role: system
+
+  # The total number of modules this generic agent has
+  modules: 4
+
+  # For each module we need to provide the following things:
+  #  - package name
+  #  - class
+  #  - arguments (remember, the global arguments will be appended here)
+
+  # The provided class should inherit from ConversationalModule (i.e. implement
+  # the interface), otherwise Plato does not know which functions to call.
+
+  # In this configuration file we provide a simple example that is intended to
+  # highlight the fact that you are free to use any existing Plato component
+  # in combination with your own custom components.
+  MODULE_0:
+    # The path to the custom package
+    # package: NLU.CamRestNLU
+
+    # The class name, within the above package
+    # class: CamRestNLU
+
+    # Arguments that will be provided to the class object upon initialization
+    # arguments:
+    #  model_path: Models/CamRestNLU/Sys/model
+
+    # Assuming you haven't yet trained the above models, we use the Dummy ones
+    # in this example.
+    package: NLU.DummyNLU
+    class: DummyNLU
+
+  # If you want some modules to run in parallel you can use the following
+  # configuration. All the outputs of the sub-modules will be appended into a
+  # list so you have to make sure that the next module is able to
+  # handle this.
+  #
+  # MODULE_1:
+  #   parallel_modules: 2
+  #
+  #   PARALLEL_MODULE_0:
+  #     package: Your Package
+  #     class: Your Class
+  #     arguments:
+  #       Your Arguments
+  #
+  #   PARALLEL_MODULE_1:
+  #     package: Your Package
+  #     class: Your Class
+  #     arguments:
+  #       Your Arguments
+
+  MODULE_1:
+    package: DialogueManagement.DialogueManager
+    class: DialogueManager
+    arguments:
+      DST:
+        dst: dummy
+
+      policy:
+        type: handcrafted
+  
+  MODULE_2:
+    # Uncomment these settings once you've trained your Ludwig-based NLG.
+
+    # package: NLG.CamRestNLG
+    # class: CamRestNLG
+    # arguments:
+    #  model_path: Models/CamRestNLG/Sys/model
+
+    # Assuming you haven't yet trained the above models, we use the Dummy ones
+    # in this example.
+    package: NLG.DummyNLG
+    class: DummyNLG
+
+  # In this example, we have the User Simulator as a module attached to the
+  # Generic Agent. Another way would be to model the simulated user as its
+  # own agent - see the MultiAgent_test_generic.yaml configuration file for an example
+  # with two generic conversational agents.
+  MODULE_3:
+    package: UserSimulator.AgendaBasedUserSimulator.AgendaBasedUS
+    class: AgendaBasedUS
+    arguments:
+      simulator: agenda
+      patience: 5
+      pop_distribution: [1.0]
+      slot_confuse_prob: 0.0
+      op_confuse_prob: 0.0
+      value_confuse_prob: 0.0
+      nlu: dummy
+      nlg: dummy
+
+# If you have more than one agents, include an AGENT_i section for each of them
+# AGENT_1:
+# ...

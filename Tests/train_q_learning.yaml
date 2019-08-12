@@ -15,7 +15,7 @@ GENERAL:
     domain: CamRest
   
 DIALOGUE:
-  num_dialogues: 100
+  num_dialogues: 10
   initiative: system
 
   domain: CamRest
@@ -32,7 +32,7 @@ AGENT_0:
       dst: dummy
 
     policy:
-      type: reinforce
+      type: q_learning
   
       train: True
       learning_rate: 0.9
@@ -41,7 +41,7 @@ AGENT_0:
       learning_decay_rate: 0.95
       exploration_decay_rate: 0.995
 
-      policy_path: Models/Policies/Sys/reinforce_sys.pkl
+      policy_path: Models/Policies/Sys/q_policy_sys.pkl
   
   USER_SIMULATOR:
     simulator: agenda
