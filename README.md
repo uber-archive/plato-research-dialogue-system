@@ -25,8 +25,19 @@ Molino, and Gokhan Tur, "Plato Research Dialogue System: A Flexible
 Conversational AI Research Platform", ArXiv (to appear)
 
 #### **News**
-**New** tutorial on how to train a simple sequence to sequence model on MetalWOZ 
-data. 
+**New** [tutorial](#train-a-simple-end-to-end-seq2seq-model-for-metalwoz) on 
+how to train a simple sequence to sequence model on MetalWOZ data. 
+
+Contents:
+1. [How does the Plato Research Dialogue System Work?](#how-does-the-plato-research-dialogue-system-work)
+2. [Quick Start Guide](#quick-start-guide)
+3. [Running Plato Agents](#running-plato-agents)
+    1. [Running Generic Plato Agents](#running-generic-plato-agents)
+    2. [Running Multiple Plato Agents](#running-multiple-plato-agents)
+4. [Training from Data](#training-from-data)
+    1. [Training with Plato](#training-with-plato)
+    2. [Training with Plato and Ludwig](#training-with-plato-and-ludwig)
+    3. [Training an End-to-End model](#train-a-simple-end-to-end-seq2seq-model-for-metalwoz)
 
 # How does the Plato Research Dialogue System work?
 Conceptually, a conversational agent needs to go through various steps in order 
