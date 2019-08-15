@@ -341,7 +341,8 @@ def arg_parse(args=None):
             'tests': tests,
             'dialogues': dialogues,
             'interaction_mode': interaction_mode,
-            'num_agents': num_agents}
+            'num_agents': num_agents,
+            'test_mode': False}
 
 
 def run_controller(args):
@@ -413,7 +414,7 @@ if __name__ == '__main__':
     """
     arguments = arg_parse()
 
-    if arguments['test_mode']:
+    if 'test_mode' in arguments and arguments['test_mode']:
         # Runs Plato with all configuration files in the config/tests/
         # directory and prints a FAIL message upon any exception raised.
         passed = []
