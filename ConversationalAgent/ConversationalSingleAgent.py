@@ -777,7 +777,14 @@ class ConversationalSingleAgent(ConversationalAgent):
                         self.recorder.dialogues,
                         self.minibatch_length
                     )
+
+                    if self.nlu:
+                        self.nlu.train(minibatch)
+
                     self.dialogue_manager.train(minibatch)
+
+                    if self.nlg:
+                        self.nlg.train(minibatch)
 
         self.dialogue_episode += 1
         self.cumulative_rewards += \

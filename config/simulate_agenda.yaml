@@ -45,7 +45,7 @@ AGENT_0:
       learning_decay_rate: 0.95
       exploration_decay_rate: 0.995
 
-      policy_path: Models/Policies/Sys/PG/pg_policy_sys
+      policy_path: Models/Policies/Sys/pg_policy_sys
   #    policy_path: Models/CamRestPolicy/Sys/sys_supervised
 #      policy_path: Models/Policies/Sys/PG/reinforce_sys.pkl
 #      policy_path: Models/Policies/Sys/q_policy_sys.pkl
