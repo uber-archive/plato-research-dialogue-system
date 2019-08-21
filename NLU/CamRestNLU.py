@@ -37,7 +37,7 @@ class CamRestNLU(LudwigNLU):
         self.database = None
 
         if 'ontology' not in args:
-            raise AttributeError('DummyNLU: Please provide ontology!')
+            raise AttributeError('CamRestNLU: Please provide ontology!')
 
         ontology = args['ontology']
 
