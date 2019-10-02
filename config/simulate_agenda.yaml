@@ -32,8 +32,8 @@ AGENT_0:
       dst: dummy
 
     policy:
-#      type: handcrafted
-      type: pol_grad
+      type: handcrafted
+#      type: pol_grad
   #    type: supervised
 #      type: reinforce
 #      type: q_learning
@@ -64,7 +64,8 @@ AGENT_0:
   #  policy_file: Models/UserSimulator/user_policy_reactive.pkl
     
   NLU:
-    nlu: dummy
+    nlu: CamRest
+    model_path: Models/CamrestNLU/Sys/experiment_run_0/model
     
   NLG:
     nlg: dummy

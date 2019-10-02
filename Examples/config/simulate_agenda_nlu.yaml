@@ -7,41 +7,23 @@ GENERAL:
     save: True
     load: False
     path: Logs/simulate_agenda
-
-  global_arguments:
-    ontology: Domain/Domains/CamRestaurants-rules.json
-    database: Domain/Domains/CamRestaurants-dbase.db
-    db_type: sql
-    domain: CamRest
   
 DIALOGUE:
-  num_dialogues: 10000
+  num_dialogues: 10
   initiative: system
 
   domain: CamRest
 
   ontology_path: Domain/Domains/CamRestaurants-rules.json
   db_path: Domain/Domains/CamRestaurants-dbase.db
-  db_type: sql
+
 
 AGENT_0:
   role: system
 
   DM:
-    DST:
-      dst: dummy
-
     policy:
-      type: q_learning
-  
-      train: True
-      learning_rate: 0.9
-      exploration_rate: 0.995
-      discount_factor: 0.95
-      learning_decay_rate: 0.95
-      exploration_decay_rate: 0.995
-
-      policy_path: Models/Policies/Sys/q_policy_sys.pkl
+      type: handcrafted
   
   USER_SIMULATOR:
     simulator: agenda
@@ -54,7 +36,11 @@ AGENT_0:
     nlg: dummy
     
   NLU:
-    nlu: dummy
+    nlu: CamRest
+    model_path: Models/CamRestNLU/Sys/experiment_run_0/model
+    
+  DST:
+    dst: dummy
     
   NLG:
     nlg: dummy

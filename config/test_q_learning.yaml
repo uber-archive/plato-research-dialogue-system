@@ -15,7 +15,7 @@ GENERAL:
     domain: CamRest
   
 DIALOGUE:
-  num_dialogues: 10000
+  num_dialogues: 100
   initiative: system
 
   domain: CamRest
@@ -34,7 +34,7 @@ AGENT_0:
     policy:
       type: q_learning
   
-      train: True
+      train: False
       learning_rate: 0.9
       exploration_rate: 0.995
       discount_factor: 0.95

@@ -27,6 +27,7 @@ DIALOGUE:
 AGENT_0:
   role: system
   modules: 3
+  stateful_module: 1
 
   MODULE_0:
     package: NLU.DummyNLU

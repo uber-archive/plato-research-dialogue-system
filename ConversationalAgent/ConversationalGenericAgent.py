@@ -16,10 +16,12 @@ from ConversationalAgent.ConversationalModule import ConversationalFrame
 from DialogueManagement.DialoguePolicy.ReinforcementLearning.RewardFunction \
     import SlotFillingGoalAdvancementReward
 from Utilities.DialogueEpisodeRecorder import DialogueEpisodeRecorder
+from Dialogue.Action import DialogueAct
 
 from copy import deepcopy
 
 import os
+import speech_recognition as speech_rec
 
 """
 ConversationalGenericAgent is a Conversational Agent that is 
@@ -30,6 +32,10 @@ interaction by chaining those modules. This allows for anything
 from a single neural-network module to systems that have tens 
 of modules.
 """
+
+# Audio recording parameters
+RATE = 16000
+CHUNK = int(RATE / 10)  # 100ms
 
 
 class ConversationalGenericAgent(ConversationalAgent):
@@ -73,6 +79,10 @@ class ConversationalGenericAgent(ConversationalAgent):
         self.MAX_TURNS = 15
         self.INTERACTION_MODE = 'simulation'
 
+        # This indicates which module controls the state so that we can query
+        # it for dialogue termination (e.g. at end_dialogue)
+        self.STATEFUL_MODULE = -1
+
         self.reward_func = SlotFillingGoalAdvancementReward()
 
         self.ConversationalModules = []
@@ -80,6 +90,8 @@ class ConversationalGenericAgent(ConversationalAgent):
 
         self.goal_generator = None
         self.agent_goal = None
+
+        ag_id_str = 'AGENT_' + str(agent_id)
 
         if self.configuration:
             if 'GENERAL' not in self.configuration:
@@ -117,9 +129,14 @@ class ConversationalGenericAgent(ConversationalAgent):
                     )
 
             self.NModules = 0
-            if 'modules' in self.configuration['AGENT_' + str(agent_id)]:
+            if 'modules' in self.configuration[ag_id_str]:
                 self.NModules = int(
-                    self.configuration['AGENT_' + str(agent_id)]['modules']
+                    self.configuration[ag_id_str]['modules']
+                )
+
+            if 'stateful_module' in self.configuration[ag_id_str]:
+                self.STATEFUL_MODULE = int(
+                    self.configuration[ag_id_str]['stateful_module']
                 )
 
             # Note: Since we pass settings as a default argument, any
@@ -134,41 +151,41 @@ class ConversationalGenericAgent(ConversationalAgent):
             # Load the modules
             for m in range(self.NModules):
                 if 'MODULE_'+str(m) not in \
-                        self.configuration['AGENT_' + str(agent_id)]:
+                        self.configuration[ag_id_str]:
                     raise ValueError(f'No MODULE_{m} section in config!')
 
                 if 'parallel_modules' in self.configuration[
-                    'AGENT_' + str(agent_id)
+                    ag_id_str
                 ]['MODULE_' + str(m)]:
 
                     n_parallel_modules = self.configuration[
-                        'AGENT_' + str(agent_id)][
+                        ag_id_str][
                         'MODULE_' + str(m)]['parallel_modules']
 
                     parallel_modules = []
 
                     for pm in range(n_parallel_modules):
                         if 'package' not in self.configuration[
-                            'AGENT_' + str(agent_id)
+                            ag_id_str
                         ]['MODULE_' + str(m)]['PARALLEL_MODULE_' + str(pm)]:
                             raise ValueError(
                                 f'No arguments provided for parallel module '
                                 f'{pm} of module {m}!')
 
                         package = self.configuration[
-                            'AGENT_' + str(agent_id)
+                            ag_id_str
                             ]['MODULE_' + str(m)][
                             'PARALLEL_MODULE_' + str(pm)]['package']
 
                         if 'class' not in self.configuration[
-                            'AGENT_' + str(agent_id)
+                            ag_id_str
                         ]['MODULE_' + str(m)]['PARALLEL_MODULE_' + str(pm)]:
                             raise ValueError(
                                 f'No arguments provided for parallel module '
                                 f'{pm} of module {m}!')
 
                         klass = self.configuration[
-                            'AGENT_' + str(agent_id)
+                            ag_id_str
                         ]['MODULE_' + str(m)][
                             'PARALLEL_MODULE_' + str(pm)]['class']
 
@@ -177,12 +194,12 @@ class ConversationalGenericAgent(ConversationalAgent):
                         args = deepcopy(self.global_arguments)
                         if 'arguments' in \
                                 self.configuration[
-                                    'AGENT_' + str(agent_id)
+                                    ag_id_str
                                 ]['MODULE_' + str(m)][
                                     'PARALLEL_MODULE_' + str(pm)]:
                             args.update(
                                 self.configuration[
-                                    'AGENT_' + str(agent_id)
+                                    ag_id_str
                                 ]['MODULE_' + str(m)][
                                     'PARALLEL_MODULE_' + str(pm)]['arguments'])
 
@@ -195,30 +212,30 @@ class ConversationalGenericAgent(ConversationalAgent):
 
                 else:
                     if 'package' not in self.configuration[
-                        'AGENT_' + str(agent_id)
+                        ag_id_str
                     ]['MODULE_' + str(m)]:
                         raise ValueError(f'No arguments provided for module '
                                          f'{m}!')
 
                     package = self.configuration[
-                        'AGENT_' + str(agent_id)
+                        ag_id_str
                     ]['MODULE_' + str(m)]['package']
 
                     if 'class' not in self.configuration[
-                        'AGENT_' + str(agent_id)
+                        ag_id_str
                     ]['MODULE_' + str(m)]:
                         raise ValueError(f'No arguments provided for module '
                                          f'{m}!')
 
                     klass = self.configuration[
-                        'AGENT_' + str(agent_id)
+                        ag_id_str
                     ]['MODULE_' + str(m)]['class']
 
                     # Append global arguments (add configuration by default)
                     args = deepcopy(self.global_arguments)
                     if 'arguments' in \
                             self.configuration[
-                                'AGENT_' + str(agent_id)
+                                ag_id_str
                             ]['MODULE_' + str(m)]:
                         args.update(
                             self.configuration[
@@ -235,6 +252,11 @@ class ConversationalGenericAgent(ConversationalAgent):
 
         # TODO: Parse config modules I/O and raise error if
         #       any inconsistencies found
+
+        # Initialize automatic speech recognizer, if necessary
+        self.asr = None
+        if self.INTERACTION_MODE == 'speech':
+            self.asr = speech_rec.Recognizer()
 
     def __del__(self):
         """
@@ -303,8 +325,14 @@ class ConversationalGenericAgent(ConversationalAgent):
 
         self.initialize()
         self.dialogue_turn = 0
+
         # TODO: Get initial trigger from config
-        self.prev_m_out = ConversationalFrame({'utterance': 'Hello'})
+        if self.INTERACTION_MODE in ['speech', 'text', 'simulation']:
+            self.prev_m_out = ConversationalFrame({'utterance': 'hello'})
+        else:
+            self.prev_m_out = \
+                ConversationalFrame([DialogueAct('hello')])
+
         self.continue_dialogue()
 
         return self.prev_m_out.content, '', self.agent_goal
@@ -319,6 +347,23 @@ class ConversationalGenericAgent(ConversationalAgent):
 
         if self.INTERACTION_MODE == 'text':
             self.prev_m_out = input('USER > ')
+
+        elif self.INTERACTION_MODE == 'speech':
+            # Listen for input from the microphone
+            with speech_rec.Microphone() as source:
+                print('(listening...)')
+                audio = self.asr.listen(source, phrase_time_limit=3)
+
+            try:
+                # This uses the default key
+                usr_utterance = self.asr.recognize_google(audio)
+                print("Google ASR: " + usr_utterance)
+
+            except speech_rec.UnknownValueError:
+                print("Google ASR did not understand you")
+
+            except speech_rec.RequestError as e:
+                print("Google ASR request error: {0}".format(e))
 
         for m in self.ConversationalModules:
             # If executing parallel sub-modules
@@ -387,8 +432,9 @@ class ConversationalGenericAgent(ConversationalAgent):
         :return: True or False
         """
 
-        # TODO: Set at config which module controls the state
-        return self.ConversationalModules[-1].at_terminal_state() or \
+        return self.ConversationalModules[
+                   self.STATEFUL_MODULE
+               ].at_terminal_state() or \
             self.dialogue_turn > self.MAX_TURNS
 
     def set_goal(self, goal):

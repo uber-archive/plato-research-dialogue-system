@@ -67,6 +67,10 @@ AGENT_0:
   # The total number of modules this generic agent has
   modules: 4
 
+  # Defines which of the modules owns the dialogue state
+  # (this would usually be a DST or a DM that has a DST)
+  stateful_module: 1
+
   # For each module we need to provide the following things:
   #  - package name
   #  - class

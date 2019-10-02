@@ -22,7 +22,7 @@ output_features:
 
 training:
     epochs: 100
-    early_stop: 50
+    early_stop: 5
     learning_rate: 0.0025
     dropout: 0.5
     batch_size: 128
