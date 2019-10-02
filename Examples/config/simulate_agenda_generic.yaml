@@ -68,8 +68,10 @@ AGENT_0:
   modules: 4
 
   # Defines which of the modules owns the dialogue state
-  # (this would usually be a DST or a DM that has a DST)
-  stateful_module: 1
+  # This would usually be a DST or a DM that has a DST. However, in this
+  # example we use the last module as a simulated user therefore it has the
+  # most up to date state.
+  stateful_module: 3
 
   # For each module we need to provide the following things:
   #  - package name
