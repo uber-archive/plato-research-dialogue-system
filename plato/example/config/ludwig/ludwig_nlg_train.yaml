@@ -1,0 +1,20 @@
+---
+
+input_features:
+    -
+        name: nlg_input
+        type: sequence
+        encoder: rnn
+        cell_type: lstm
+
+output_features:
+    -
+        name: nlg_output
+        type: sequence
+        decoder: generator
+        cell_type: lstm
+
+training:
+    epochs: 20
+    learning_rate: 0.001
+    dropout: 0.2

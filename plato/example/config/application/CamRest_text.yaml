@@ -1,0 +1,85 @@
+---
+
+GENERAL:
+  # Can be: simulation, text, speech, or multi-agent
+  interaction_mode: text
+
+  # How many conversational agents to spawn
+  agents: 1
+
+  # Define whether the agents will be generic or not
+  generic: False
+
+  # How many times to run this experiment. Each experiment will run the
+  # number of dialogues specified in the DIALOGUE section. This is useful
+  # for example when evaluating stochastic dialogue policies, where we want
+  # to calculate the average performance over several runs.
+  runs: 1
+
+  # Handle Plato internal experience logs. These are logs produced by the
+  # dialogue Episode Recorder (under utilities) and contain information about
+  # what has happened during the dialogue(s). Plato agents use these logs as
+  # data for training.
+  experience_logs:
+    save: True
+    load: False
+    path: logs/CamRest_text
+
+  # These are global arguments (only used in Generic Agent mode) and are added
+  # to the arguments of each module of each agent. In this simple example we
+  # provide the ontology, database, and domain that every module needs.
+  global_arguments:
+    ontology: example/domains/CamRestaurants-rules.json
+    database: example/domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+
+DIALOGUE:
+  # How many dialogues to run for
+  num_dialogues: 10
+
+  # Which role has the initiative (speaks first): system or user
+  initiative: system
+
+  # The current domain, e.g. CamRest, SlotFilling
+  domain: CamRest
+
+  # The path to the ontology .json file (not needed if provided in global args)
+  ontology_path: example/domains/CamRestaurants-rules.json
+
+  # The path to the database .db file (not needed if provided in global args)
+  db_path: example/domains/CamRestaurants-dbase.db
+
+  # The database type (not needed if provided in global args)
+  db_type: sql
+
+  # We can provide a path to saved goals instead of randomly sampling at
+  # the beginning of each dialogue. The goals file should be a .pkl file.
+  # For more details see parser/parse_dstc2.py
+  # goals_path:
+
+# For each agent i specified in the GENERAL section we need to have an
+# AGENT_<i> section, containing the configuration for that particular agent.
+AGENT_0:
+  # The role of the agent: system or user
+  role: system
+
+  NLU:
+    package: plato.agent.component.nlu.slot_filling_nlu
+    class: SlotFillingNLU
+
+  DM:
+    package: plato.agent.component.dialogue_manager.dialogue_manager_generic
+    class: DialogueManagerGeneric
+    arguments:
+      DST:
+        package: plato.agent.component.dialogue_state_tracker.slot_filling_dst
+        class: SlotFillingDST
+
+      policy:
+        package: plato.agent.component.dialogue_policy.slot_filling_policy
+        class: HandcraftedPolicy
+
+  NLG:
+    package: plato.agent.component.nlg.slot_filling_nlg
+    class: SlotFillingNLG

@@ -1,0 +1,113 @@
+---
+
+GENERAL:
+  interaction_mode: multi_agent
+  agents: 2
+  generic: True
+
+  experience_logs:
+    save: False
+    load: False
+    path: logs/CamRest_MultiAgent_Test_Generic
+
+  global_arguments:
+    ontology: plato/example/domains/CamRestaurants-rules.json
+    database: plato/example/domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+
+DIALOGUE:
+  num_dialogues: 10
+  domain: CamRest
+
+
+AGENT_0:
+  role: system
+  modules: 3
+
+  MODULE_0:
+    package: plato.agent.component.nlu.slot_filling_nlu
+    class: SlotFillingNLU
+        
+#    If you have a Ludwig-trained nlu model, you can do the following:
+#    package: nlu.camrest_nlu
+#    class: camrest_nlu
+#    arguments:
+#      model_path: models/camrest_nlu/sys/model
+
+  MODULE_1:
+    package: plato.agent.component.dialogue_manager.dialogue_manager
+    class: DialogueManager
+    arguments:
+      DST:
+        dst: dummy
+
+      policy:
+        type: wolf_phc
+
+        train: False
+        learning_rate: 0.25
+        exploration_rate: 0.995
+        discount_factor: 0.8
+        learning_decay_rate: 0.995
+        exploration_decay_rate: 0.995
+
+        policy_path: models/policies/sys/wolf_phc_policy_sys.pkl
+
+  MODULE_2:
+    package: plato.agent.component.nlg.slot_filling_nlg
+    class: SlotFillingNLG
+        
+#    If you have a Ludwig-trained nlg model, you can do the following:
+#    package: nlg.camrest_nlg
+#    class: camrest_nlg
+#    arguments:
+#      model_path: models/camrest_nlg/sys/model
+
+
+
+AGENT_1:
+  role: user
+  modules: 3
+
+  MODULE_0:
+    package: plato.agent.component.nlu.slot_filling_nlu
+    class: SlotFillingNLU
+        
+#    If you have a Ludwig-trained nlu model, you can do the following:
+#    package: nlu.camrest_nlu
+#    class: camrest_nlu
+#    arguments:
+#      model_path: models/camrest_nlu/usr/model
+
+  MODULE_1:
+    package: plato.agent.component.dialogue_manager.dialogue_manager
+    class: DialogueManager
+    arguments:
+      DST:
+        dst: dummy
+
+      policy:
+        type: wolf_phc
+
+        train: False
+        learning_rate: 0.25
+        exploration_rate: 0.995
+        discount_factor: 0.8
+        learning_decay_rate: 0.995
+        exploration_decay_rate: 0.995
+
+        policy_path: models/policies/user_0/wolf_phc_policy_usr.pkl
+
+  MODULE_2:
+    package: plato.agent.component.nlg.slot_filling_nlg
+    class: SlotFillingNLG
+
+#    If you have a Ludwig-trained nlg model, you can do the following:
+#    package: nlg.camrest_nlg
+#    class: camrest_nlg
+#    arguments:
+#      model_path: models/camrest_nlg/usr/model
+
+
+

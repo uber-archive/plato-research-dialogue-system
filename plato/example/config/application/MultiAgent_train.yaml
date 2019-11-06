@@ -1,0 +1,126 @@
+---
+
+GENERAL:
+  interaction_mode: multi_agent
+  agents: 2
+
+  experience_logs:
+    save: False
+    load: False
+    path: logs/MultiAgent_train
+
+  global_arguments:
+    ontology: example/domains/CamRestaurants-rules.json
+    database: example/domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+
+
+DIALOGUE:
+  num_dialogues: 20000
+  domain: CamRest
+  ontology_path: example/domains/CamRestaurants-rules.json
+  db_path: example/domains/CamRestaurants-dbase.db
+  db_type: sql
+
+
+AGENT_0:
+  role: system
+  save_interval: 5000
+
+  DM:
+    package: plato.agent.component.dialogue_manager.dialogue_manager_generic
+    class: DialogueManagerGeneric
+    arguments:
+      DST:
+        package: plato.agent.component.dialogue_state_tracker.slot_filling_dst
+        class: SlotFillingDST
+
+      policy:
+        package: plato.agent.component.dialogue_policy.reinforcement_learning.wolf_phc_policy
+        class: WoLFPHCPolicy
+        arguments:
+          train: True
+          learning_rate: 0.25
+          exploration_rate: 0.995
+          discount_factor: 0.8
+          learning_decay_rate: 0.995
+          exploration_decay_rate: 0.995
+
+          policy_path: models/policies/sys/wolf_phc_policy_sys.pkl
+
+  NLU:
+    package: plato.agent.component.nlu.slot_filling_nlu
+    class: SlotFillingNLU
+
+#    If you have Ludwig-trained nlu, you can do the following:
+#    nlu: CamRest
+#    model_path: models/camrest_nlu/sys/model
+
+
+#    Remember, you can skip nlg and nlu and let the agents interact via
+#    dialogue Acts
+
+  NLG:
+    package: plato.agent.component.nlg.slot_filling_nlg
+    class: SlotFillingNLG
+
+#    If you have Ludwig-trained nlg, you can do the following:
+#    nlg: CamRest
+#    model_path: models/CamRest_nlg/sys/model
+
+
+#    Remember, you can skip nlg and nlu and let the agents interact via
+#    dialogue Acts
+
+
+AGENT_1:
+  role: user
+
+  DM:
+    package: plato.agent.component.dialogue_manager.dialogue_manager_generic
+    class: DialogueManagerGeneric
+    arguments:
+      DST:
+        package: plato.agent.component.dialogue_state_tracker.slot_filling_dst
+        class: SlotFillingDST
+
+      policy:
+        package: plato.agent.component.dialogue_policy.reinforcement_learning.wolf_phc_policy
+        class: WoLFPHCPolicy
+        arguments:
+          train: True
+          learning_rate: 0.25
+          exploration_rate: 0.995
+          discount_factor: 0.8
+          learning_decay_rate: 0.995
+          exploration_decay_rate: 0.995
+
+          policy_path: models/policies/user_0/wolf_phc_policy_usr.pkl
+
+  NLU:
+    package: plato.agent.component.nlu.slot_filling_nlu
+    class: SlotFillingNLU
+
+#    If you have Ludwig-trained nlu, you can do the following:
+#    nlu: CamRest
+#    model_path: models/camrest_nlu/usr/model
+
+#    Remember, you can skip nlg and nlu and let the agents interact via
+#    dialogue Acts
+
+  NLG:
+    package: plato.agent.component.nlg.slot_filling_nlg
+    class: SlotFillingNLG
+
+#    If you have Ludwig-trained nlg, you can do the following:
+#    nlg: CamRest
+#    model_path: models/camrest_nlg/usr/model
+
+
+#    Remember, you can skip nlg and nlu and let the agents interact via
+#    dialogue Acts
+
+
+
+

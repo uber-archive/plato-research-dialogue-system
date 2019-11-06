@@ -1,0 +1,13 @@
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+
+# Except directories used in the tutorials
+!CamRest_dst/
+!CamRest_nlu/
+!camrest_nlg/
+!camrest_policy/
+!policies/
+!user_simulator/
+!joint_models/

@@ -1,0 +1,28 @@
+---
+
+input_features:
+    -
+        name: transcript
+        type: sequence
+        reduce_output: null
+        encoder: parallel_cnn
+
+output_features:
+    -
+        name: intent
+        type: set
+        reduce_output: null
+
+    -
+        name: iob
+        type: sequence
+        decoder: tagger
+        dependencies: [intent]
+        reduce_output: null
+
+training:
+    epochs: 5
+    early_stop: 50
+    learning_rate: 0.0025
+    dropout: 0.5
+    batch_size: 128

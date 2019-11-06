@@ -1,0 +1,38 @@
+---
+
+input_features:
+    -
+        name: dst_prev_food
+        type: category
+    -
+        name: dst_prev_area
+        type: category
+    -
+        name: dst_prev_pricerange
+        type: category
+    -
+        name: dst_intent
+        type: category
+    -
+        name: dst_slot
+        type: category
+    -
+        name: dst_value
+        type: category
+
+output_features:
+    -
+        name: dst_food
+        type: category
+    -
+        name: dst_area
+        type: category
+    -
+        name: dst_pricerange
+        type: category
+    -
+        name: dst_req_slot
+        type: category
+
+training:
+  epochs: 100

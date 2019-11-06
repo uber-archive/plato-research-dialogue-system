@@ -1,0 +1,68 @@
+---
+
+GENERAL:
+  interaction_mode: simulation
+  agents: 1
+  generic: False
+  runs: 1
+
+  experience_logs:
+    save: False
+    load: False
+    path: logs/CamRest_model_supervised_test
+
+  global_arguments:
+    ontology: example/domains/CamRestaurants-rules.json
+    database: example/domains/CamRestaurants-dbase.db
+    db_type: sql
+    domain: CamRest
+
+DIALOGUE:
+  num_dialogues: 100
+  initiative: system
+  domain: CamRest
+
+AGENT_0:
+  role: system
+
+  NLU:
+    package: plato.agent.component.nlu.slot_filling_nlu
+    class: SlotFillingNLU
+
+  DM:
+    package: plato.agent.component.dialogue_manager.dialogue_manager_generic
+    class: DialogueManagerGeneric
+    arguments:
+      DST:
+        package: plato.agent.component.dialogue_state_tracker.slot_filling_dst
+        class: SlotFillingDST
+
+      policy:
+        package: plato.agent.component.dialogue_policy.deep_learning.supervised_policy
+        class: SupervisedPolicy
+        arguments:
+          train: False
+          learning_rate: 0.9
+          exploration_rate: 0.995
+          discount_factor: 0.95
+          learning_decay_rate: 0.95
+          exploration_decay_rate: 0.995
+
+          policy_path: models/camrest_policy/sys/sys_supervised_data
+
+  NLG:
+    package: plato.agent.component.nlg.slot_filling_nlg
+    class: SlotFillingNLG
+
+  USER_SIMULATOR:
+    package: plato.agent.component.user_simulator.agenda_based_user_simulator.agenda_based_us
+    class: AgendaBasedUS
+    arguments:
+      simulator: agenda
+      patience: 5
+      pop_distribution: [1.0]
+      slot_confuse_prob: 0.0
+      op_confuse_prob: 0.0
+      value_confuse_prob: 0.0
+      nlu: slot_filling
+      nlg: slot_filling

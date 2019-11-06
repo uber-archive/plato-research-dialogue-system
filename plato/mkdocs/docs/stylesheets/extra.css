@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Messapia-bold';
+  src: url('../fonts/messapia-bold.otf'); /* IE9 Compat Modes */
+ }
+
+.footer-logo-smallpad {
+    display: block;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    outline: 0;
+    border: none;
+    width: 70px;
+    height: 21px;
+    background: url("../images/plato_grey.svg") no-repeat center;
+    background-size: 70px 21px;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}

@@ -1,0 +1,49 @@
+# Project information
+site_name: 'Plato RDS'
+site_description: 'Plato Research dialogue System'
+site_author: 'Alexandros Papangelis'
+site_url: 'https://uber-research.github.io/plato-research-dialogue-system/'
+
+# Repository
+repo_name: 'uber-research/plato-research-dialogue-system'
+repo_url: 'https://github.com/uber-research/plato-research-dialogue-system'
+edit_uri: edit/master/mkdocs/docs/
+
+# Copyright
+copyright: 'Copyright &copy; 2019 Uber Technologies Inc.'
+
+# Navigation
+nav:
+  - Home: 'index.md'
+  - About: 'about.md'
+  - Getting Started: 'getting_started.md'
+  #- example: 'examples.md'
+  #- User Guide: 'user_guide.md'
+  #- Developer Guide: 'developer_guide.md'
+#  - API: 'api.md'
+  #- FAQ: 'faq.md'
+
+# Configuration
+site_dir: '../docs/'
+theme:
+  name: 'material'
+  language: 'en'
+  logo: 'images/plato_grey.svg'
+  favicon: 'favicon.ico'
+  custom_dir: 'custom/'
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+
+# Customization
+extra_css:
+  - 'stylesheets/extra.css'
+  - 'stylesheets/manni.css'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+      baselevel: 2
+  - codehilite:
