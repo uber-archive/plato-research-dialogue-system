@@ -3,7 +3,6 @@
 package: plato.utilities.parser.parse_dstc2
 class: Parser
 arguments:
-#  data_path: <path to where the DSTC2 data was unzipped>/data
-  data_path: /Users/alexandrospapangelis/Projects/Data/DSTC2/dstc2_traindev/data
+  data_path: <path to where the DSTC2 data was unzipped>/data
   ontology: plato/example/domains/CamRestaurants-rules.json
   database: plato/example/domains/CamRestaurants-dbase.db

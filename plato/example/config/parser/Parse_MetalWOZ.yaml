@@ -3,5 +3,4 @@
 package: plato.utilities.parser.parse_metal_woz
 class: Parser
 arguments:
-#  data_path: <path to where you downloaded and unzipped MetalWOZ data>/metalwoz-v1/dialogues/ORDER_PIZZA.txt
-  data_path: /Users/alexandrospapangelis/Projects/Data/metalwoz-v1/dialogues/ORDER_PIZZA.txt
+  data_path: <path to where you downloaded and unzipped MetalWOZ data>/metalwoz-v1/dialogues/ORDER_PIZZA.txt
