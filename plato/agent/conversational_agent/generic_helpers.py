@@ -13,7 +13,6 @@ __author__ = "Alexandros Papangelis"
 
 from plato.agent.component.conversational_module import ConversationalModule
 from gtts import gTTS
-from google.cloud import texttospeech
 
 import os
 
@@ -57,16 +56,6 @@ class GenericSpeechSynthesiserHelper(ConversationalModule):
     def __init__(self, args):
         super(GenericSpeechSynthesiserHelper, self).__init__()
 
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = \
-            "/Users/alexandrospapangelis/Projects/GCP_key.json"
-
-        try:
-            # Instantiates a client
-            self.client = texttospeech.TextToSpeechClient()
-
-        except:
-            self.client = None
-
     def initialize(self, args):
         pass
 
@@ -84,49 +73,16 @@ class GenericSpeechSynthesiserHelper(ConversationalModule):
 
         # Synthesise speech
         try:
-            # Set the text input to be synthesized
-            synthesis_input = texttospeech.types.SynthesisInput(
-                text=utterance)
-
-            # Build the voice request, select the language code ("en-US")
-            #  and the ssml voice gender ("neutral")
-            voice = texttospeech.types.VoiceSelectionParams(
-                language_code='en-US',
-                ssml_gender=texttospeech.enums.SsmlVoiceGender.NEUTRAL)
-
-            # Select the type of audio file you want returned
-            audio_config = texttospeech.types.AudioConfig(
-                audio_encoding=texttospeech.enums.AudioEncoding.MP3)
-
-            # Perform the text-to-speech request on the text input with the
-            # selected voice parameters and audio file type
-            response = self.client.synthesize_speech(synthesis_input, voice,
-                                                     audio_config)
-
-            # The response's audio_content is binary.
-            with open('sys_output.mp3', 'wb') as out:
-                # Write the response to the output file.
-                out.write(response.audio_content)
-
+            tts = gTTS(utterance)
+            tts.save('sys_output.mp3')
             os.system('afplay sys_output.mp3')
 
         except Exception as e:
-            try:
-                print(
-                    'WARNING: GCP encountered an error: {0}. '
-                    'Falling back to gTTS.'.format(e)
-                )
-
-                tts = gTTS(utterance)
-                tts.save('sys_output.mp3')
-                os.system('afplay sys_output.mp3')
-
-            except Exception as e:
-                print(
-                    'WARNING: gTTS encountered an error: {0}. '
-                    'Falling back to System TTS.'.format(e)
-                )
-                os.system('say ' + utterance)
+            print(
+                'WARNING: gTTS encountered an error: {0}. '
+                'Falling back to System TTS.'.format(e)
+            )
+            os.system('say ' + utterance)
 
         return utterance
 
