@@ -30,7 +30,7 @@ makes it easier to create and maintain new conversational AI applications and
 all tutorials have been updated to reflect this. Plato now also comes with an
 optional GUI. Enjoy!
 
-#ReadMe Contents
+# ReadMe Contents
 
 * [How does the Plato Research Dialogue System work?](#how-does-the-plato-research-dialogue-system-work)
 * [Installation](#installation)
