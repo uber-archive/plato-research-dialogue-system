@@ -1,6 +1,6 @@
 # Plato Research Dialogue System
 
-This is a v 0.1 release.
+This is a v 0.2 release.
 
 The Plato Research Dialogue System is a flexible framework that can be used to 
 create, train, and evaluate conversational AI agents in various environments. 
@@ -17,10 +17,6 @@ Publication citations:
 Alexandros Papangelis, Yi-Chia Wang, Piero Molino, and Gokhan Tur, 
 “Collaborative Multi-Agent Dialogue Model Training Via Reinforcement Learning”, 
 SIGDIAL 2019
-
-Alexandros Papangelis, Yi-Chia Wang, Mahdi Namazifar, Chandra Khatri, Piero 
-Molino, and Gokhan Tur, "Plato Research Dialogue System: A Flexible 
-Conversational AI Research Platform", ArXiv (to appear)
 
 # How does the Plato Research Dialogue System work?
 Conceptually, a conversational agent needs to go through various steps in order to process information it receives as input (e.g., “What’s the weather like today?”) and produce an appropriate output (“Windy but not too cold.”). The primary steps, which correspond to the main components of a standard architecture (see Figure 1), are: 
@@ -107,7 +103,3 @@ as well as the model’s initialization arguments. All the user needs do is list
 the modules in the order they should be executed and Plato takes care of the 
 rest, including wrapping the input/output, chaining the modules, and handling 
 the dialogues. Plato supports serial and parallel execution of modules.
-
-Plato also provides support for Bayesian optimization of conversational AI 
-architectures or individual module parameters through Bayesian Optimisation of 
-Combinatorial Structures (BOCS). 

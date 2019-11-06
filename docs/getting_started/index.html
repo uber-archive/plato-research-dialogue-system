@@ -95,7 +95,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#quick-start-guide" tabindex="1" class="md-skip">
+      <a href="#installation" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -273,14 +273,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-start-guide" title="Quick Start Guide" class="md-nav__link">
-    Quick Start Guide
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#installation" title="Installation" class="md-nav__link">
     Installation
   </a>
@@ -289,34 +281,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-issues-during-installation" title="Common Issues During Installation:" class="md-nav__link">
-    Common Issues During Installation:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-plato-agents" title="Running Plato Agents" class="md-nav__link">
-    Running Plato Agents
+  <a href="#installing-plato-from-source-code-recommended" title="Installing Plato from source code (Recommended)" class="md-nav__link">
+    Installing Plato from source code (Recommended)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-multiple-plato-agents" title="Running multiple Plato Agents" class="md-nav__link">
-    Running multiple Plato Agents
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-generic-plato-agents" title="Running generic Plato Agents" class="md-nav__link">
-    Running generic Plato Agents
+  <a href="#common-issues-during-installation" title="Common Issues During Installation" class="md-nav__link">
+    Common Issues During Installation
   </a>
   
 </li>
@@ -327,8 +300,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#training-from-data" title="Training from data" class="md-nav__link">
-    Training from data
+  <a href="#running-plato" title="Running Plato" class="md-nav__link">
+    Running Plato
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-conversational-agent-with-plato" title="Building a Conversational Agent with Plato" class="md-nav__link">
+    Building a Conversational Agent with Plato
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domain" title="Domain" class="md-nav__link">
+    Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" title="Controller" class="md-nav__link">
+    Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" title="Agent" class="md-nav__link">
+    Agent
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-based-modules" title="Rule-based modules" class="md-nav__link">
+    Rule-based modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trained-modules" title="Trained modules" class="md-nav__link">
+    Trained modules
   </a>
   
     <nav class="md-nav">
@@ -342,49 +359,182 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#training-with-plato" title="Training with Plato" class="md-nav__link">
-    Training with Plato
+  <a href="#parsing-data-with-plato" title="Parsing data with Plato" class="md-nav__link">
+    Parsing data with Plato
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#training-with-plato-and-ludwig" title="Training with Plato and Ludwig" class="md-nav__link">
-    Training with Plato and Ludwig
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-new-domain" title="Create a new domain" class="md-nav__link">
-    Create a new domain
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-new-component" title="Create a new component" class="md-nav__link">
-    Create a new component
+  <a href="#training-components-of-conversational-agents" title="Training Components of Conversational Agents" class="md-nav__link">
+    Training Components of Conversational Agents
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#inheriting-from-the-abstract-classes" title="Inheriting from the abstract classes" class="md-nav__link">
-    Inheriting from the abstract classes
+  <a href="#train-nlu" title="Train NLU" class="md-nav__link">
+    Train NLU
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-custom-component" title="Creating a custom component" class="md-nav__link">
-    Creating a custom component
+  <a href="#train-dst" title="Train DST" class="md-nav__link">
+    Train DST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-dialogue-policy" title="Train Dialogue Policy" class="md-nav__link">
+    Train Dialogue Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervised-dialogue-policy" title="Supervised Dialogue Policy" class="md-nav__link">
+    Supervised Dialogue Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforce-dialogue-policy" title="Reinforce Dialogue Policy" class="md-nav__link">
+    Reinforce Dialogue Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-nlg" title="Train NLG" class="md-nav__link">
+    Train NLG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-an-end-to-end-conversational-agent-based-on-seq2seq" title="Train an end-to-end conversational agent based on Seq2Seq" class="md-nav__link">
+    Train an end-to-end conversational agent based on Seq2Seq
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-write-a-metalwoz-data-parser-that-reads-the-data-and-procudes-csv-files" title="1. Write a MetalWOZ data parser that reads the data and procudes CSV files" class="md-nav__link">
+    1. Write a MetalWOZ data parser that reads the data and procudes CSV files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-write-a-config-for-plato-parse" title="2. Write a config for plato parse" class="md-nav__link">
+    2. Write a config for plato parse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-train-an-end-to-end-model" title="3. Train an end-to-end model" class="md-nav__link">
+    3. Train an end-to-end model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-write-a-class-inheriting-from-conversational-module-that-loads-and-queries-the-model" title="4. Write a class inheriting from Conversational Module that loads and queries the model" class="md-nav__link">
+    4. Write a class inheriting from Conversational Module that loads and queries the model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-write-a-plato-generic-yaml-config-and-run-your-agent" title="5. Write a Plato generic yaml config and run your agent!" class="md-nav__link">
+    5. Write a Plato generic yaml config and run your agent!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-multiple-conversational-agents-simultaneously" title="Training Multiple Conversational Agents Simultaneously" class="md-nav__link">
+    Training Multiple Conversational Agents Simultaneously
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-simulators" title="User Simulators" class="md-nav__link">
+    User Simulators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agenda-based-user-simulator" title="Agenda-Based User Simulator" class="md-nav__link">
+    Agenda-Based User Simulator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dialogue-act-to-language-user-simulator" title="Dialogue Act to Language User Simulator" class="md-nav__link">
+    Dialogue Act to Language User Simulator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-module" title="Create a new module" class="md-nav__link">
+    Create a new module
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-new-states-actions-learning-algorithms-and-more" title="Create new States, Actions, Learning Algorithms, and more" class="md-nav__link">
+    Create new States, Actions, Learning Algorithms, and more
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphical-user-interface" title="Graphical User Interface" class="md-nav__link">
+    Graphical User Interface
   </a>
   
 </li>
@@ -395,22 +545,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bayesian-optimisation-in-plato" title="Bayesian Optimisation in Plato" class="md-nav__link">
-    Bayesian Optimisation in Plato
+  <a href="#upcoming-tutorials" title="Upcoming Tutorials" class="md-nav__link">
+    Upcoming Tutorials
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#acknowledgements" title="Acknowledgements" class="md-nav__link">
-    Acknowledgements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" title="Conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#upcoming-features" title="Upcoming Features" class="md-nav__link">
+    Upcoming Features
   </a>
   
 </li>
@@ -445,14 +588,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-start-guide" title="Quick Start Guide" class="md-nav__link">
-    Quick Start Guide
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#installation" title="Installation" class="md-nav__link">
     Installation
   </a>
@@ -461,34 +596,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-issues-during-installation" title="Common Issues During Installation:" class="md-nav__link">
-    Common Issues During Installation:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-plato-agents" title="Running Plato Agents" class="md-nav__link">
-    Running Plato Agents
+  <a href="#installing-plato-from-source-code-recommended" title="Installing Plato from source code (Recommended)" class="md-nav__link">
+    Installing Plato from source code (Recommended)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-multiple-plato-agents" title="Running multiple Plato Agents" class="md-nav__link">
-    Running multiple Plato Agents
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-generic-plato-agents" title="Running generic Plato Agents" class="md-nav__link">
-    Running generic Plato Agents
+  <a href="#common-issues-during-installation" title="Common Issues During Installation" class="md-nav__link">
+    Common Issues During Installation
   </a>
   
 </li>
@@ -499,8 +615,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#training-from-data" title="Training from data" class="md-nav__link">
-    Training from data
+  <a href="#running-plato" title="Running Plato" class="md-nav__link">
+    Running Plato
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-conversational-agent-with-plato" title="Building a Conversational Agent with Plato" class="md-nav__link">
+    Building a Conversational Agent with Plato
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domain" title="Domain" class="md-nav__link">
+    Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" title="Controller" class="md-nav__link">
+    Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" title="Agent" class="md-nav__link">
+    Agent
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-based-modules" title="Rule-based modules" class="md-nav__link">
+    Rule-based modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trained-modules" title="Trained modules" class="md-nav__link">
+    Trained modules
   </a>
   
     <nav class="md-nav">
@@ -514,49 +674,182 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#training-with-plato" title="Training with Plato" class="md-nav__link">
-    Training with Plato
+  <a href="#parsing-data-with-plato" title="Parsing data with Plato" class="md-nav__link">
+    Parsing data with Plato
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#training-with-plato-and-ludwig" title="Training with Plato and Ludwig" class="md-nav__link">
-    Training with Plato and Ludwig
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-new-domain" title="Create a new domain" class="md-nav__link">
-    Create a new domain
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-new-component" title="Create a new component" class="md-nav__link">
-    Create a new component
+  <a href="#training-components-of-conversational-agents" title="Training Components of Conversational Agents" class="md-nav__link">
+    Training Components of Conversational Agents
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#inheriting-from-the-abstract-classes" title="Inheriting from the abstract classes" class="md-nav__link">
-    Inheriting from the abstract classes
+  <a href="#train-nlu" title="Train NLU" class="md-nav__link">
+    Train NLU
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-custom-component" title="Creating a custom component" class="md-nav__link">
-    Creating a custom component
+  <a href="#train-dst" title="Train DST" class="md-nav__link">
+    Train DST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-dialogue-policy" title="Train Dialogue Policy" class="md-nav__link">
+    Train Dialogue Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervised-dialogue-policy" title="Supervised Dialogue Policy" class="md-nav__link">
+    Supervised Dialogue Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforce-dialogue-policy" title="Reinforce Dialogue Policy" class="md-nav__link">
+    Reinforce Dialogue Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-nlg" title="Train NLG" class="md-nav__link">
+    Train NLG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-an-end-to-end-conversational-agent-based-on-seq2seq" title="Train an end-to-end conversational agent based on Seq2Seq" class="md-nav__link">
+    Train an end-to-end conversational agent based on Seq2Seq
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-write-a-metalwoz-data-parser-that-reads-the-data-and-procudes-csv-files" title="1. Write a MetalWOZ data parser that reads the data and procudes CSV files" class="md-nav__link">
+    1. Write a MetalWOZ data parser that reads the data and procudes CSV files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-write-a-config-for-plato-parse" title="2. Write a config for plato parse" class="md-nav__link">
+    2. Write a config for plato parse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-train-an-end-to-end-model" title="3. Train an end-to-end model" class="md-nav__link">
+    3. Train an end-to-end model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-write-a-class-inheriting-from-conversational-module-that-loads-and-queries-the-model" title="4. Write a class inheriting from Conversational Module that loads and queries the model" class="md-nav__link">
+    4. Write a class inheriting from Conversational Module that loads and queries the model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-write-a-plato-generic-yaml-config-and-run-your-agent" title="5. Write a Plato generic yaml config and run your agent!" class="md-nav__link">
+    5. Write a Plato generic yaml config and run your agent!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-multiple-conversational-agents-simultaneously" title="Training Multiple Conversational Agents Simultaneously" class="md-nav__link">
+    Training Multiple Conversational Agents Simultaneously
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-simulators" title="User Simulators" class="md-nav__link">
+    User Simulators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agenda-based-user-simulator" title="Agenda-Based User Simulator" class="md-nav__link">
+    Agenda-Based User Simulator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dialogue-act-to-language-user-simulator" title="Dialogue Act to Language User Simulator" class="md-nav__link">
+    Dialogue Act to Language User Simulator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-module" title="Create a new module" class="md-nav__link">
+    Create a new module
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-new-states-actions-learning-algorithms-and-more" title="Create new States, Actions, Learning Algorithms, and more" class="md-nav__link">
+    Create new States, Actions, Learning Algorithms, and more
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphical-user-interface" title="Graphical User Interface" class="md-nav__link">
+    Graphical User Interface
   </a>
   
 </li>
@@ -567,22 +860,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bayesian-optimisation-in-plato" title="Bayesian Optimisation in Plato" class="md-nav__link">
-    Bayesian Optimisation in Plato
+  <a href="#upcoming-tutorials" title="Upcoming Tutorials" class="md-nav__link">
+    Upcoming Tutorials
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#acknowledgements" title="Acknowledgements" class="md-nav__link">
-    Acknowledgements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" title="Conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#upcoming-features" title="Upcoming Features" class="md-nav__link">
+    Upcoming Features
   </a>
   
 </li>
@@ -608,133 +894,234 @@
                 
                   <h1>Getting Started</h1>
                 
-                <h2 id="quick-start-guide">Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">&para;</a></h2>
-<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+                <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>First make sure you have python version 3.6 or higher installed on your machine. Next
+you need to clone the Plato repository:</p>
+<div class="codehilite"><pre><span></span>git clone git@github.com:uber-research/plato-research-dialogue-system.git
+</pre></div>
+
+
+<p>Next you need to install some pre-requisites:</p>
+<ul>
+<li>
+<p>For MacOS:
+    <code>brew install portaudio
+    brew install gmp 
+    pip install pyaudio</code></p>
+</li>
+<li>
+<p>For Ubuntu/Debian:
+    <code>sudo apt-get install python3-pyaudio</code></p>
+</li>
+<li>
+<p>For Windows: Nothing is needed to be pre-installed</p>
+</li>
+</ul>
+<p>Next step is installing Plato. To install Plato you should directly install it from 
+source code.</p>
+<h3 id="installing-plato-from-source-code-recommended">Installing Plato from source code (Recommended)<a class="headerlink" href="#installing-plato-from-source-code-recommended" title="Permanent link">&para;</a></h3>
+<p>Installing Plato from source code allows installation in editable mode which means that
+if you make changes to the source code, it will directly effect execution. </p>
 <ol>
 <li>
-<p>Clone this repository:</p>
-<p><code>git clone git@github.com:uber-research/plato-research-dialogue-system.git</code></p>
+<p>Navigate to the directory of Plato (where you cloned the plato repository in the previous
+step).</p>
 </li>
 <li>
-<p>Install the requirements:</p>
-<p>For MacOS:</p>
-<p><code>brew install portaudio
-pip install -r requirements.txt</code></p>
-<p>For Ubuntu/Debian:</p>
-<p><code>sudo apt-get install python3-pyaudio
-pip install -r requirements.txt</code></p>
-<p>For Windows:</p>
-<p><code>pip install -r requirements.txt</code></p>
+<p>We recommend to create a new python environment. To set up the new python environment:</p>
 </li>
-<li>
-<p>Run Plato! </p>
-<p>See below for a quick introduction to the configuration files and how to 
-run your first Plato agent.</p>
-</li>
+</ol>
+<p>2.1 install virtualenv
+   <code>sudo pip install virtualenv</code>   </p>
+<p>2.2 create a new python environment:
+   <code>python3 -m venv &lt;/path/to/new/virtual/environment&gt;</code></p>
+<p>2.3 activate the new python environment:
+   <code>source &lt;/path/to/new/virtual/environment/bin&gt;/bin/activate</code></p>
+<ol>
+<li>Install Plato:
+    <code>pip install -e .</code></li>
 </ol>
 <p>To support speech it is necessary to install <a href="https://pypi.org/project/PyAudio/">PyAudio</a>, 
 which has a number of dependencies that might not exist on a developer's 
 machine. If the steps above are unsuccessful, this <a href="https://stackoverflow.com/questions/5921947/pyaudio-installation-error-command-gcc-failed-with-exit-status-1">post</a> 
 on a PyAudio installation error includes instructions on how to get these 
 dependencies and install PyAudio. </p>
-<h5 id="common-issues-during-installation">Common Issues During Installation:<a class="headerlink" href="#common-issues-during-installation" title="Permanent link">&para;</a></h5>
-<p>"CommonIssues.md" file contains common issues and their resolution that a user 
+<h3 id="common-issues-during-installation">Common Issues During Installation<a class="headerlink" href="#common-issues-during-installation" title="Permanent link">&para;</a></h3>
+<p><code>CommonIssues.md</code> file contains common issues and their resolution that a user 
 might encounter while installation.</p>
-<h3 id="running-plato-agents">Running Plato Agents<a class="headerlink" href="#running-plato-agents" title="Permanent link">&para;</a></h3>
-<p>Plato uses a Controller class to orchestrate the conversation between the
+<h2 id="running-plato">Running Plato<a class="headerlink" href="#running-plato" title="Permanent link">&para;</a></h2>
+<p>To run Plato after installation, you can simply run the <code>plato</code> command in the terminal.
+The <code>plato</code> command receives 4 sub-commands:
+* <code>run</code>
+* <code>gui</code>
+* <code>domain</code>
+* <code>parse</code></p>
+<p>Each of these sub-commands receives a value for the <code>--config</code> argument that points to
+a configuration file. We will describe these configuration files in detail later in the 
+document but remember that <code>plato run --config</code> and <code>plato gui --config</code> receive
+ an application configuration file 
+(examples could be found here: <code>plato/example/config/application/</code>),
+<code>plato domain --config</code> receives a domain configuration (examples could be found here: 
+<code>plato/example/config/domain/</code>), and <code>plato parse --config</code> receives a parser configuration
+file (examples could be found here: <code>plato/example/config/parser/</code>).</p>
+<p>For the value that is passed to <code>--config</code> Plato first checks to see if the value 
+is the address of a file on the machine. If it is, then Plato tries to parse that file. 
+If it is not, Plato checks to see if the value is a name of a file within the 
+<code>plato/example/config/&lt;application, domain, or parser&gt;</code> directory. </p>
+<p>For some quick examples, try the following configuration files for the Cambridge
+Restaurants domain:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_user_simulator.yaml
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>plato run --config CamRest_text.yaml
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>plato run --config CamRest_speech.yaml
+</pre></div>
+
+
+<h2 id="building-a-conversational-agent-with-plato">Building a Conversational Agent with Plato<a class="headerlink" href="#building-a-conversational-agent-with-plato" title="Permanent link">&para;</a></h2>
+<p>An application, i.e. conversational system, in Plato contains three major parts:</p>
+<ul>
+<li>Domain</li>
+<li>Controller</li>
+<li>Agent</li>
+</ul>
+<p>These parts are declared in an application configuration file. Examples of 
+such configuration files could be found at <code>plato/example/config/application/</code>
+In the rest of this section we describe each of these parts in details.</p>
+<h3 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h3>
+<p>For implementing a task-oriented dialog system in Plato the user needs to specify two
+components that constitute the <em>domain</em> of the dialog system:
+* Ontology 
+* Database</p>
+<p>Plato provides a command for automating this process of building the ontology and database.
+Let's say for example that you want to build a conversational agent for a 
+flower shop, and you have the following items in a .csv (this file could be found at
+<code>plato/example/data/flowershop.csv</code>):</p>
+<div class="codehilite"><pre><span></span>id,type,color,price,occasion
+1,rose,red,cheap,any
+2,rose,white,cheap,anniversary
+3,rose,yellow,cheap,celebration
+4,lilly,white,moderate,any
+5,orchid,pink,expensive,any
+6,dahlia,blue,expensive,any
+</pre></div>
+
+
+<p>To automatically generate a .db SQL file 
+and a .json Ontology file you need to create a domain configuration file within which 
+you should specify the path to the csv file, output paths, as well as informable, 
+requestable, and system-requestable slots:
+(e.g. <code>plato/example/config/domain/create_flowershop_domain.yaml</code>):</p>
+<div class="codehilite"><pre><span></span><span class="n">GENERAL</span><span class="o">:</span>
+  <span class="n">csv_file_name</span><span class="o">:</span> <span class="n">plato</span><span class="sr">/example/data/</span><span class="n">flowershop</span><span class="o">.</span><span class="na">csv</span>
+  <span class="n">db_table_name</span><span class="o">:</span> <span class="n">flowershop</span>
+  <span class="n">db_file_path</span><span class="o">:</span> <span class="n">plato</span><span class="sr">/example/domains/</span><span class="n">flowershop</span><span class="o">-</span><span class="n">dbase</span><span class="o">.</span><span class="na">db</span>
+  <span class="n">ontology_file_path</span><span class="o">:</span> <span class="n">plato</span><span class="sr">/example/domains/</span><span class="n">flowershop</span><span class="o">-</span><span class="n">rules</span><span class="o">.</span><span class="na">json</span>
+
+<span class="n">ONTOLOGY</span><span class="o">:</span>  <span class="err">#</span> <span class="n">Optional</span>
+  <span class="n">informable_slots</span><span class="o">:</span> <span class="o">[</span><span class="n">type</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">occasion</span><span class="o">]</span>
+
+  <span class="n">requestable_slots</span><span class="o">:</span> <span class="o">[</span><span class="n">price</span><span class="o">,</span> <span class="n">color</span><span class="o">]</span>
+
+  <span class="n">System_requestable_slots</span><span class="o">:</span> <span class="o">[</span><span class="n">type</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">occasion</span><span class="o">]</span>
+</pre></div>
+
+
+<p>and run the command:</p>
+<div class="codehilite"><pre><span></span>plato domain --config create_flowershop_domain.yaml
+</pre></div>
+
+
+<p>If all went well, you should have a <code>flowershop.json</code> and a 
+<code>flowershop.db</code> in the <code>plato/example/domains/</code> directory.</p>
+<p>If you receive this error:</p>
+<div class="codehilite"><pre><span></span>sqlite3.IntegrityError: UNIQUE constraint failed: flowershop.id
+</pre></div>
+
+
+<p>it means that the .db file has already been created.</p>
+<p>You can now simply run Plato's dummy components as a sanity check and talk to
+your flower shop agent:</p>
+<div class="codehilite"><pre><span></span>plato run --config flowershop_text.yaml
+</pre></div>
+
+
+<h3 id="controller">Controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h3>
+<p>Controllers are objects that orchestrate the conversation between the
 agents. The Controller will instantiate the agents, initialize them for each
 dialogue, pass input and output appropriately, and keep track of statistics.</p>
-<!---! ![PlatoRDS-Controller](Resources/PlatoRDS-Controller.png) --->
-
+<p><img alt="PlatoRDS-Controller" src="../../plato/resources/PlatoRDS-Controller.png" /></p>
+<p>Running the command <code>plato run</code> runs Plato's basic controller 
+(<code>plato/controller/basic_controller.py</code>). This command receives a value for the <code>--config</code>
+argument which points to a Plato application configuration file.</p>
 <p>To run a Plato conversational agent, the user must run the following command 
-with the appropriate configuration file (see Examples/simulate_agenda.yaml for 
-an example configuration file which contains a number of settings on the 
-environment and the agent(s) to be created as well as their components):</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config PATH_TO_CONFIG_FILE.yaml
+with the appropriate configuration file: </p>
+<div class="codehilite"><pre><span></span>plato run --config &lt;FULL PATH TO CONFIG YAML FILE&gt;
 </pre></div>
 
 
-<p>Some examples are listed below.</p>
-<p>To run a simulation using the agenda based user simulator in the Cambridge 
-Restaurants domain:</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config Examples/config/simulate_agenda.yaml
+<p>Please refer to <code>plato/example/config/application/</code> for example configuration files which contain 
+settings on the environment and the agent(s) to be created as well as their components. 
+The examples in <code>plato/example/config/application/</code> could be run directly using just the name of 
+the example YAML file: </p>
+<div class="codehilite"><pre><span></span>plato run --config &lt;NAME OF A FILE FROM plato/example/config/application/&gt;
 </pre></div>
 
 
-<p>To run a text based interaction using the agenda based simulator in the 
-Cambridge Restaurants domain:</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config Examples/config/simulate_text.yaml
+<p>Alternatively a user could write their own config file and run Plato by passing the
+full path to their config file to <code>--config</code>:</p>
+<div class="codehilite"><pre><span></span>plato run --config &lt;FULL PATH TO CONFIG YAML FILE&gt;
 </pre></div>
 
 
-<p>To run a speech based interaction using the agenda based simulator in the 
-Cambridge Restaurants domain:</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config Examples/config/simulate_speech.yaml
-</pre></div>
-
-
-<h3 id="running-multiple-plato-agents">Running multiple Plato Agents<a class="headerlink" href="#running-multiple-plato-agents" title="Permanent link">&para;</a></h3>
-<p>One of Plato's main features allows two agents to interact with each other. 
-Each agent can have a different role (for instance, system and user), different 
-objectives, and receive different reward signals. If the agents are 
-cooperating, some of these can be shared (e.g., what constitutes a successful 
-dialogue). (In the future, we plan to build support for Plato to enable 
-interaction between more than two agents at a time.) </p>
-<p>For example, to run multiple Plato agents on the benchmark Cambridge 
-Restaurants domain, we run the following commands to train the agents’ 
-dialogue policies and test them:</p>
-<ul>
-<li>
-<p>Training phase</p>
-<p><code>python runPlatoRDS.py -config Examples/config/CamRest_MA_train.yaml</code></p>
-</li>
-<li>
-<p>Testing phase</p>
-<p><code>python runPlatoRDS.py -config Examples/config/CamRest_MA_test.yaml</code></p>
-</li>
-</ul>
-<h3 id="running-generic-plato-agents">Running generic Plato Agents<a class="headerlink" href="#running-generic-plato-agents" title="Permanent link">&para;</a></h3>
-<p>Most of the discussion and examples in this guide revolve around the 
-traditional conversational agent architecture. Plato, however, does not need to 
-adhere to that pipeline; its generic agents support any range of custom 
-modules, from splitting natural language understanding into many components to 
-having multiple components running in parallel to having just a single 
-text-to-text model. </p>
-<p>Generic agents allow users to load their custom modules as Python class 
-objects. For each module listed in the configuration file, Plato will 
-instantiate the class using the given path and arguments. Then, during each 
-dialogue turn, the generic agent will sequentially call each module (in the 
-order provided in its configuration file) and will pass the output of the 
-current module to the next module in the list. The generic agent will return 
-the last module’s output. </p>
-<p>the following are two examples of running a single Plato agent or multiple 
-Plato agents in the generic module mode:</p>
-<ul>
-<li>
-<p>Single generic agent, used to implement custom architectures or to use 
-existing, pre-trained statistical models:</p>
-<p><code>python runPlatoRDS.py -config Examples/config/simulate_agenda_generic.yaml</code></p>
-</li>
-<li>
-<p>Multiple generic agents, same as above but for multiple agents (assuming you 
-have trained dialogue policies using Examples/config/CamRest_MA_train.yaml):</p>
-<p><code>python runPlatoRDS.py -config Examples/config/MultiAgent_test_generic.yaml</code></p>
-</li>
-</ul>
-<h2 id="training-from-data">Training from data<a class="headerlink" href="#training-from-data" title="Permanent link">&para;</a></h2>
-<p>Plato supports the training of agents’ internal components in an online 
+<p>For the value that is passed to <code>--config</code> plato first checks to see if the value 
+is the address of a file on the machine. If it is, the Plato tries to parse that file. 
+If it is not, Plato checks to see if the value is a name of a file within the 
+<code>plato/example/config/application</code> directory. </p>
+<h3 id="agent">Agent<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
+<p>Each conversational AI application in Plato could have one or more agents. Each agent 
+has a role (system, user, ...) and a set of standard dialog system components
+(Figure 1), namely NLU, dialogue manager, dialogue state tracker, policy, 
+ NLG, and user simulator. </p>
+<p>An agent could have one explicit module for each one of these components. 
+Alternatively, some of these components could be combined into one or more modules 
+(e.g. joint / end-to-end agents) that can run sequentially or in parallel (Figure 4). 
+Plato's components are defined in <code>plato.agent.component</code> and all inherit from 
+<code>plato.agent.component.conversational_module</code></p>
+<p><img alt="PlatoRDS-AgentComponents" src="plato/resources/PlatoRDS-AgentComponents.png" />
+<em>Figure 5. Components of Plato agents</em></p>
+<p>Note that any new implementations or custom modules should inherit from 
+<code>plato.agent.component.conversational_module</code>.</p>
+<p>Each one of these modules could be either rule-based or trained. In the 
+following subsections we will describe how to build rule-based and trained 
+modules for agents.</p>
+<h4 id="rule-based-modules">Rule-based modules<a class="headerlink" href="#rule-based-modules" title="Permanent link">&para;</a></h4>
+<p>Plato provides rule-based versions of all components of a Slot-Filling 
+conversational agent (slot_filling_nlu, slot_filling_dst, slot_filling_policy,
+slot_filling_nlg, and the default version of agenda_based_us). These can be 
+used for quick prototyping, baselines, or sanity checks. 
+Specifically, all of these components follow rules or patterns conditioned
+on the given ontology and sometimes on the given database and should be treated
+ as the most basic version of what each component should do.</p>
+<h4 id="trained-modules">Trained modules<a class="headerlink" href="#trained-modules" title="Permanent link">&para;</a></h4>
+<p>Plato supports training of agents’ components modules in an online 
 (during the interaction) or offline (from data) manner, using any deep learning 
 framework. Virtually any model can be loaded into Plato as long as Plato’s 
-interface Input/Output is respected; for example, if a model is a custom NLU 
-it simply needs to inherit from Plato's NLU abstract class, implement the 
-necessary functions and pack/unpack the data into and out of the custom model.</p>
-<h3 id="plato-internal-experience">Plato internal experience<a class="headerlink" href="#plato-internal-experience" title="Permanent link">&para;</a></h3>
+interface Input/Output is respected. For example, if a model is a custom NLU 
+module it simply needs to inherit from Plato's NLU abstract class 
+(<code>plato.agent.component.nlu</code>) and implement the necessary abstract methods. </p>
+<h5 id="plato-internal-experience">Plato internal experience<a class="headerlink" href="#plato-internal-experience" title="Permanent link">&para;</a></h5>
 <p>To facilitate online learning, debugging, and evaluation, Plato keeps track of 
-its internal experience in a structure called the Dialogue Episode Recorder, 
+its internal experience in a structure called the Dialogue Episode Recorder,
+(<code>plato.utilities.dialogue_episode_recorder</code>) 
 which contains information about previous dialogue states, actions taken, 
 current dialogue states, utterances received and utterances produced, rewards 
 received, and a few other structs including a custom field that can be used to 
-track anything else that cannot be contained by the aforementioned categories</p>
+track anything else that cannot be contained by the aforementioned categories.</p>
 <p>At the end of a dialogue or at specified intervals, each conversational agent 
 will call the train() function of each of its internal components, passing the 
 dialogue experience as training data. Each component then picks the parts it 
@@ -744,52 +1131,457 @@ data, such as DSTC2 data, should be parsed into this Plato experience so that
 they may be loaded and used by the corresponding component under training.</p>
 <p>Alternatively, users may parse the data and train their models outside of Plato 
 and simply load the trained model when they want to use it for a Plato agent.</p>
-<h3 id="training-with-plato">Training with Plato<a class="headerlink" href="#training-with-plato" title="Permanent link">&para;</a></h3>
-<p>Training online is as easy as flipping the 'Train' flags to 'True' in the 
+<h5 id="parsing-data-with-plato">Parsing data with Plato<a class="headerlink" href="#parsing-data-with-plato" title="Permanent link">&para;</a></h5>
+<p>Training online is as easy as flipping the 'train' flags to 'True' in the 
 configuration for each component users wish to train. </p>
 <p>To train from data, users simply need to load the experience they parsed from 
-their dataset. As an example of offline training in Plato, we will use the 
-DSTC2 dataset, which can be obtained from the 2nd Dialogue State Tracking 
-Challenge website:</p>
+their dataset. Plato provides example 
+parsers for <a href="http://camdial.org/~mh521/dstc/">DSTC2</a> and 
+<a href="https://www.microsoft.com/en-us/research/project/metalwoz/">MetaLWOZ</a> datasets. As an 
+example of how to use these parsers for offline training in Plato, we will 
+use the  DSTC2 dataset, which can be obtained from the 2nd Dialogue State 
+Tracking Challenge website:</p>
 <div class="codehilite"><pre><span></span>http://camdial.org/~mh521/dstc/downloads/dstc2_traindev.tar.gz
 </pre></div>
 
 
-<p>Once the download is complete, you need to unzip the file.</p>
-<p>The <code>runDSTC2DataParser.py</code> script will parse the DSTC2 data for you, and save it
-as Plato experience. It will then load that experience and train a Supervised
-Policy:</p>
-<div class="codehilite"><pre><span></span>python runDSTC2DataParser.py -data_path &lt;PATH_TO_DSTC2_DATA&gt;/dstc2_traindev/data/
+<p>Once the download is complete, you need to unzip the file. A config file for
+parsing this dataset is provided at <code>plato/example/config/parser/Parse_DSTC2.yaml</code>.
+You can parse the data that you downloaded by first editing 
+the value of <code>data_path</code> in <code>plato/example/config/parser/Parse_DSTC2.yaml</code> to
+point to the path to where you downloaded and unzipped the DSTC2 data. Next
+you can run the parse script as follows:</p>
+<div class="codehilite"><pre><span></span>plato parse --config Parse_DSTC2.yaml
 </pre></div>
 
 
-<p>You can test using the following configuration:</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config Examples/config/simulate_agenda_supervised.yaml
+<p>Alternatively you could write your own config file and pass the absolute address
+to that file to the command:</p>
+<div class="codehilite"><pre><span></span>plato parse --config &lt;absolute pass to parse config file&gt;
 </pre></div>
 
 
-<p>Note that you may load your experience into Plato and then keep training your
-model with Reinforcement Learning or other learning methods. </p>
-<p>While each component has its own training parameters (e.g. learning rate), the 
-Conversational Agent defines the meta-parameters of training such as:
-- length of the experience
-- length of the minibatch 
-- training interval (train after that many dialogues)
-- how many epochs to train for at each training interval</p>
-<h3 id="training-with-plato-and-ludwig">Training with Plato and Ludwig<a class="headerlink" href="#training-with-plato-and-ludwig" title="Permanent link">&para;</a></h3>
+<p>Running this command will run the parsing script for DSTC2 
+(which lives under <code>plato/utilities/parser/parse_dstc2.py</code>) and
+will create the training data for dialog state tracker,
+NLU, and NLG for both user and system under the <code>data</code> directory at the root 
+directory of this repository. Now this parsed data could be used to train
+models for different components of Plato.</p>
+<h5 id="training-components-of-conversational-agents">Training Components of Conversational Agents<a class="headerlink" href="#training-components-of-conversational-agents" title="Permanent link">&para;</a></h5>
+<p>There are multiple ways to train each component of a Plato agent: online (as
+the agent interacts with other agents, simulators, or users) or offline. Moreover,
+you can use algorithms implemented in Plato or you can use external frameworks
+such as TensorFlow, PyTorch, Keras, Ludwig, etc. </p>
 <p><a href="https://uber.github.io/ludwig/">Ludwig</a> is an open source deep 
 learning framework that allows you to train models without writing any code. 
-You only need to parse your data into .csv files, create a ludwig config 
+You only need to parse your data into <code>.csv</code> files, create a ludwig config 
 (in YAML), that describes the architecture you want, which features to use from 
 the .csv and other parameters and then simply run a command in a terminal.</p>
 <p>Ludwig also provides an API, that Plato is compatible with. This allows Plato
-to integrate with Ludwig models, i.e. load / save the models, train and query
+to integrate with Ludwig models, i.e. load or save the models, train and query
 them. </p>
-<p>In the previous section, the <code>runDSTC2DataParser.py</code> actually generated 
-some .csv files as well that can be used to train NLU and NLG. If all went well, 
-you can find them here: <code>Data/data/</code>. Now, you need to write a 
-configuration file that looks like this:</p>
+<h6 id="train-nlu">Train NLU<a class="headerlink" href="#train-nlu" title="Permanent link">&para;</a></h6>
+<p>In the previous section, the DSTC2 parser of Plato generated 
+some <code>.csv</code> files that can be used to train NLU and NLG. There is one NLU
+<code>.csv</code> file for the system (<code>data/DSTC2_NLU_sys.csv</code>) and one for 
+the user (<code>data/DSTC2_NLU_usr.csv</code>). These look like this:</p>
+<table>
+<thead>
+<tr>
+<th>transcript</th>
+<th>intent</th>
+<th>iob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expensive restaurant that serves vegetarian food</td>
+<td>inform</td>
+<td>B-inform-pricerange O O O B-inform-food O</td>
+</tr>
+<tr>
+<td>vegetarian food</td>
+<td>inform</td>
+<td>B-inform-food O</td>
+</tr>
+<tr>
+<td>asian oriental type of food</td>
+<td>inform</td>
+<td>B-inform-food I-inform-food O O O</td>
+</tr>
+<tr>
+<td>expensive restaurant asian food</td>
+<td>inform</td>
+<td>B-inform-pricerange O O</td>
+</tr>
+</tbody>
+</table>
+<p>For training a NLU model you need to write a configuration file that looks like this:</p>
 <div class="codehilite"><pre><span></span>input_features:
+    -
+        name: transcript
+        type: sequence
+        reduce_output: null
+        encoder: parallel_cnn
+
+output_features:
+    -
+        name: intent
+        type: set
+        reduce_output: null
+
+    -
+        name: iob
+        type: sequence
+        decoder: tagger
+        dependencies: [intent]
+        reduce_output: null
+
+training:
+    epochs: 100
+    early_stop: 50
+    learning_rate: 0.0025
+    dropout: 0.5
+    batch_size: 128
+</pre></div>
+
+
+<p>An example of this config file exists in 
+<code>plato/example/config/ludwig/ludwig_nlu_train.yaml</code>. The training job could be started
+by running:</p>
+<div class="codehilite"><pre><span></span>ludwig experiment \
+       --model_definition_file plato/example/config/ludwig/ludwig_nlu_train.yaml \
+       --data_csv data/DSTC2_NLU_sys.csv \
+       --output_directory models/camrest_nlu/sys/
+</pre></div>
+
+
+<p>The next step is to load the model in an application config. In 
+<code>plato/example/config/application/CamRest_model_nlu.yaml</code> we provide an
+application config that has a model based NLU and the other components are
+non-ML-based. By updating the path to the mode (<code>model_path</code>) to the value 
+that you provided to the <code>--output_directory</code> argument when you ran ludwig,
+you can specify the NLU model that the agent needs to use for NLU: </p>
+<div class="codehilite"><pre><span></span>...
+
+MODULE_0:
+    package: applications.cambridge_restaurants.camrest_nlu
+      class: CamRestNLU
+      arguments:
+        model_path: &lt;PATH_TO_YOUR_MODEL&gt;/model
+
+...
+</pre></div>
+
+
+<p>and test that the model works:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_nlu.yaml
+</pre></div>
+
+
+<h6 id="train-dst">Train DST<a class="headerlink" href="#train-dst" title="Permanent link">&para;</a></h6>
+<p>The DSTC2 Data Parser generated two <code>.csv</code> files we can use for DST: 
+<code>DST_sys.csv</code> and <code>DST_usr.csv</code> which look like this:</p>
+<table>
+<thead>
+<tr>
+<th>dst_prev_food</th>
+<th>dst_prev_area</th>
+<th>dst_prev_pricerange</th>
+<th>dst_intent</th>
+<th>dst_slot</th>
+<th>dst_value</th>
+<th>dst_food</th>
+<th>dst_area</th>
+<th>dst_pricerange</th>
+<th>dst_req_slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>inform</td>
+<td>food</td>
+<td>vegetarian</td>
+<td>vegetarian</td>
+<td>none</td>
+<td>expensive</td>
+<td>none</td>
+</tr>
+<tr>
+<td>vegetarian</td>
+<td>none</td>
+<td>expensive</td>
+<td>inform</td>
+<td>food</td>
+<td>vegetarian</td>
+<td>vegetarian</td>
+<td>none</td>
+<td>expensive</td>
+<td>none</td>
+</tr>
+<tr>
+<td>vegetarian</td>
+<td>none</td>
+<td>expensive</td>
+<td>inform</td>
+<td>food</td>
+<td>asian oriental</td>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>none</td>
+</tr>
+<tr>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>inform</td>
+<td>food</td>
+<td>asian oriental</td>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>none</td>
+</tr>
+<tr>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>request</td>
+<td>phone</td>
+<td>none</td>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>phone</td>
+</tr>
+<tr>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>request</td>
+<td>area</td>
+<td>none</td>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>area</td>
+</tr>
+<tr>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>thankyou</td>
+<td>none</td>
+<td>none</td>
+<td>asian oriental</td>
+<td>none</td>
+<td>expensive</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<p>Essentially, the parser keeps track of the previous dialogue state, the input
+from NLU, and the resulting dialogue state. We can then feed this into Ludwig
+to train a Dialogue State Tracker. Here's the ludwig config which can also be
+found at <code>example/config/ludwig/ludwig_dst_train.yaml</code>:</p>
+<div class="codehilite"><pre><span></span>input_features:
+    -
+        name: dst_prev_food
+        type: category
+    -
+        name: dst_prev_area
+        type: category
+    -
+        name: dst_prev_pricerange
+        type: category
+    -
+        name: dst_intent
+        type: category
+    -
+        name: dst_slot
+        type: category
+    -
+        name: dst_value
+        type: category
+
+output_features:
+    -
+        name: dst_food
+        type: category
+    -
+        name: dst_area
+        type: category
+    -
+        name: dst_pricerange
+        type: category
+    -
+        name: dst_req_slot
+        type: category
+
+training:
+  epochs: 100
+</pre></div>
+
+
+<p>We now need to train our model with ludwig:</p>
+<div class="codehilite"><pre><span></span>ludwig experiment \
+       --model_definition_file plato/example/config/ludwig/ludwig_dst_train.yaml \
+       --data_csv data/DST_sys.csv \
+       --output_directory models/camrest_dst/sys/
+</pre></div>
+
+
+<p>and run a Plato agent with the model-based DST:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_dst.yaml
+</pre></div>
+
+
+<p>You can of course experiment with other architectures and training parameters.</p>
+<h6 id="train-dialogue-policy">Train Dialogue Policy<a class="headerlink" href="#train-dialogue-policy" title="Permanent link">&para;</a></h6>
+<p>So far we have seen how to train components of Plato agents using external 
+frameworks (i.e. Ludwig). In this section, we will see how to use Plato's internal
+algorithms to train a dialogue policy offline, using supervised learning,
+ and online, using reinforcement learning. </p>
+<h6 id="supervised-dialogue-policy">Supervised Dialogue Policy<a class="headerlink" href="#supervised-dialogue-policy" title="Permanent link">&para;</a></h6>
+<p>Apart from the <code>.csv</code> files, the DSTC2 parser used Plato's dialogue episode
+ recorder to also save the parsed dialogues in Plato experience logs here: 
+ <code>logs/DSTC2_system</code> and <code>logs/DSTC2_user</code>. These logs contain information about
+each dialogue, for example current dialogue state, action taken, next dialogue
+state, reward observed, input utterance, success, etc. These logs can be directly
+loaded into a conversational agent and can be used to fill the experience pool.</p>
+<p>All you need to do then is write a configuration file that loads these logs 
+(<code>example/config/CamRest_model_supervised_policy_train.yaml</code>):</p>
+<div class="codehilite"><pre><span></span>GENERAL:
+  ...
+
+  experience_logs:
+    save: False
+    load: True
+    path: logs/DSTC2_system
+
+  ...
+
+DIALOGUE:
+  # Since this configuration file trains a supervised policy from data loaded
+  # from the logs, we only really need one dialogue just to trigger the train.
+  num_dialogues: 1
+  initiative: system
+  domain: CamRest
+
+AGENT_0:
+  role: system
+  max_turns: 15
+  train_interval: 1
+  train_epochs: 100
+  save_interval: 1
+
+  ...
+
+  DM:
+    package: plato.agent.component.dialogue_manager.dialogue_manager_generic
+    class: DialogueManagerGeneric
+    arguments:
+      DST:
+        package: plato.agent.component.dialogue_state_tracker.slot_filling_dst
+        class: SlotFillingDST
+
+      policy:
+        package: plato.agent.component.dialogue_policy.deep_learning.supervised_policy
+        class: SupervisedPolicy
+        arguments:
+          train: True
+          learning_rate: 0.9
+          exploration_rate: 0.995
+          discount_factor: 0.95
+          learning_decay_rate: 0.95
+          exploration_decay_rate: 0.995
+
+          policy_path: models/camrest_policy/sys/sys_supervised_data
+
+  ...
+</pre></div>
+
+
+<p>Note that we only run this agent for one dialogue but train for 100 epochs,
+using the experience that is loaded from the logs:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_supervised_policy_train.yaml
+</pre></div>
+
+
+<p>After training is complete, we can test our supervised policy:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_supervised_policy_test.yaml
+</pre></div>
+
+
+<h6 id="reinforce-dialogue-policy">Reinforce Dialogue Policy<a class="headerlink" href="#reinforce-dialogue-policy" title="Permanent link">&para;</a></h6>
+<p>In the previous section, we saw how to train a Supervised dialogue policy. We 
+can now see how we can train a Reinforcement Learning policy, using the
+Reinforce algorithm. To do this, we define the relevant class in the configuration
+file:</p>
+<div class="codehilite"><pre><span></span>...
+
+AGENT_0:
+  role: system
+  max_turns: 15
+  train_interval: 500
+  train_epochs: 3
+  train_minibatch: 200
+  save_interval: 5000
+
+  ...
+
+  DM:
+    package: plato.agent.component.dialogue_manager.dialogue_manager_generic
+    class: DialogueManagerGeneric
+    arguments:
+      DST:
+        package: plato.agent.component.dialogue_state_tracker.slot_filling_dst
+        class: SlotFillingDST
+
+      policy:
+        package: plato.agent.component.dialogue_policy.deep_learning.reinforce_policy
+        class: ReinforcePolicy
+        arguments:
+          train: True
+          learning_rate: 0.9
+          exploration_rate: 0.995
+          discount_factor: 0.95
+          learning_decay_rate: 0.95
+          exploration_decay_rate: 0.995
+
+          policy_path: models/camrest_policy/sys/sys_reinforce
+
+  ...
+</pre></div>
+
+
+<p>Note the learning parameters under <code>AGENT_0</code> and the algorithmic-specific 
+parameters under the policy's arguments. We then call plato with this configuration:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_reinforce_policy_train.yaml
+</pre></div>
+
+
+<p>and test the trained policy model:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_reinforce_policy_test.yaml
+</pre></div>
+
+
+<p><strong>Note</strong> that other components can also be trained online, either using Ludwig's
+API or by implementing the learning algorithms in Plato. </p>
+<p><strong>Note</strong> also that log files can be loaded and used as experience pool for any
+component and learning algorithm. However, you may need to implement your own 
+learning algorithms for some Plato components.</p>
+<h6 id="train-nlg">Train NLG<a class="headerlink" href="#train-nlg" title="Permanent link">&para;</a></h6>
+<p>To train an NLG module you need to write a 
+configuration file that looks like this (e.g. 
+<code>example/config/application/CamRest_model_nlg.yaml</code>):</p>
+<div class="codehilite"><pre><span></span>---
+
+input_features:
     -
         name: nlg_input
         type: sequence
@@ -811,26 +1603,29 @@ training:
 
 
 <p>and train your model:</p>
-<div class="codehilite"><pre><span></span>ludwig experiment --model_definition_file Examples/config/ludwig_nlg_train.yaml 
---data_csv Data/data/DSTC2_NLG_sys.csv --output_directory Models/CamRestNLG/Sys/
+<div class="codehilite"><pre><span></span>ludwig experiment \
+       --model_definition_file plato/example/config/ludwig/ludwig_nlg_train.yaml \
+       --data_csv data/DSTC2_NLG_sys.csv \
+       --output_directory models/camrest_nlg/sys/
 </pre></div>
 
 
 <p>The next step is to load the model in Plato. Go to the 
-<code>simulate_agenda_nlg.yaml</code> configuration file and update the path if 
+<code>CamRest_model_nlg.yaml</code> configuration file and update the path if 
 necessary:</p>
 <div class="codehilite"><pre><span></span>...
 
-NLG:
-    nlg: CamRest
-    model_path: &lt;PATH_TO_YOUR_LUDWIG_MODEL&gt;/model
-
+  NLG:
+    package: applications.cambridge_restaurants.camrest_nlg
+    class: CamRestNLG
+    arguments:
+      model_path: models/camrest_nlg/sys/experiment_run/model
 ...
 </pre></div>
 
 
 <p>and test that the model works:</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config Examples/config/simulate_agenda_nlg.yaml
+<div class="codehilite"><pre><span></span>plato run --config CamRest_model_nlg.yaml
 </pre></div>
 
 
@@ -840,82 +1635,217 @@ up to date.</p>
 <p>Note that Ludwig also offers a method to train your model online, so in 
 practice you need to write very little code to build, train, and evaluate a
 new deep learning component in Plato. </p>
-<h2 id="create-a-new-domain">Create a new domain<a class="headerlink" href="#create-a-new-domain" title="Permanent link">&para;</a></h2>
-<p>In order to build a conversational agent for task-oriented applications (such
-as slot-filling), you need a <em>database</em> of items and an <em>ontology</em> describing 
-your domain. Plato provides a script for automating this process.</p>
-<p>Let's say for example that you want to build a conversational agent for a 
-flower shop, and you have the following items in a .csv:</p>
-<div class="codehilite"><pre><span></span>id,type,color,price,occasion
-1,rose,red,1,any
-2,rose,white,2,anniversary
-3,rose,yellow,2,celebration
-4,lilly,white,5,any
-5,orchid,pink,30,any
-6,dahlia,blue,15,any
+<h5 id="train-an-end-to-end-conversational-agent-based-on-seq2seq">Train an end-to-end conversational agent based on Seq2Seq<a class="headerlink" href="#train-an-end-to-end-conversational-agent-based-on-seq2seq" title="Permanent link">&para;</a></h5>
+<p>For this example, we will use the MetalWoz dataset that you can download from 
+<a href="https://www.microsoft.com/en-us/research/project/metalwoz/">here</a>.</p>
+<p>Plato supports jointly trained models through Generic Agents. Here we will see
+the steps needed to create a simple seq2seq conversational agent from scratch.
+Using MetalWOZ as an example, we need to do the following:</p>
+<h6 id="1-write-a-metalwoz-data-parser-that-reads-the-data-and-procudes-csv-files">1. Write a MetalWOZ data parser that reads the data and procudes CSV files<a class="headerlink" href="#1-write-a-metalwoz-data-parser-that-reads-the-data-and-procudes-csv-files" title="Permanent link">&para;</a></h6>
+<p>As we are only training a simple seq2seq model (text to text), we need our 
+parser to extract user and system utterances. These will be saved in .csv files
+that will be used by Ludwig in step 4.</p>
+<p>For a simple implementation of a MetalWOZ parser, see 
+<code>utilities/parser/Parse_MetalWOZ.py</code></p>
+<p>Please note that this parser will only parse one single file (one domain). You
+can easily modify it, however, to fit your needs. Here is a sample of the 
+output produced by the parser for the pizza ordering domain:</p>
+<table>
+<thead>
+<tr>
+<th>user</th>
+<th>system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hi</td>
+<td>Hello how may I help you?</td>
+</tr>
+<tr>
+<td>I need placing an order for a pizza need help</td>
+<td>Certainly, what would you like to add to your order?</td>
+</tr>
+<tr>
+<td>I want a pizza with mushroom, pepperoni, and bacon toppings</td>
+<td>Unfortunately, this location is out of the bacon topping you requested. Would there be a different topping you'd like to replace it with?</td>
+</tr>
+<tr>
+<td>How about pineapple</td>
+<td>That topping is available. I've added a pizza with mushroom, pepperoni, and pineapple to your order. What size would you like?</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Alright, updated. Would you like to add more to your order?</td>
+</tr>
+<tr>
+<td>That's all, thanks</td>
+<td>Alright, your total is 14.99. Your pizza will be ready for pickup in approx. 20 mins.</td>
+</tr>
+</tbody>
+</table>
+<p>Note the first user utterance does not actually exist in the data. However,
+we need something to prompt the model to produce the system's greeting - we 
+could have used an empty sentence, or any other greeting (or a combination of 
+these).</p>
+<h6 id="2-write-a-config-for-plato-parse">2. Write a config for plato parse<a class="headerlink" href="#2-write-a-config-for-plato-parse" title="Permanent link">&para;</a></h6>
+<p>You can then run plato parse as follows:</p>
+<div class="codehilite"><pre><span></span>plato parse --config Parse_MetalWOZ.yaml
 </pre></div>
 
 
-<p>You can simply call createSQLiteDB.py to automatically generate a .db SQL file 
-and a .json Ontology file. If you want to specify informable, requestable, and
-system-requestable slots, you may do so in the configuration file:</p>
-<div class="codehilite"><pre><span></span><span class="n">GENERAL</span><span class="o">:</span>
-  <span class="n">csv_file_name</span><span class="o">:</span> <span class="n">Data</span><span class="sr">/data/</span><span class="n">flowershop</span><span class="o">.</span><span class="na">csv</span>
-  <span class="n">db_table_name</span><span class="o">:</span> <span class="n">estore</span>
-  <span class="n">db_file_path</span><span class="o">:</span> <span class="n">Ontology</span><span class="sr">/Ontologies/</span><span class="n">flowershop</span><span class="o">-</span><span class="n">dbase</span><span class="o">.</span><span class="na">db</span>
-  <span class="n">ontology_file_path</span><span class="o">:</span> <span class="n">Ontology</span><span class="sr">/Ontologies/</span><span class="n">flowershop</span><span class="o">-</span><span class="n">rules</span><span class="o">.</span><span class="na">json</span>
+<h6 id="3-train-an-end-to-end-model">3. Train an end-to-end model<a class="headerlink" href="#3-train-an-end-to-end-model" title="Permanent link">&para;</a></h6>
+<p>To get started we can train a very simple model using Ludwig (feel free to use
+your favourite deep learning framework here):</p>
+<div class="codehilite"><pre><span></span>input_features:
+    -
+        name: user
+        type: text
+        level: word
+        encoder: rnn
+        cell_type: lstm
+        reduce_output: null
 
-<span class="n">ONTOLOGY</span><span class="o">:</span>
-  <span class="n">informable_slots</span><span class="o">:</span> <span class="o">[</span><span class="n">type</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">occasion</span><span class="o">]</span>
+output_features:
+    -
+        name: system
+        type: text
+        level: word
+        decoder: generator
+        cell_type: lstm
+        attention: bahdanau
 
-  <span class="n">requestable_slots</span><span class="o">:</span> <span class="o">[</span><span class="n">price</span><span class="o">,</span> <span class="n">color</span><span class="o">]</span>
-
-  <span class="n">System_requestable_slots</span><span class="o">:</span> <span class="o">[</span><span class="n">type</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">occasion</span><span class="o">]</span>
+training:
+  epochs: 100
 </pre></div>
 
 
-<p>and run the script:</p>
-<div class="codehilite"><pre><span></span>python createSQLiteDB.py -config Examples/config/create_flowershop_DB.yaml
+<p>You can modify this config to reflect the architecture of your choice and train
+using Ludwig:</p>
+<div class="codehilite"><pre><span></span>ludwig train \
+       --data_csv data/metalwoz.csv \
+       --model_definition_file plato/example/config/ludwig/metalWOZ_seq2seq_ludwig.yaml \
+       --output_directory &quot;models/joint_models/&quot;
 </pre></div>
 
 
-<p>If all went well, you should have a <code>flowershop.json</code> and a 
-<code>flowershop.db</code> into the <code>Data/data/</code> folder.</p>
-<p>You can now simply run Plato's dummy components as a sanity check and talk to
-your flower shop agent:</p>
-<div class="codehilite"><pre><span></span>python runPlatoRDS.py -config Examples/config/flowershop_text.yaml
+<h6 id="4-write-a-class-inheriting-from-conversational-module-that-loads-and-queries-the-model">4. Write a class inheriting from Conversational Module that loads and queries the model<a class="headerlink" href="#4-write-a-class-inheriting-from-conversational-module-that-loads-and-queries-the-model" title="Permanent link">&para;</a></h6>
+<p>This class simply needs to handle loading of the model, querying it 
+appropriately and formatting its output appropriately. In our case, we need to 
+wrap the input text into a pandas dataframe, grab the predicted tokens from 
+the output and join them in a string that will be returned. See the class here:
+<code>plato.agent.component.joint_model.metal_woz_seq2seq.py</code></p>
+<h6 id="5-write-a-plato-generic-yaml-config-and-run-your-agent">5. Write a Plato generic yaml config and run your agent!<a class="headerlink" href="#5-write-a-plato-generic-yaml-config-and-run-your-agent" title="Permanent link">&para;</a></h6>
+<p>See <code>plato/example/config/application/metalwoz_generic.yaml</code> for an example generic 
+configuration file that interacts with the seq2seq agent over text. You can try
+it out as follows:</p>
+<div class="codehilite"><pre><span></span>plato run --config metalwoz_text.yaml
 </pre></div>
 
 
-<h2 id="create-a-new-component">Create a new component<a class="headerlink" href="#create-a-new-component" title="Permanent link">&para;</a></h2>
+<p><strong>Remember</strong> to update the path to your trained model if necessary! The default
+path assumes you run the ludwig train command from Plato's root directory.</p>
+<h4 id="training-multiple-conversational-agents-simultaneously">Training Multiple Conversational Agents Simultaneously<a class="headerlink" href="#training-multiple-conversational-agents-simultaneously" title="Permanent link">&para;</a></h4>
+<p>One of Plato's main features allows two agents to interact with each other. 
+Each agent can have a different role (for instance, system and user), different 
+objectives, and receive different reward signals. If the agents are 
+cooperating, some of these can be shared (e.g., what constitutes a successful 
+dialogue). </p>
+<p>To run multiple Plato agents on the Cambridge Restaurants domain, we run the 
+following commands to train the agents’ dialogue policies and test them:</p>
+<ul>
+<li>
+<p>Training phase: 2 policies (1 for each agent) are trained. 
+These policies are trained using the <a href="http://www.cs.cmu.edu/~mmv/papers/01ijcai-mike.pdf">WoLF</a>
+algorithm:</p>
+<p><code>plato run --config MultiAgent_train.yaml</code></p>
+</li>
+<li>
+<p>Testing phase: uses the policy trained in the training phase to create
+dialogs between two agents:</p>
+<p><code>plato run --config MultiAgent_test.yaml</code></p>
+</li>
+</ul>
+<p>While the basic controller currently allows two agent interaction, it is fairly
+straightforward to extend it to multiple agents (e.g. with a blackboard architecture,
+where each agent broadcasts its output to other agents). This can support scenarios
+such as smart homes, where every device is an agent, multi-user interactions with
+various roles, and more.</p>
+<h4 id="user-simulators">User Simulators<a class="headerlink" href="#user-simulators" title="Permanent link">&para;</a></h4>
+<p>Plato provides implementations for two kinds of user simulators. One is the very
+well known Agenda-Based User Simulator, and the other is a simulator that
+attempts to mimic user behaviour observed in data. However, we encourage 
+researchers to simply train two conversational agents with Plato (one being a 
+'system' and one being a 'user') instead of using simulated users, when possible.</p>
+<h5 id="agenda-based-user-simulator">Agenda-Based User Simulator<a class="headerlink" href="#agenda-based-user-simulator" title="Permanent link">&para;</a></h5>
+<p>The Agenda-Based User Simulator was proposed by Schatzmann and is explained
+in detail in this 
+<a href="https://www.semanticscholar.org/paper/Statistical-user-simulation-with-a-hidden-agenda-Schatzmann-Thomson/fdde1f5ee1734e562298d6d4ca6893921276f0d2">paper</a>. 
+Conceptually, the simulator maintains an "agenda"
+of things to say, which is usually implemented as a stack. When the simulator 
+receives input, it consults its policy (or its set of rules) to see what content
+to push into the agenda, as a response to the input. After some housekeeping
+(e.g. removing duplicates or content that is no longer valid), the simulator
+will pop one or more items off the agenda that will be used to formulate its 
+response.</p>
+<p>The Agenda-Based User Simulator also has an error simulation module, that can
+simulate speech recognition / language understanding errors. Based on some
+probabilities, it will distort the output dialogue acts of the simulator - the
+intent, slot, or value (different probability for each). Here is an example 
+of the full list of parameters that this simulator receives:</p>
+<div class="codehilite"><pre><span></span><span class="n">patience</span><span class="o">:</span> <span class="mi">5</span>                         <span class="err">#</span> <span class="n">Stop</span> <span class="n">after</span> <span class="o">&lt;</span><span class="n">patience</span><span class="o">&gt;</span> <span class="n">consecutive</span> <span class="n">identical</span> <span class="n">inputs</span> <span class="n">received</span>
+<span class="n">pop_distribution</span><span class="o">:</span> <span class="o">[</span><span class="mf">0.8</span><span class="o">,</span> <span class="mf">0.15</span><span class="o">,</span> <span class="mf">0.05</span><span class="o">]</span> <span class="err">#</span> <span class="n">pop</span> <span class="mi">1</span> <span class="n">act</span> <span class="k">with</span> <span class="mf">0.8</span> <span class="n">probability</span><span class="o">,</span> <span class="mi">2</span> <span class="n">acts</span> <span class="k">with</span> <span class="mf">0.15</span><span class="o">,</span> <span class="n">etc</span><span class="o">.</span>
+<span class="n">slot_confuse_prob</span><span class="o">:</span> <span class="mf">0.05</span>             <span class="err">#</span> <span class="n">probability</span> <span class="n">by</span> <span class="n">which</span> <span class="n">the</span> <span class="n">error</span> <span class="n">model</span> <span class="n">will</span> <span class="n">alter</span> <span class="n">the</span> <span class="n">output</span> <span class="n">dact</span> <span class="n">slot</span> 
+<span class="n">op_confuse_prob</span><span class="o">:</span> <span class="mf">0.01</span>               <span class="err">#</span> <span class="n">probability</span> <span class="n">by</span> <span class="n">which</span> <span class="n">the</span> <span class="n">error</span> <span class="n">model</span> <span class="n">will</span> <span class="n">alter</span> <span class="n">the</span> <span class="n">output</span> <span class="n">dact</span> <span class="n">operator</span>
+<span class="n">value_confuse_prob</span><span class="o">:</span> <span class="mf">0.01</span>            <span class="err">#</span> <span class="n">probability</span> <span class="n">by</span> <span class="n">which</span> <span class="n">the</span> <span class="n">error</span> <span class="n">model</span> <span class="n">will</span> <span class="n">alter</span> <span class="n">the</span> <span class="n">output</span> <span class="n">dact</span> <span class="n">value</span>
+<span class="n">nlu</span><span class="o">:</span> <span class="n">slot_filling</span>                   <span class="err">#</span> <span class="n">type</span> <span class="n">of</span> <span class="n">NLU</span> <span class="n">the</span> <span class="n">simulator</span> <span class="n">will</span> <span class="n">use</span>
+<span class="n">nlg</span><span class="o">:</span> <span class="n">slot_filling</span>                   <span class="err">#</span> <span class="n">type</span> <span class="n">of</span> <span class="n">NLG</span> <span class="n">the</span> <span class="n">simulator</span> <span class="n">will</span> <span class="n">use</span>
+</pre></div>
+
+
+<h5 id="dialogue-act-to-language-user-simulator">Dialogue Act to Language User Simulator<a class="headerlink" href="#dialogue-act-to-language-user-simulator" title="Permanent link">&para;</a></h5>
+<p>This simulator was designed to be a simple policy-based simulator, that can 
+operate at the dialogue act level or at the utterance level. To demonstrate
+how it works, the DSTC2 parser created a policy file for this simulator: 
+<code>user_policy_reactive.pkl</code> (reactive because it reacts to system dialogue
+acts instead of user simulator state). This is actually a simple dictionary of:</p>
+<div class="codehilite"><pre><span></span>System Dial. Act 1 --&gt;  {&#39;dacts&#39;: {User Dial. Act 1: probability}
+                                  {User Dial. Act 2: probability}
+                                  ...
+
+                         &#39;responses&#39;: {User utterance 1: probability}
+                                      {User utterance 2: probability}
+                                      ...
+
+System Dial. Act 2 --&gt; ...
+</pre></div>
+
+
+<p>The key represents the input dialogue act (e.g. coming from the <code>system</code> 
+conversational agent). The value of each key is a dictionary of two elements,
+representing probability distributions over dialogue acts or utterance templates 
+that the simulator will sample from.</p>
+<p>To see an example, you can run the following configuration:</p>
+<div class="codehilite"><pre><span></span>plato run --config CamRest_dtl_simulator.yaml
+</pre></div>
+
+
+<h4 id="create-a-new-module">Create a new module<a class="headerlink" href="#create-a-new-module" title="Permanent link">&para;</a></h4>
 <p>There are two ways to create a new module depending on its function. If a 
-module implements a new way of performing NLU or dialogue policy, then the user 
-should write a class that inherits from the corresponding abstract class.</p>
+module, for example, implements a new way of performing NLU or dialogue policy, 
+then you should write a class that inherits from the corresponding abstract class.</p>
 <p>If, however, a module does not fit one of the single agent basic components, 
 for example, it performs Named Entity Recognition or predicts dialogue acts 
-from text, then the user must write a class that inherits from the 
-ConversationalModule directly, which can then only be used by the generic 
-agents. </p>
-<h3 id="inheriting-from-the-abstract-classes">Inheriting from the abstract classes<a class="headerlink" href="#inheriting-from-the-abstract-classes" title="Permanent link">&para;</a></h3>
-<p>Users need to create a new class inheriting from the corresponding Plato 
-abstract class and implement the interface defined by the abstract class and 
-any other functionality they wish. This class should have a unique name (e.g. 
-'myNLG') that will be used to distinguish it from other options when parsing 
-the configuration file. At this version of Plato, users will need to manually 
-add some conditions where the configuration files are being parsed (e.g. in 
-the Conversational Agent, Dialogue Manager, etc.) unless the generic agent is 
-used. </p>
-<h3 id="creating-a-custom-component">Creating a custom component<a class="headerlink" href="#creating-a-custom-component" title="Permanent link">&para;</a></h3>
-<p>To construct a new module, the user must add their code to a new class 
-inheriting from the conversational module. They can then load the module via a
+from text, then you must write a class that inherits from the 
+<code>conversational_module</code> directly. You can then load the module via a
 generic agent by providing the appropriate package path, class name, and 
 arguments in the configuration.</p>
 <div class="codehilite"><pre><span></span>...
 MODULE_i:
-    package: myPackage.myModule
-    Class: myModule
+    package: my_package.my_module
+    Class: MyModule
     arguments:
-      model_path: Models/myModule/parameters/
+      model_path: models/my_module/parameters/
       ...
 ...
 </pre></div>
@@ -924,24 +1854,24 @@ MODULE_i:
 <p><strong>Be careful!</strong> You are responsible for guaranteeing that the I/O of this 
 module can be processed and consumed appropriately by modules before and after, 
 as provided in your generic configuration file.</p>
-<p>Plato also supports parallel execution of modules. To enable that you need to
+<p>Plato also supports (logically) parallel execution of modules. To enable that you need to
 have the following structure in your config:</p>
 <div class="codehilite"><pre><span></span>...
 MODULE_i:
     parallel_modules: 5
 
     PARALLEL_MODULE_0:
-        package: myPackage.myModule
-        Class: myModule
+        package: my_package.my_module
+        Class: MyModule
         arguments:
-          model_path: Models/myModule/parameters/
+          model_path: models/myModule/parameters/
           ...
 
     PARALLEL_MODULE_1:
-        package: myPackage.myModule
-        Class: myModule
+        package: my_package.my_module
+        Class: MyModule
         arguments:
-          model_path: Models/myModule/parameters/
+          model_path: models/my_module/parameters/
           ...
 
     ...
@@ -954,15 +1884,32 @@ into a list. The next module (e.g. <code>MODULE_i+1</code>) will need to be able
 to handle this kind of input. <strong>The provided Plato modules are not designed to 
 handle this, you will need to write a custom module to process input from
 multiple sources.</strong></p>
-<h2 id="bayesian-optimisation-in-plato">Bayesian Optimisation in Plato<a class="headerlink" href="#bayesian-optimisation-in-plato" title="Permanent link">&para;</a></h2>
-<p>Tutorial coming soon!</p>
-<h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">&para;</a></h2>
-<p>Special thanks to Yi-Chia Wang, Mahdi Namazifar, Chandra Khatri, Piero Molino, 
-Michael Pearce, and Gokhan Tur for their contributions and support.</p>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>This is the very first release of Plato. Please understand that many features
-are still being implemented and some use cases may not be supported yet.</p>
-<p>Enjoy!</p>
+<h5 id="create-new-states-actions-learning-algorithms-and-more">Create new States, Actions, Learning Algorithms, and more<a class="headerlink" href="#create-new-states-actions-learning-algorithms-and-more" title="Permanent link">&para;</a></h5>
+<p>Plato is designed to be extensible, so feel free to create your own Dialogue
+States, Actions, Reward Functions, Algorithms, or any other component to suit
+your specific needs. You only need to inherit from the corresponding class to
+make sure your implementation is compatible with Plato. </p>
+<h3 id="graphical-user-interface">Graphical User Interface<a class="headerlink" href="#graphical-user-interface" title="Permanent link">&para;</a></h3>
+<p>Plato uses <a href="https://pysimplegui.readthedocs.io/en/latest/">PySimpleGUI</a> to
+handle graphical user interfaces. An example GUI for Plato is implemented at
+ <code>platosgui_controller</code> and you can try it out using the following command:</p>
+<div class="codehilite"><pre><span></span>plato gui --config CamRest_GUI_speech.yaml
+</pre></div>
+
+
+<h2 id="upcoming-tutorials">Upcoming Tutorials<a class="headerlink" href="#upcoming-tutorials" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Using pre-trained models (BERT, GPT, etc.) in Plato </li>
+<li>Multi-domain Conversational Agents</li>
+<li>Multi-lingual Conversational Agents</li>
+</ol>
+<h2 id="upcoming-features">Upcoming Features<a class="headerlink" href="#upcoming-features" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Principled logging and printing</li>
+<li>More dataset parsers</li>
+<li>More options for multi-agent controllers</li>
+<li>Bayesian Optimisation in Plato</li>
+</ol>
                 
                   
                 
