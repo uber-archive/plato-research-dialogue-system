@@ -27,7 +27,7 @@ Conversational AI Research Platform", ArXiv (to appear)
 #### **News**
 **New** [tutorial](#train-a-simple-end-to-end-seq2seq-model-for-metalwoz) on 
 how to train a simple sequence to sequence model on MetalWOZ data. 
-
+ 
 Contents:
 1. [How does the Plato Research Dialogue System Work?](#how-does-the-plato-research-dialogue-system-work)
 2. [Quick Start Guide](#quick-start-guide)
