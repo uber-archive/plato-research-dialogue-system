@@ -252,6 +252,21 @@ is the address of a file on the machine. If it is, then Plato tries to parse tha
 If it is not, Plato checks to see if the value is a name of a file within the 
 `plato/example/config/<application, domain, or parser>` directory. 
 
+For some quick examples, try the following configuration files for the Cambridge
+Restaurants domain:
+
+````
+plato run --config CamRest_user_simulator.yaml
+````
+
+````
+plato run --config CamRest_text.yaml
+````
+
+````
+plato run --config CamRest_speech.yaml
+````
+
 # Building a Conversational Agent with Plato
 An application, i.e. conversational system, in Plato contains three major parts:
 
