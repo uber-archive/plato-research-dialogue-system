@@ -501,20 +501,18 @@ some `.csv` files that can be used to train NLU and NLG. There is one NLU
 `.csv` file for the system (`data/DSTC2_NLU_sys.csv`) and one for 
 the user (`data/DSTC2_NLU_usr.csv`). These look like this:
 
-````
+
 |transcript|intent|iob|
 |----------|------|---|
 |expensive restaurant that serves vegetarian food|inform|B-inform-pricerange O O O B-inform-food O|
 |vegetarian food|inform|B-inform-food O|
 |asian oriental type of food|inform|B-inform-food I-inform-food O O O|
 |expensive restaurant asian food|inform|B-inform-pricerange O O|
-```` 
+
 
 For training a NLU model you need to write a configuration file that looks like this:
 
 ````
-
----
 
 input_features:
     -
@@ -585,9 +583,9 @@ plato run --config CamRest_model_nlu.yaml
 The DSTC2 Data Parser generated two `.csv` files we can use for DST: 
 `DST_sys.csv` and `DST_usr.csv` which look like this:
 
-````
+
 |dst_prev_food|dst_prev_area|dst_prev_pricerange|dst_intent|dst_slot|dst_value|dst_food|dst_area|dst_pricerange|dst_req_slot|
------------------------------------------------------------------------------------------------------------------------------
+--------------|-------------|-------------------|----------|--------|---------|--------|--------|--------------|------------|
 |none|none|none|inform|food|vegetarian|vegetarian|none|expensive|none|
 |vegetarian|none|expensive|inform|food|vegetarian|vegetarian|none|expensive|none|
 |vegetarian|none|expensive|inform|food|asian oriental|asian oriental|none|expensive|none|
@@ -595,7 +593,7 @@ The DSTC2 Data Parser generated two `.csv` files we can use for DST:
 |asian oriental|none|expensive|request|phone|none|asian oriental|none|expensive|phone|
 |asian oriental|none|expensive|request|area|none|asian oriental|none|expensive|area|
 |asian oriental|none|expensive|thankyou|none|none|asian oriental|none|expensive|none|
-````
+
 
 Essentially, the parser keeps track of the previous dialogue state, the input
 from NLU, and the resulting dialogue state. We can then feed this into Ludwig
