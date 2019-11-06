@@ -10,11 +10,11 @@ git clone git@github.com:uber-research/plato-research-dialogue-system.git
 Next you need to install some pre-requisites:
 
 * For MacOS:
-    ````
-    brew install portaudio
-    brew install gmp 
-    pip install pyaudio
-    ````
+    
+    * `brew install portaudio`
+    * `brew install gmp` 
+    * `pip install pyaudio`
+    
     
 * For Ubuntu/Debian:
     ````
@@ -36,24 +36,23 @@ step).
 2. We recommend to create a new python environment. To set up the new python environment:
         
    2.1 install virtualenv
-   ```
-   sudo pip install virtualenv
-   ```   
+   
+   `sudo pip install virtualenv`
+      
    
    2.2 create a new python environment:
-   ```
-   python3 -m venv </path/to/new/virtual/environment>
-   ```
+   
+   `python3 -m venv </path/to/new/virtual/environment>`
+
    
    2.3 activate the new python environment:
-   ```
-   source </path/to/new/virtual/environment/bin>/bin/activate
-   ```
+   
+   `source </path/to/new/virtual/environment/bin>/bin/activate`
+   
                
 3. Install Plato:
-    ```
-    pip install -e . 
-    ```
+    
+    `pip install -e . `
 
 To support speech it is necessary to install [PyAudio](https://pypi.org/project/PyAudio/), 
 which has a number of dependencies that might not exist on a developer's 

@@ -904,10 +904,12 @@ you need to clone the Plato repository:</p>
 <p>Next you need to install some pre-requisites:</p>
 <ul>
 <li>
-<p>For MacOS:
-    <code>brew install portaudio
-    brew install gmp 
-    pip install pyaudio</code></p>
+<p>For MacOS:</p>
+<ul>
+<li><code>brew install portaudio</code></li>
+<li><code>brew install gmp</code> </li>
+<li><code>pip install pyaudio</code></li>
+</ul>
 </li>
 <li>
 <p>For Ubuntu/Debian:
@@ -931,15 +933,17 @@ step).</p>
 <p>We recommend to create a new python environment. To set up the new python environment:</p>
 </li>
 </ol>
-<p>2.1 install virtualenv
-   <code>sudo pip install virtualenv</code>   </p>
-<p>2.2 create a new python environment:
-   <code>python3 -m venv &lt;/path/to/new/virtual/environment&gt;</code></p>
-<p>2.3 activate the new python environment:
-   <code>source &lt;/path/to/new/virtual/environment/bin&gt;/bin/activate</code></p>
+<p>2.1 install virtualenv</p>
+<p><code>sudo pip install virtualenv</code></p>
+<p>2.2 create a new python environment:</p>
+<p><code>python3 -m venv &lt;/path/to/new/virtual/environment&gt;</code></p>
+<p>2.3 activate the new python environment:</p>
+<p><code>source &lt;/path/to/new/virtual/environment/bin&gt;/bin/activate</code></p>
 <ol>
-<li>Install Plato:
-    <code>pip install -e .</code></li>
+<li>
+<p>Install Plato:</p>
+<p><code>pip install -e .</code></p>
+</li>
 </ol>
 <p>To support speech it is necessary to install <a href="https://pypi.org/project/PyAudio/">PyAudio</a>, 
 which has a number of dependencies that might not exist on a developer's 
