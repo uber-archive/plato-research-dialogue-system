@@ -142,20 +142,24 @@
                     For MacOS:<br>
                     <code>
                         brew install portaudio<br>
-                        pip install -r requirements.txt
+                        brew install gmp<br>
+                        pip install pyaudio
                     </code>
                     </p>
                     <p>
                     For Ubuntu/Debian:<br>
                     <code>sudo apt-get install python3-pyaudio<br>
-                    pip install -r requirements.txt</br>
                     </code>
                     </p>
                     <p>
                     For Windows:<br>
-                    <code>
-                    pip install -r requirements.txt
-                    </code>
+                    Nothing needs to be pre-installed
+                    </p>
+                    <p>
+                    After the steps above, install plato in editable mode:
+                        <code>
+                            pip install -e .
+                        </code>
                     </p>
                 </div>
 
@@ -164,25 +168,29 @@
                     <h3>Running Single Agents</h3>
                     <p>
                     To run a simulation:<br>
-                        <code> python runPlatoRDS.py <br>-config Examples/config/simulate_agenda.yaml </code>
+                        <code> plato run --config CamRest_user_simulator.yaml </code>
                     </p>
                     <p>
                     To run a text based interaction:<br>
-                    <code> python runPlatoRDS.py <br>-config Examples/config/simulate_text.yaml </code>
+                    <code> plato run --config CamRest_text.yaml </code>
                     </p>
                     <p>
                     To run a speech based interaction:<br>
-                    <code>python runPlatoRDS.py <br>-config Examples/config/simulate_speech.yaml </code>
+                    <code>plato run --config CamRest_speech.yaml </code>
+                    </p>
+                    <p>
+                    To run a gui based interaction:<br>
+                    <code>plato gui --config CamRest_GUI_speech.yaml </code>
                     </p>
                 </div>
 
                 <div class="bgrid step" data-item="3">
                     <h3>Training Multiple Agents</h3>
                     <p>
-                        <code>python runPlatoRDS.py <br>-config Examples/config/CamRest_MA_train.yaml</code>
+                        <code>plato run --config MultiAgent_train.yaml</code>
                     </p>
                     <p>
-                    <code>python runPlatoRDS.py <br>-config Examples/config/CamRest_MA_test.yaml</code>
+                    <code>plato run --config MultiAgent_test.yaml</code>
                     </p>
 
                 </div>
