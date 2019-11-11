@@ -123,7 +123,7 @@ AGENT_0:
         dst: slot_filling
 
       policy:
-        type: slot_filling
+        type: handcrafted
   
   MODULE_2:
     # Uncomment these settings once you've trained your Ludwig-based nlg.

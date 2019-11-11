@@ -159,72 +159,6 @@ class ConversationalMultiAgent(ConversationalAgent):
                 raise ValueError('Cannot run Plato without at least '
                                  'one agent!')
 
-            # dialogue domain self.settings
-            if 'DIALOGUE' in self.configuration and \
-                    self.configuration['DIALOGUE']:
-                if 'initiative' in self.configuration['DIALOGUE']:
-                    self.USER_HAS_INITIATIVE = bool(
-                        self.configuration['DIALOGUE']['initiative'] == 'user'
-                    )
-
-                if self.configuration['DIALOGUE']['domain']:
-                    self.domain = self.configuration['DIALOGUE']['domain']
-
-                if self.configuration['DIALOGUE']['ontology_path']:
-                    if os.path.isfile(
-                            self.configuration['DIALOGUE']['ontology_path']
-                    ):
-                        self.ontology = \
-                            ontology.Ontology(
-                                self.configuration['DIALOGUE']['ontology_path']
-                            )
-                    else:
-                        raise FileNotFoundError(
-                            'domain file %s not '
-                            'found' % self.configuration[
-                                'DIALOGUE'
-                            ]['ontology_path']
-                        )
-
-                if self.configuration['DIALOGUE']['db_path']:
-                    if os.path.isfile(
-                            self.configuration['DIALOGUE']['db_path']
-                    ):
-                        if 'db_type' in self.configuration['DIALOGUE']:
-                            if self.configuration['DIALOGUE']['db_type'] == \
-                                    'sql':
-                                self.database = database.SQLDataBase(
-                                    self.configuration['DIALOGUE']['db_path']
-                                )
-                            else:
-                                self.database = database.DataBase(
-                                    self.configuration['DIALOGUE']['db_path']
-                                )
-                        else:
-                            # Default to SQL
-                            self.database = database.SQLDataBase(
-                                self.configuration['DIALOGUE']['db_path']
-                            )
-                    else:
-                        raise FileNotFoundError(
-                            'Database file %s not '
-                            'found' % self.configuration['DIALOGUE']['db_path']
-                        )
-
-                if 'goals_path' in self.configuration['DIALOGUE']:
-                    if os.path.isfile(
-                        self.configuration['DIALOGUE']['goals_path']
-                    ):
-                        self.goals_path = \
-                            self.configuration['DIALOGUE']['goals_path']
-                    else:
-                        raise FileNotFoundError(
-                            'Goals file %s not '
-                            'found' % self.configuration[
-                                'DIALOGUE'
-                            ]['goals_path']
-                        )
-
             # General settings
             if 'GENERAL' in self.configuration and \
                     self.configuration['GENERAL']:
@@ -275,18 +209,62 @@ class ConversationalMultiAgent(ConversationalAgent):
                                 'config!'.format(self.agent_id)
                             )
 
-                        if self.agent_role == 'user':
-                            if self.ontology and self.database:
-                                self.goal_generator = GoalGenerator({
-                                    'ontology': self.ontology,
-                                    'database': self.database
-                                })
-                            else:
-                                raise ValueError(
-                                    'Conversational Multi Agent (user): '
-                                    'Cannot generate '
-                                    'goal without ontology and database.'
-                                )
+            # Dialogue settings
+            if 'DIALOGUE' in self.configuration and \
+                    self.configuration['DIALOGUE']:
+                if 'initiative' in self.configuration['DIALOGUE']:
+                    self.USER_HAS_INITIATIVE = bool(
+                        self.configuration['DIALOGUE']['initiative'] == 'user'
+                    )
+
+                if 'domain' in self.configuration['DIALOGUE']:
+                    self.domain = self.configuration['DIALOGUE']['domain']
+                elif 'domain' in self.global_args:
+                    self.domain = self.global_args['domain']
+
+                ontology_path = None
+                if 'ontology_path' in self.configuration['DIALOGUE']:
+                    ontology_path = \
+                        self.configuration['DIALOGUE']['ontology_path']
+                elif 'ontology' in self.global_args:
+                    ontology_path = self.global_args['ontology']
+
+                if ontology_path and os.path.isfile(ontology_path):
+                    self.ontology = ontology.Ontology(ontology_path)
+                else:
+                    raise FileNotFoundError(
+                        'domain file %s not found' % ontology_path
+                    )
+
+                db_path = None
+                if 'db_path' in self.configuration['DIALOGUE']:
+                    db_path = self.configuration['DIALOGUE']['db_path']
+                elif 'database' in self.global_args:
+                    db_path = self.global_args['database']
+
+                if db_path and os.path.isfile(db_path):
+                    if db_path[-3:] == '.db':
+                        self.database = database.SQLDataBase(db_path)
+                    else:
+                        self.database = database.DataBase(db_path)
+                else:
+                    raise FileNotFoundError(
+                        'Database file %s not found' % db_path
+                    )
+
+                if 'goals_path' in self.configuration['DIALOGUE']:
+                    if os.path.isfile(
+                        self.configuration['DIALOGUE']['goals_path']
+                    ):
+                        self.goals_path = \
+                            self.configuration['DIALOGUE']['goals_path']
+                    else:
+                        raise FileNotFoundError(
+                            'Goals file %s not '
+                            'found' % self.configuration[
+                                'DIALOGUE'
+                            ]['goals_path']
+                        )
 
             # Agent Settings
 
