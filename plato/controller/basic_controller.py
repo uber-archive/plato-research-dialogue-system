@@ -64,7 +64,7 @@ class BasicController(controller.Controller):
 
         for dialogue in range(num_dialogues):
             print('\n=====================================================\n\n'
-                  'dialogue %d (out of %d)\n' % (dialogue + 1, num_dialogues))
+                  'Dialogue %d (out of %d)\n' % (dialogue + 1, num_dialogues))
 
             ca.start_dialogue()
 
@@ -151,7 +151,7 @@ class BasicController(controller.Controller):
 
         for dialogue in range(num_dialogues):
             print('\n=====================================================\n\n'
-                  'dialogue %d (out of %d)\n' % (dialogue + 1, num_dialogues))
+                  'Dialogue %d (out of %d)\n' % (dialogue + 1, num_dialogues))
 
             # WARNING: FOR NOW ASSUMING WE HAVE ONE SYSTEM AGENT.
             user_output = conv_user_agents[0].start_dialogue()
