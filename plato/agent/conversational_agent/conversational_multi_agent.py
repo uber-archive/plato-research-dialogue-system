@@ -676,28 +676,35 @@ class ConversationalMultiAgent(ConversationalAgent):
                 self.train_switch_trainable_agents_every == 0:
             self.train_system = not self.train_system
 
-        # Record final state
-        if not self.curr_state.is_terminal_state:
-            self.curr_state.is_terminal_state = True
-            self.prev_reward, self.prev_success, self.prev_task_success = \
-                self.reward_func.calculate(
-                    self.curr_state,
-                    [DialogueAct('bye', [])],
-                    goal=self.agent_goal,
-                    agent_role=self.agent_role
-                )
+            # Record final state
+            if self.curr_state:
+                if not self.curr_state.is_terminal_state:
+                    self.curr_state.is_terminal_state = True
+                    self.prev_reward, self.prev_success, self.prev_task_success = \
+                        self.reward_func.calculate(
+                            self.curr_state,
+                            [DialogueAct('bye', [])],
+                            goal=self.agent_goal,
+                            agent_role=self.agent_role
+                        )
+            else:
+                print(
+                    'Warning! Conversational Multi Agent attempted to end the'
+                    'dialogue with no state. This dialogue will NOT be saved.')
+                return
 
-        self.recorder.record(
-            self.curr_state,
-            self.curr_state,
-            self.prev_action,
-            self.prev_reward,
-            self.prev_success,
-            input_utterance=self.prev_usr_utterance,
-            output_utterance=self.prev_sys_utterance,
-            task_success=self.prev_task_success,
-            force_terminate=True
-        )
+            self.recorder.record(
+                self.curr_state,
+                self.curr_state,
+                self.prev_action,
+                self.prev_reward,
+                self.prev_success,
+                input_utterance=self.prev_usr_utterance,
+                output_utterance=self.prev_sys_utterance,
+                task_success=self.prev_task_success,
+                role=self.agent_role,
+                force_terminate=True
+            )
 
         self.dialogue_episode += 1
 

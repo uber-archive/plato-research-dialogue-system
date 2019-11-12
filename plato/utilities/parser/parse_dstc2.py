@@ -1045,6 +1045,7 @@ class Parser(DataParser):
                             output_utterance=sys_turn['output']['transcript'],
                             reward=-1,
                             success=False,
+                            role='system',
                             custom={'dact_str':
                                         str(sys_turn['output']['dialog-acts']),
                                     'utterance':
@@ -1062,6 +1063,7 @@ class Parser(DataParser):
                             output_utterance=user_turn['transcription'],
                             reward=-1,
                             success=False,
+                            role='user',
                             custom=str(user_turn['semantics']['json'])
                         )
 

@@ -58,7 +58,8 @@ class DialogueEpisodeRecorder:
 
     def record(self, state, new_state, action, reward, success,
                input_utterance=None, output_utterance=None,
-               task_success=None, force_terminate=False, custom=None):
+               task_success=None, force_terminate=False, role='system',
+               custom=None):
         """
         Records experience. Currently designed from a Reinforcement Learning
         perspective.
@@ -73,6 +74,7 @@ class DialogueEpisodeRecorder:
         :param task_success: flag for task success (may be different than
                               success)
         :param force_terminate: forcefully end current episode and create new
+        :param role: the agent's role
         :param custom: anything else we may want to save and is not captured in
                        the above structures
         :return: Nothing
@@ -96,6 +98,7 @@ class DialogueEpisodeRecorder:
             'success': '',
             'task_success': '',
             'cumulative_reward': deepcopy(self.cumulative_reward),
+            'role': role,
             'custom': deepcopy(custom) if custom else ''})
 
         if state.is_terminal() or force_terminate:

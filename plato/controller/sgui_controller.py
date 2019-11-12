@@ -370,6 +370,7 @@ class SGUIController(Controller):
         num_dialogues = args['dialogues']
         self.INTERACTION_MODE = args['interaction_mode']
         num_agents = args['num_agents']
+        statistics = []
 
         for test in range(tests):
             # Run simulation

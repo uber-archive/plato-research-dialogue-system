@@ -515,10 +515,15 @@ class WoLFPHCPolicy(dialogue_policy.DialoguePolicy):
             for turn in dialogue:
                 state_enc = self.encode_state(turn['state'])
                 new_state_enc = self.encode_state(turn['new_state'])
+
+                role = self.agent_role
+                if 'role' in turn:
+                    role = turn['role']
+
                 action_enc = \
                     self.encode_action(
                         turn['action'],
-                        self.agent_role == 'system')
+                        role == 'system')
 
                 # Skip unrecognised actions
                 if action_enc < 0 or turn['action'][0].intent == 'bye':
