@@ -32,7 +32,7 @@ class DialogueEpisodeRecorder:
 
     def __init__(self, size=None, path=None):
         """
-        Initializes the dialogue Episode Recorder
+        Initializes the Dialogue Episode Recorder
 
         :param size: size of the experience (how many dialogues to store)
         :param path: path to save / load the experience
@@ -154,7 +154,7 @@ class DialogueEpisodeRecorder:
                 pickle.dump(obj, file, pickle.HIGHEST_PROTOCOL)
 
         except IOError:
-            raise IOError('dialogue Episode Recorder I/O Error when '
+            raise IOError('Dialogue Episode Recorder I/O Error when '
                           'attempting to save!')
 
     def load(self, path):
@@ -166,16 +166,16 @@ class DialogueEpisodeRecorder:
         """
 
         if not path:
-            print('WARNING! dialogue Episode Recorder: No Log file provided '
+            print('WARNING! Dialogue Episode Recorder: No Log file provided '
                   'to load from.')
 
         if self.dialogues:
-            print('WARNING! dialogue Episode Recorder is not empty! Loading '
+            print('WARNING! Dialogue Episode Recorder is not empty! Loading '
                   'on top of existing experience.')
 
         if isinstance(path, str):
             if os.path.isfile(path):
-                print(f'dialogue Episode Recorder loading dialogues from '
+                print(f'Dialogue Episode Recorder loading dialogues from '
                       f'{path}...')
 
                 with open(path, 'rb') as file:
@@ -184,12 +184,12 @@ class DialogueEpisodeRecorder:
                     if 'dialogues' in obj:
                         self.dialogues = obj['dialogues']
 
-                    print('dialogue Episode Recorder loaded from {0}.'
+                    print('Dialogue Episode Recorder loaded from {0}.'
                           .format(path))
 
             else:
-                print('Warning! dialogue Episode Recorder Log file %s not '
+                print('Warning! Dialogue Episode Recorder Log file %s not '
                       'found' % path)
         else:
-            print('Warning! Unacceptable value for dialogue Episode Recorder '
+            print('Warning! Unacceptable value for Dialogue Episode Recorder '
                   'Log file name: %s ' % path)

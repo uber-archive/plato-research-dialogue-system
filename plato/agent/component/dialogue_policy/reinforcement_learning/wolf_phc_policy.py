@@ -70,7 +70,6 @@ class WoLFPHCPolicy(dialogue_policy.DialoguePolicy):
         else:
             raise ValueError('WoLFPHCPolicy: No database provided')
 
-        self.agent_id = args['agent_id'] if 'agent_id' in args else 0
         self.agent_role = \
             args['agent_role'] if 'agent_role' in args else 'system'
 
@@ -392,11 +391,17 @@ class WoLFPHCPolicy(dialogue_policy.DialoguePolicy):
                 return self.dstc2_acts_sys.index(action.intent)
 
             if action.intent == 'request':
+                if action.params[0].slot not in self.system_requestable_slots:
+                    return -1
+
                 return len(self.dstc2_acts_sys) + \
                        self.system_requestable_slots.index(
                            action.params[0].slot)
-    
+
             if action.intent == 'inform':
+                if action.params[0].slot not in self.requestable_slots:
+                    return -1
+
                 return len(self.dstc2_acts_sys) + \
                        len(self.system_requestable_slots) + \
                        self.requestable_slots.index(action.params[0].slot)
@@ -405,10 +410,16 @@ class WoLFPHCPolicy(dialogue_policy.DialoguePolicy):
                 return self.dstc2_acts_usr.index(action.intent)
 
             if action.intent == 'request':
+                if action.params[0].slot not in self.requestable_slots:
+                    return -1
+
                 return len(self.dstc2_acts_usr) + \
                        self.requestable_slots.index(action.params[0].slot)
 
             if action.intent == 'inform':
+                if action.params[0].slot not in self.system_requestable_slots:
+                    return -1
+
                 return len(self.dstc2_acts_usr) + \
                        len(self.requestable_slots) + \
                        self.system_requestable_slots.index(

@@ -136,7 +136,7 @@ class ConversationalMultiAgent(ConversationalAgent):
 
         # Do not have an experience window larger than the current batch,
         # as past experience may not be relevant since both agents learn.
-        self.recorder = DialogueEpisodeRecorder(size=self.minibatch_length)
+        self.recorder = DialogueEpisodeRecorder(size=20000)
 
         # TODO: Get reward type from the config
         self.reward_func = SlotFillingReward()

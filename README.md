@@ -1157,7 +1157,7 @@ make sure your implementation is compatible with Plato.
 ## Graphical User Interface
 Plato uses [PySimpleGUI](https://pysimplegui.readthedocs.io/en/latest/) to
 handle graphical user interfaces. An example GUI for Plato is implemented at
- `platosgui_controller` and you can try it out using the following command:
+ `plato.controller.sgui_controller` and you can try it out using the following command:
 
 ````
 plato gui --config CamRest_GUI_speech.yaml
