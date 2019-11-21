@@ -106,4 +106,4 @@ if __name__ == '__main__':
 
     Remember, Plato RDS runs with Python 3.6
     """
-    gui()
+    run()
