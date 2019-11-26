@@ -46,7 +46,7 @@ class RandomPolicy(dialogue_policy.DialoguePolicy):
             raise ValueError('Unacceptable ontology type %s ' % ontology)
 
         self.intents = ['welcomemsg', 'inform', 'request', 'hello', 'bye',
-                        'repeat']
+                        'repeat', 'offer']
 
     def initialize(self, args):
         """

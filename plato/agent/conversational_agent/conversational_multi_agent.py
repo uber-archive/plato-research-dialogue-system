@@ -396,6 +396,11 @@ class ConversationalMultiAgent(ConversationalAgent):
                 if self.nlg:
                     self.USE_NLG = True
 
+        # True if at least one module is training
+        self.IS_TRAINING = self.nlu and self.nlu.training or \
+            self.dialogue_manager and self.dialogue_manager.training or \
+            self.nlg and self.nlg.training
+
     def __del__(self):
         """
         Do some house-keeping and save the models.
@@ -708,7 +713,7 @@ class ConversationalMultiAgent(ConversationalAgent):
 
         self.dialogue_episode += 1
 
-        if self.dialogue_manager.is_training():
+        if self.IS_TRAINING:
             if not self.train_alternate_training or \
                     (self.train_system and
                      self.agent_role == 'system' or
