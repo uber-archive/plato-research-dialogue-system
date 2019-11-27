@@ -565,9 +565,9 @@ class ConversationalMultiAgent(ConversationalAgent):
 
         other_input_raw = args['other_input_raw']
 
-        other_input_dact = None
-        if 'other_input_dact' in args:
-            other_input_dact = args['other_input_dact']
+        other_input_dacts = None
+        if 'other_input_dacts' in args:
+            other_input_dacts = args['other_input_dacts']
 
         goal = None
         if 'goal' in args:
@@ -587,9 +587,9 @@ class ConversationalMultiAgent(ConversationalAgent):
                 self.dialogue_manager.get_state()
             )
 
-        elif other_input_dact:
+        elif other_input_dacts:
             # If no utterance provided, use the dacts
-            other_input_nlu = other_input_dact
+            other_input_nlu = other_input_dacts
 
         self.dialogue_manager.receive_input(other_input_nlu)
 
