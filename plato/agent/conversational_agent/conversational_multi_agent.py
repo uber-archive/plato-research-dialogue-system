@@ -649,8 +649,8 @@ class ConversationalMultiAgent(ConversationalAgent):
                 self.prev_action,
                 self.prev_reward,
                 self.prev_success,
-                input_utterance=other_input_raw,
-                output_utterance=sys_utterance,
+                input_utterance=self.prev_usr_utterance,
+                output_utterance=self.prev_sys_utterance,
                 task_success=self.prev_task_success
             )
 
