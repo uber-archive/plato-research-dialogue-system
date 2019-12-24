@@ -643,7 +643,8 @@ class ConversationalSingleAgent(ConversationalAgent):
                     # simulator's output DActs to proceed.
 
             else:
-                print('USER (DACT) > %s \n' % usr_input[0])
+                print('USER (DACT) > %s \n' % '; '.join(
+                    [str(ui) for ui in usr_input]))
 
         else:
             if self.USE_SPEECH:
