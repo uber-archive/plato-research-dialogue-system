@@ -496,6 +496,12 @@ class Parser(DataParser):
         :return: intents and BIO tags
         """
 
+        # Pricerange fix
+        # e.g. 'I want a moderately priced restaurant'
+        utterance = utterance.replace('cheaply', 'cheap')
+        utterance = utterance.replace('moderately', 'moderate')
+        utterance = utterance.replace('expensively', 'expensive')
+
         if mode == 'sys' or mode == 'system':
             acts_with_slots = {'inform', 'deny', 'confirm'}
         elif mode == 'usr' or mode == 'user':
