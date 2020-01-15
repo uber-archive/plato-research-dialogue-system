@@ -198,7 +198,7 @@ class SGUIController(Controller):
                 else:
                     self.user_output_history = asr_utterance
 
-                self.window.Element('_SYS_').Update(self.user_output_history)
+                self.window.Element('_USER_').Update(self.user_output_history)
                 self.window.Refresh()
 
             self.sys_output = \
@@ -207,7 +207,7 @@ class SGUIController(Controller):
             self.sys_output_history += '\n' + self.sys_output['output_raw']
 
             self.update_text(
-                '_USER_',
+                '_SYS_',
                 self.sys_output_history,
                 self.sys_output['output_raw'])
 
@@ -217,7 +217,7 @@ class SGUIController(Controller):
                 self.sys_output_history += \
                     '\n==================================\n\n'
 
-                self.window.Element('_USER_').Update(self.sys_output_history)
+                self.window.Element('_SYS_').Update(self.sys_output_history)
                 self.window.Refresh()
 
                 sys_agent.end_dialogue()
@@ -256,7 +256,7 @@ class SGUIController(Controller):
                 else:
                     self.user_output_history = asr_utterance
 
-                self.window.Element('_SYS_').Update(self.user_output_history)
+                self.window.Element('_USER_').Update(self.user_output_history)
                 self.window.Refresh()
 
             self.sys_output = \
@@ -265,7 +265,7 @@ class SGUIController(Controller):
             self.sys_output_history += '\n' + self.sys_output['output_raw']
 
             self.update_text(
-                '_USER_',
+                '_SYS_',
                 self.sys_output_history,
                 self.sys_output['output_raw'])
 
@@ -275,7 +275,7 @@ class SGUIController(Controller):
                 self.sys_output_history += \
                     '\n==================================\n\n'
 
-                self.window.Element('_USER_').Update(self.sys_output_history)
+                self.window.Element('_SYS_').Update(self.sys_output_history)
                 self.window.Refresh()
 
                 sys_agent.end_dialogue()
