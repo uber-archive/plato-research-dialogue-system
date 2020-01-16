@@ -496,11 +496,7 @@ class Parser(DataParser):
         :return: intents and BIO tags
         """
 
-        # Pricerange fix
-        # e.g. 'I want a moderately priced restaurant'
-        utterance = utterance.replace('cheaply', 'cheap')
-        utterance = utterance.replace('moderately', 'moderate')
-        utterance = utterance.replace('expensively', 'expensive')
+        utterance = self.correct_synonyms(utterance)
 
         if mode == 'sys' or mode == 'system':
             acts_with_slots = {'inform', 'deny', 'confirm'}
@@ -539,8 +535,10 @@ class Parser(DataParser):
                     # Special case for 'asian' and 'asian oriental' (there is
                     # no ambiguity in this case).
                     if curr_slot[
-                        1] == 'asian oriental' and 'asian' in utterance and \
-                            'asian oriental' not in utterance:
+                        1] in ['asian oriental', 'australian asian'] and \
+                            'asian' in utterance and \
+                            'asian oriental' not in utterance and \
+                            'australian asian' not in utterance:
                         curr_slot[1] = 'asian'
 
                     slot_value_split = curr_slot[1].split()
@@ -594,6 +592,15 @@ class Parser(DataParser):
                 i += 1
 
         return curr_intents, iob_tags
+
+    def correct_synonyms(self, utterance):
+        # Replace synonyms
+        utterance = utterance.replace('center', 'centre')
+        utterance = utterance.replace('cheaply', 'cheap')
+        utterance = utterance.replace('moderately', 'moderate')
+        utterance = utterance.replace('expensively', 'expensive')
+
+        return utterance
 
     def parse_data(
             self,
@@ -801,7 +808,7 @@ class Parser(DataParser):
                                 # Retrieve user act slot
                                 if user_act == 'request':
                                     usr_act_slot = user_act + '_' + slot[1]
-                                    user_dact.params.append(
+                                    user_dact.add_item(
                                         DialogueActItem(
                                             slot[1],
                                             Operator.EQ,
@@ -812,7 +819,7 @@ class Parser(DataParser):
                                     usr_act_slot = user_act + '_'
                                 else:
                                     usr_act_slot = user_act + '_' + slot[0]
-                                    user_dact.params.append(
+                                    user_dact.add_item(
                                         DialogueActItem(
                                             slot[0],
                                             Operator.EQ,
@@ -861,7 +868,8 @@ class Parser(DataParser):
                                 self.user_policy_reactive[
                                     sys_act_slot]['total_turns'] += 1
 
-                        usr_dacts.append(user_dact)
+                        if user_dact not in usr_dacts:
+                            usr_dacts.append(user_dact)
 
                     # Update system's dialogue_policy. Here we use the previous
                     # dialogue state, which is where the sys
@@ -885,14 +893,14 @@ class Parser(DataParser):
                             if sda['slots']:
                                 if sys_act_slot == 'request':
                                     sys_act_slot += '_' + sda['slots'][0][1]
-                                    sys_dact.params.append(
+                                    sys_dact.add_item(
                                         DialogueActItem(
                                             sda['slots'][0][1],
                                             Operator.EQ,
                                             ''))
                                 else:
                                     sys_act_slot += '_' + sda['slots'][0][0]
-                                    sys_dact.params.append(
+                                    sys_dact.add_item(
                                         DialogueActItem(
                                             sda['slots'][0][0],
                                             Operator.EQ,
@@ -1129,12 +1137,23 @@ class Parser(DataParser):
 
             usr_nlu_writer.writerow(['transcript', 'intent', 'iob'])
 
-            sys_dst_writer.writerow(['dst_prev_food', 'dst_prev_area',
-                                     'dst_prev_pricerange', 'dst_intent',
-                                     'dst_slot', 'dst_value', 'dst_food',
-                                     'dst_area', 'dst_pricerange', 
-                                     'dst_req_slot'
-                                     ])
+            sys_dst_writer.writerow(
+                # Previous Dialogue State
+                ['dst_prev_food', 'dst_prev_area',
+                 'dst_prev_pricerange',
+
+                 # Input from NLU
+                 'nlu_intent',
+                 'req_slot',
+                 'inf_area_value',
+                 'inf_food_value',
+                 'inf_pricerange_value',
+
+                 # New Dialogue State
+                 'dst_food', 'dst_area', 'dst_pricerange',
+                 'dst_req_slot'
+                 ]
+            )
 
             for dialogue in self.recorder_sys.dialogues:
                 for sys_turn in dialogue:
@@ -1182,68 +1201,68 @@ class Parser(DataParser):
                     dst_prev_food = 'none'
                     if sys_turn['state'].slots_filled['food']:
                         dst_prev_food = sys_turn['state'].slots_filled['food']
-                        
+
                     dst_prev_pricerange = 'none'
                     if sys_turn['state'].slots_filled['pricerange']:
                         dst_prev_pricerange = \
                             sys_turn['state'].slots_filled['pricerange']
-                        
+
                     dst_prev_area = 'none'
                     if sys_turn['state'].slots_filled['area']:
                         dst_prev_area = sys_turn['state'].slots_filled['area']
-                        
-                    dst_intent = 'none'
-                    dst_slot = 'none'
-                    dst_value = 'none'
+
                     dst_req_slot = 'none'
+                    nlu_intent = set()
+                    inf_area_value = 'none'
+                    inf_food_value = 'none'
+                    inf_pricerange_value = 'none'
 
                     if sys_turn['new_state'].user_acts:
-                        dst_intent = sys_turn['new_state'].user_acts[0].intent
+                        for uact in sys_turn['new_state'].user_acts:
+                            nlu_intent.add(uact.intent)
 
-                        if sys_turn['new_state'].user_acts[0].params:
-                            dst_slot = \
-                                sys_turn[
-                                    'new_state'].user_acts[0].params[0].slot
+                            for p in uact.params:
+                                if p.slot == 'area':
+                                    inf_area_value = p.value
 
-                            if sys_turn[
-                                 'new_state'].user_acts[0].params[0].value:
-                                dst_value = \
-                                    sys_turn[
-                                        'new_state'
-                                    ].user_acts[0].params[0].value
+                                elif p.slot == 'food':
+                                    inf_food_value = p.value
 
-                        # Special case for requests
-                        if sys_turn['new_state'].user_acts[0].intent == \
-                                'request':
-                            if sys_turn['new_state'].user_acts[0].params:
-                                dst_req_slot = \
-                                    sys_turn[
-                                        'new_state'
-                                    ].user_acts[0].params[0].slot
+                                elif p.slot == 'pricerange':
+                                    inf_pricerange_value = p.value
 
-                    dst_food = 'none'
-                    if sys_turn['new_state'].slots_filled['food']:
-                        dst_food = sys_turn['new_state'].slots_filled['food']
+                            # Special case for requests
+                            if uact.intent == 'request' and uact.params:
+                                dst_req_slot = uact.params[0].slot
 
-                    dst_pricerange = 'none'
-                    if sys_turn['new_state'].slots_filled['pricerange']:
-                        dst_pricerange = sys_turn['new_state'].slots_filled[
-                            'pricerange']
+                        dst_food = 'none'
+                        if sys_turn['new_state'].slots_filled['food']:
+                            dst_food = \
+                                sys_turn['new_state'].slots_filled['food']
 
-                    dst_area = 'none'
-                    if sys_turn['new_state'].slots_filled['area']:
-                        dst_area = sys_turn['new_state'].slots_filled['area']
+                        dst_pricerange = 'none'
+                        if sys_turn['new_state'].slots_filled['pricerange']:
+                            dst_pricerange = \
+                                sys_turn['new_state'].slots_filled[
+                                    'pricerange']
 
-                    sys_dst_writer.writerow([dst_prev_food,
-                                             dst_prev_area,
-                                             dst_prev_pricerange,
-                                             dst_intent,
-                                             dst_slot,
-                                             dst_value,
-                                             dst_food,
-                                             dst_area,
-                                             dst_pricerange,
-                                             dst_req_slot])
+                        dst_area = 'none'
+                        if sys_turn['new_state'].slots_filled['area']:
+                            dst_area = \
+                                sys_turn['new_state'].slots_filled['area']
+
+                        sys_dst_writer.writerow([dst_prev_food,
+                                                 dst_prev_area,
+                                                 dst_prev_pricerange,
+                                                 ' '.join(nlu_intent),
+                                                 dst_req_slot,
+                                                 inf_area_value,
+                                                 inf_food_value,
+                                                 inf_pricerange_value,
+                                                 dst_food,
+                                                 dst_area,
+                                                 dst_pricerange,
+                                                 dst_req_slot])
 
                 # Another special case for sys nlg: sys side has no bye()
                 sys_nlg_writer.writerow(["[{'slots': [], 'act': 'bye'}]",
@@ -1265,7 +1284,7 @@ class Parser(DataParser):
             usr_dst_writer.writerow(['dst_prev_food', 'dst_prev_area',
                                      'dst_prev_pricerange', 'dst_intent',
                                      'dst_slot', 'dst_value', 'dst_food',
-                                     'dst_area', 'dst_pricerange', 
+                                     'dst_area', 'dst_pricerange',
                                      'dst_req_slot'
                                      ])
 
@@ -1308,56 +1327,58 @@ class Parser(DataParser):
                     if usr_turn['state'].slots_filled['area']:
                         dst_prev_area = usr_turn['state'].slots_filled['area']
 
-                    dst_intent = 'none'
-                    dst_slot = 'none'
-                    dst_value = 'none'
                     dst_req_slot = 'none'
+                    nlu_intent = set()
+                    inf_area_value = 'none'
+                    inf_food_value = 'none'
+                    inf_pricerange_value = 'none'
 
                     if usr_turn['new_state'].user_acts:
-                        dst_intent = usr_turn['new_state'].user_acts[0].intent
+                        for sact in usr_turn['new_state'].user_acts:
+                            nlu_intent.add(sact.intent)
 
-                        if usr_turn['new_state'].user_acts[0].params:
-                            dst_slot = \
-                                usr_turn['new_state'].user_acts[0].params[
-                                    0].slot
+                            for p in sact.params:
+                                if p.slot == 'area':
+                                    inf_area_value = p.value
 
-                            if usr_turn['new_state'].user_acts[0].params[
-                                0].value:
-                                dst_value = \
-                                    usr_turn['new_state'].user_acts[0].params[
-                                        0].value
+                                elif p.slot == 'food':
+                                    inf_food_value = p.value
 
-                        # Special case for requests
-                        if usr_turn['new_state'].user_acts[
-                            0].intent == 'request':
-                            if usr_turn['new_state'].user_acts[0].params:
-                                dst_req_slot = \
-                                    usr_turn['new_state'].user_acts[0].params[
-                                        0].slot
+                                elif p.slot == 'pricerange':
+                                    inf_pricerange_value = p.value
 
-                    dst_food = 'none'
-                    if usr_turn['new_state'].slots_filled['food']:
-                        dst_food = usr_turn['new_state'].slots_filled['food']
+                            # Special case for requests
+                            if sact.intent == 'request' and sact.params:
+                                dst_req_slot = sact.params[0].slot
 
-                    dst_pricerange = 'none'
-                    if usr_turn['new_state'].slots_filled['pricerange']:
-                        dst_pricerange = usr_turn['new_state'].slots_filled[
-                            'pricerange']
+                        dst_food = 'none'
+                        if usr_turn['new_state'].slots_filled['food']:
+                            dst_food = \
+                                usr_turn['new_state'].slots_filled['food']
 
-                    dst_area = 'none'
-                    if usr_turn['new_state'].slots_filled['area']:
-                        dst_area = usr_turn['new_state'].slots_filled['area']
+                        dst_pricerange = 'none'
+                        if usr_turn['new_state'].slots_filled['pricerange']:
+                            dst_pricerange = \
+                                usr_turn['new_state'].slots_filled[
+                                    'pricerange']
 
-                    usr_dst_writer.writerow([dst_prev_food,
-                                             dst_prev_area,
-                                             dst_prev_pricerange,
-                                             dst_intent,
-                                             dst_slot,
-                                             dst_value,
-                                             dst_food,
-                                             dst_area,
-                                             dst_pricerange,
-                                             dst_req_slot])
+                        dst_area = 'none'
+                        if usr_turn['new_state'].slots_filled['area']:
+                            dst_area = \
+                                usr_turn['new_state'].slots_filled['area']
+
+                        usr_dst_writer.writerow([dst_prev_food,
+                                                 dst_prev_area,
+                                                 dst_prev_pricerange,
+                                                 ' '.join(nlu_intent),
+                                                 dst_req_slot,
+                                                 inf_area_value,
+                                                 inf_food_value,
+                                                 inf_pricerange_value,
+                                                 dst_food,
+                                                 dst_area,
+                                                 dst_pricerange,
+                                                 dst_req_slot])
 
         print('Done!')
 

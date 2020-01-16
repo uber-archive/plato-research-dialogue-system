@@ -51,6 +51,7 @@ AGENT_0:
     package: plato.agent.component.user_simulator.agenda_based_user_simulator.agenda_based_us
     class: AgendaBasedUS
     arguments:
+      goals_path: data/goals.pkl
       simulator: agenda
       patience: 5
       pop_distribution: [1.0]

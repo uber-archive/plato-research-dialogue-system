@@ -11,13 +11,19 @@ input_features:
         name: dst_prev_pricerange
         type: category
     -
-        name: dst_intent
+        name: nlu_intent
+        type: set
+    -
+        name: req_slot
         type: category
     -
-        name: dst_slot
+        name: inf_area_value
         type: category
     -
-        name: dst_value
+        name: inf_food_value
+        type: category
+    -
+        name: inf_pricerange_value
         type: category
 
 output_features:

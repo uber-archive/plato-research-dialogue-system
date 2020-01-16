@@ -56,7 +56,7 @@ class CamRestDST(LudwigDST):
         self.DState.user_acts = deepcopy(dacts)
 
         dst_in = dict()
-        
+
         dst_in['dst_prev_area'] = 'none'
         if self.DState.slots_filled['area']:
             dst_in['dst_prev_area'] = self.DState.slots_filled['area']
@@ -70,18 +70,32 @@ class CamRestDST(LudwigDST):
             dst_in['dst_prev_pricerange'] = \
                 self.DState.slots_filled['pricerange']
 
-        dst_in['dst_intent'] = 'none'
-        dst_in['dst_slot'] = 'none'
-        dst_in['dst_value'] = 'none'
+        dst_in['nlu_intent'] = 'none'
+        dst_in['req_slot'] = 'none'
+        dst_in['inf_area_value'] = 'none'
+        dst_in['inf_food_value'] = 'none'
+        dst_in['inf_pricerange_value'] = 'none'
 
-        if dacts:
-            dst_in['dst_intent'] = dacts[0].intent
+        intents = set()
 
-            if dacts[0].params:
-                dst_in['dst_slot'] = dacts[0].params[0].slot
+        for da in dacts:
+            intents.add(da.intent)
 
-                if dacts[0].params[0].value:
-                    dst_in['dst_value'] = dacts[0].params[0].value
+            for p in da.params:
+                if da.intent == 'inform':
+                    if p.slot == 'area':
+                        dst_in['inf_area_value'] = p.value
+
+                    elif p.slot == 'food':
+                        dst_in['inf_food_value'] = p.value
+
+                    elif p.slot == 'pricerange':
+                        dst_in['inf_pricerange_value'] = p.value
+
+                elif da.intent == 'request':
+                    dst_in['req_slot'] = p.slot
+
+        dst_in['nlu_intent'] = ' '.join(intents)
 
         input_data = [dst_in]
 
@@ -92,7 +106,7 @@ class CamRestDST(LudwigDST):
         area_prediction = result['dst_area_predictions'][0]
         if area_prediction == 'none':
             area_prediction = None
-            
+
         self.DState.slots_filled['area'] = area_prediction
 
         food_prediction = result['dst_food_predictions'][0]
@@ -112,6 +126,7 @@ class CamRestDST(LudwigDST):
             req_slot_prediction = None
 
         self.DState.requested_slot = req_slot_prediction
+        self.DState.is_terminal_state = 'bye' in intents
 
         self.DState.turn += 1
 

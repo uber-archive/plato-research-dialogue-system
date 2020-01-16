@@ -598,17 +598,12 @@ plato run --config CamRest_model_nlu.yaml
 The DSTC2 Data Parser generated two `.csv` files we can use for DST: 
 `DST_sys.csv` and `DST_usr.csv` which look like this:
 
-
-|dst_prev_food|dst_prev_area|dst_prev_pricerange|dst_intent|dst_slot|dst_value|dst_food|dst_area|dst_pricerange|dst_req_slot|
---------------|-------------|-------------------|----------|--------|---------|--------|--------|--------------|------------|
-|none|none|none|inform|food|vegetarian|vegetarian|none|expensive|none|
-|vegetarian|none|expensive|inform|food|vegetarian|vegetarian|none|expensive|none|
-|vegetarian|none|expensive|inform|food|asian oriental|asian oriental|none|expensive|none|
-|asian oriental|none|expensive|inform|food|asian oriental|asian oriental|none|expensive|none|
-|asian oriental|none|expensive|request|phone|none|asian oriental|none|expensive|phone|
-|asian oriental|none|expensive|request|area|none|asian oriental|none|expensive|area|
-|asian oriental|none|expensive|thankyou|none|none|asian oriental|none|expensive|none|
-
+|dst_prev_food|dst_prev_area|dst_prev_pricerange|nlu_intent|req_slot|inf_area_value|inf_food_value|inf_pricerange_value|dst_food|dst_area|dst_pricerange|dst_req_slot|
+--------------|-------------|-------------------|----------|--------|--------------|--------------|--------------------|--------|--------|--------------|------------|
+|none|none|none|inform|none|none|vegetarian|expensive|vegetarian|none|expensive|none|
+|vegetarian|none|expensive|inform|none|none|vegetarian|none|vegetarian|none|expensive|none|
+|vegetarian|none|expensive|inform|none|none|asian oriental|none|asian oriental|none|expensive|none|
+|asian oriental|none|expensive|inform|none|none|asian oriental|expensive|asian oriental|none|expensive|none|
 
 Essentially, the parser keeps track of the previous dialogue state, the input
 from NLU, and the resulting dialogue state. We can then feed this into Ludwig

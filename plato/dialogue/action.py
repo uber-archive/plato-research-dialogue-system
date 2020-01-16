@@ -99,6 +99,17 @@ class DialogueAct(Action):
         else:
             return 'None (DialogueAct)'
 
+    def add_item(self, item):
+        """
+        Appends a dialogue act item to params, if it does not already exist.
+
+        :param item: a dialogue act item to be appended to params
+        :return: nothing
+        """
+
+        if item not in self.params:
+            self.params.append(item)
+
 
 """
 The DialogueActItem models a parameter of a DialogueAct. It is essentially a 
