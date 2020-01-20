@@ -16,6 +16,10 @@ interface is adhered to.
 
 Publication citations:
 
+Alexandros Papangelis, Mahdi Namazifar, Chandra Khatri, Yi-Chia Wang, 
+Piero Molino, and Gokhan Tur, "Plato Dialogue System: A Flexible conversational
+ AI Research Platform", ArXiv Preprint [[paper](http://arxiv.org/abs/2001.06463)]
+
 Alexandros Papangelis, Yi-Chia Wang, Piero Molino, and Gokhan Tur, 
 “Collaborative Multi-Agent Dialogue Model Training Via Reinforcement Learning”, 
 SIGDIAL 2019 [[paper](https://arxiv.org/abs/1907.05507)]
