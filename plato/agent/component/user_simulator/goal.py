@@ -261,7 +261,7 @@ class GoalGenerator:
 
         for slot in req_slots:
             if slot in result:
-                goal.requests[slot] = DialogueActItem(slot, Operator.EQ, [])
+                goal.requests[slot] = DialogueActItem(slot, Operator.EQ, '')
 
         return goal
 
