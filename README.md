@@ -526,7 +526,7 @@ the user (`data/DSTC2_NLU_usr.csv`). These look like this:
 |expensive restaurant that serves vegetarian food|inform|B-inform-pricerange O O O B-inform-food O|
 |vegetarian food|inform|B-inform-food O|
 |asian oriental type of food|inform|B-inform-food I-inform-food O O O|
-|expensive restaurant asian food|inform|B-inform-pricerange O O|
+|expensive restaurant asian food|inform|B-inform-pricerange O O O|
 
 
 For training a NLU model you need to write a configuration file that looks like this:
