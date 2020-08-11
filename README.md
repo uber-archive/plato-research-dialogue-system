@@ -178,6 +178,17 @@ git clone git@github.com:uber-research/plato-research-dialogue-system.git
 
 Next you need to install some pre-requisites:
 
+* TensorFlow:
+
+    ````
+    pip install tensorflow>=1.14.0
+    ````
+    
+* Install SpeechRecognition library for audio support:
+    ````
+    pip install SpeechRecognition
+    ````
+
 * For MacOS:
     ````
     brew install portaudio
@@ -191,9 +202,15 @@ Next you need to install some pre-requisites:
     ````
     
 * For Windows: Nothing is needed to be pre-installed
-
+    
 Next step is installing Plato. To install Plato you should directly install it from 
 source code.
+
+* Install SpeechRecognition library for audio support:
+
+    ````
+    pip install SpeechRecognition
+    ````
 
 ## Installing Plato from source code (Recommended)
 Installing Plato from source code allows installation in editable mode which means that

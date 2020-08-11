@@ -1,5 +1,4 @@
 gtts>=2.0.1
-SpeechRecognition>=3.8.1
 ludwig>=0.2.1
 pandas>=0.23.4
 pyyaml>=3.13
@@ -7,4 +6,3 @@ click>=7.0
 pysimplegui>=4.4.1
 setuptools>=41.0.0
 numpy>=1.16.4
-tensorflow>=1.14.0
