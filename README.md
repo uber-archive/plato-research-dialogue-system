@@ -206,12 +206,6 @@ Next you need to install some pre-requisites:
 Next step is installing Plato. To install Plato you should directly install it from 
 source code.
 
-* Install SpeechRecognition library for audio support:
-
-    ````
-    pip install SpeechRecognition
-    ````
-
 ## Installing Plato from source code (Recommended)
 Installing Plato from source code allows installation in editable mode which means that
 if you make changes to the source code, it will directly effect execution. 
