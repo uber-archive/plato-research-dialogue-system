@@ -480,12 +480,12 @@ def run(config, test=None):
 
         import plato
 
-        # __file__ points to __init__.py, which is 11 characters but we
+        # __file__ points to __init__.py, which is 11 characters, plus 6 characters for plato/ but we
         # want the root path only.
-        plato_path = "/".join(plato.__file__.split("/")[:-1]) + '/'
+        plato_path = plato.__file__[:-17]
 
         for (dirpath, dirnames, filenames) in \
-                os.walk(plato_path + 'example/test/'):
+                os.walk(plato_path + 'test/config/'):
             if not filenames or filenames[0] == '.DS_Store':
                 continue
 
@@ -508,6 +508,8 @@ def run(config, test=None):
         print(f'Passed {len(passed)} out of {(len(passed) + len(failed))}')
 
         print(f'Failed on: {failed}')
+
+        return not failed
 
     else:
         # Normal Plato execution
