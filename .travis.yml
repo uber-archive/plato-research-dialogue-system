@@ -29,6 +29,6 @@ script:
   - pip3 install tensorflow==1.15.3 || pip install tensorflow==1.15.3
   - pip3 install SpeechRecognition || pip install SpeechRecognition
   - pip3 install -e . || pip3 install -e .
-  - python3 test/plato_tests.py || python test/plato_tests.py
+  - python -m unittest test.plato_tests || python3 -m unittest test.plato_tests
 
 
