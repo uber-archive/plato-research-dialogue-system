@@ -15,6 +15,9 @@ os.system('mkdir applications')
 os.system('mkdir data')
 os.system('mkdir logs')
 os.system('mkdir models')
+os.system('cd docs')
+os.system('make html')
+os.system('cd ..')
 
 setup(
     name='plato',

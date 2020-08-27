@@ -19,7 +19,7 @@ script:
   - pip3 install SpeechRecognition || pip install SpeechRecognition
   - pip3 install -e . || pip3 install -e .
   - python -m unittest test.plato_tests
-  - touch docs/_build/html/.nojekyll
+  - bash make_docs.sh
 deploy:
   provider: pages
   skip_cleanup: true

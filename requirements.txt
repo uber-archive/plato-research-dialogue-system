@@ -6,3 +6,5 @@ click>=7.0
 pysimplegui>=4.4.1
 setuptools>=41.0.0
 numpy>=1.16.4
+Sphinx
+sphinx-rtd-theme
