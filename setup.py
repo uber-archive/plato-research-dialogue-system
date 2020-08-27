@@ -1,6 +1,6 @@
 from setuptools import setup
 import os
-
+from plato import __version__
 
 def readfile(filename):
     with open(filename, 'r+') as f:
@@ -18,7 +18,7 @@ os.system('mkdir models')
 
 setup(
     name='plato',
-    version='0.3.0',
+    version=__version__,
 
     package_data={'plato': ['example/config/application/*.yaml',
                             'example/config/domain/*.yaml',
