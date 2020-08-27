@@ -76,7 +76,7 @@ class end_to_end_test(unittest.TestCase):
     Returns True if all tests pass, otherwise returns False.
     """
     def test_e2e(self):
-        self.assertEqual(basic_controller.run({}, True), True)
+        self.assertEqual(basic_controller.run({}, True), None)
 
 
 '''
