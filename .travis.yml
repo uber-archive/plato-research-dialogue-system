@@ -7,10 +7,6 @@ jobs:
   include:
     - name: "Python 3.7.0 on Xenial Linux"
       python: 3.7          # this works for Linux but is ignored on macOS or Windows
-    - name: "Python 3.6 on macOS"
-      os: osx
-      osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
-      language: shell       # 'language: python' is an error on Travis CI macOS
 install: pip3 install --upgrade pip || pip install --upgrade pip # all three OSes agree about 'pip3'
 script:
   # your build scripts before running `fossa`
