@@ -1,6 +1,6 @@
 # Plato Research Dialogue System
 
-This is a v 0.2 release.
+This is a v0.3.0 release.
 
 The Plato Research Dialogue System is a flexible framework that can be used to 
 create, train, and evaluate conversational AI agents in various environments. 
