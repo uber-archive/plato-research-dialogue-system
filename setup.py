@@ -18,7 +18,7 @@ os.system('mkdir models')
 
 setup(
     name='plato',
-    version='0.2',
+    version='0.3.0',
 
     package_data={'plato': ['example/config/application/*.yaml',
                             'example/config/domain/*.yaml',
