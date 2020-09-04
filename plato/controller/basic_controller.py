@@ -410,9 +410,8 @@ def run(config, test=None):
             # Else look for the config file in the example folder
             import plato
 
-            # __file__ points to __init__.py, which is 11 characters but we
-            # want the root path only.
-            plato_path = "/".join(plato.__file__.split("/")[:-1]) + '/'
+            # __file__ points to __init__.py but we want the root path only.
+            plato_path = "/".join(plato.__file__.split("/")[:-1])[:-6] + '/'
             new_config_path = \
                 plato_path + 'example/config/application/' + config
 

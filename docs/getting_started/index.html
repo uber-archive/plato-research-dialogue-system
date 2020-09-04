@@ -964,14 +964,14 @@ The <code>plato</code> command receives 4 sub-commands:
 a configuration file. We will describe these configuration files in detail later in the 
 document but remember that <code>plato run --config</code> and <code>plato gui --config</code> receive
  an application configuration file 
-(examples could be found here: <code>plato/example/config/application/</code>),
+(examples could be found here: <code>example/config/application/</code>),
 <code>plato domain --config</code> receives a domain configuration (examples could be found here: 
-<code>plato/example/config/domain/</code>), and <code>plato parse --config</code> receives a parser configuration
-file (examples could be found here: <code>plato/example/config/parser/</code>).</p>
+<code>example/config/domain/</code>), and <code>plato parse --config</code> receives a parser configuration
+file (examples could be found here: <code>example/config/parser/</code>).</p>
 <p>For the value that is passed to <code>--config</code> Plato first checks to see if the value 
 is the address of a file on the machine. If it is, then Plato tries to parse that file. 
 If it is not, Plato checks to see if the value is a name of a file within the 
-<code>plato/example/config/&lt;application, domain, or parser&gt;</code> directory. </p>
+<code>example/config/&lt;application, domain, or parser&gt;</code> directory. </p>
 <p>For some quick examples, try the following configuration files for the Cambridge
 Restaurants domain:</p>
 <div class="codehilite"><pre><span></span>plato run --config CamRest_user_simulator.yaml
@@ -994,7 +994,7 @@ Restaurants domain:</p>
 <li>Agent</li>
 </ul>
 <p>These parts are declared in an application configuration file. Examples of 
-such configuration files could be found at <code>plato/example/config/application/</code>
+such configuration files could be found at <code>example/config/application/</code>
 In the rest of this section we describe each of these parts in details.</p>
 <h3 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h3>
 <p>For implementing a task-oriented dialog system in Plato the user needs to specify two
@@ -1004,7 +1004,7 @@ components that constitute the <em>domain</em> of the dialog system:
 <p>Plato provides a command for automating this process of building the ontology and database.
 Let's say for example that you want to build a conversational agent for a 
 flower shop, and you have the following items in a .csv (this file could be found at
-<code>plato/example/data/flowershop.csv</code>):</p>
+<code>example/data/flowershop.csv</code>):</p>
 <div class="codehilite"><pre><span></span>id,type,color,price,occasion
 1,rose,red,cheap,any
 2,rose,white,cheap,anniversary
@@ -1019,7 +1019,7 @@ flower shop, and you have the following items in a .csv (this file could be foun
 and a .json Ontology file you need to create a domain configuration file within which 
 you should specify the path to the csv file, output paths, as well as informable, 
 requestable, and system-requestable slots:
-(e.g. <code>plato/example/config/domain/create_flowershop_domain.yaml</code>):</p>
+(e.g. <code>example/config/domain/create_flowershop_domain.yaml</code>):</p>
 <div class="codehilite"><pre><span></span><span class="n">GENERAL</span><span class="o">:</span>
   <span class="n">csv_file_name</span><span class="o">:</span> <span class="n">plato</span><span class="sr">/example/data/</span><span class="n">flowershop</span><span class="o">.</span><span class="na">csv</span>
   <span class="n">db_table_name</span><span class="o">:</span> <span class="n">flowershop</span>
@@ -1041,7 +1041,7 @@ requestable, and system-requestable slots:
 
 
 <p>If all went well, you should have a <code>flowershop.json</code> and a 
-<code>flowershop.db</code> in the <code>plato/example/domains/</code> directory.</p>
+<code>flowershop.db</code> in the <code>example/domains/</code> directory.</p>
 <p>If you receive this error:</p>
 <div class="codehilite"><pre><span></span>sqlite3.IntegrityError: UNIQUE constraint failed: flowershop.id
 </pre></div>
@@ -1068,11 +1068,11 @@ with the appropriate configuration file: </p>
 </pre></div>
 
 
-<p>Please refer to <code>plato/example/config/application/</code> for example configuration files which contain 
+<p>Please refer to <code>example/config/application/</code> for example configuration files which contain 
 settings on the environment and the agent(s) to be created as well as their components. 
-The examples in <code>plato/example/config/application/</code> could be run directly using just the name of 
+The examples in <code>example/config/application/</code> could be run directly using just the name of 
 the example YAML file: </p>
-<div class="codehilite"><pre><span></span>plato run --config &lt;NAME OF A FILE FROM plato/example/config/application/&gt;
+<div class="codehilite"><pre><span></span>plato run --config &lt;NAME OF A FILE FROM example/config/application/&gt;
 </pre></div>
 
 
@@ -1085,7 +1085,7 @@ full path to their config file to <code>--config</code>:</p>
 <p>For the value that is passed to <code>--config</code> plato first checks to see if the value 
 is the address of a file on the machine. If it is, the Plato tries to parse that file. 
 If it is not, Plato checks to see if the value is a name of a file within the 
-<code>plato/example/config/application</code> directory. </p>
+<code>example/config/application</code> directory. </p>
 <h3 id="agent">Agent<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
 <p>Each conversational AI application in Plato could have one or more agents. Each agent 
 has a role (system, user, ...) and a set of standard dialog system components
@@ -1150,9 +1150,9 @@ Tracking Challenge website:</p>
 
 
 <p>Once the download is complete, you need to unzip the file. A config file for
-parsing this dataset is provided at <code>plato/example/config/parser/Parse_DSTC2.yaml</code>.
+parsing this dataset is provided at <code>example/config/parser/Parse_DSTC2.yaml</code>.
 You can parse the data that you downloaded by first editing 
-the value of <code>data_path</code> in <code>plato/example/config/parser/Parse_DSTC2.yaml</code> to
+the value of <code>data_path</code> in <code>example/config/parser/Parse_DSTC2.yaml</code> to
 point to the path to where you downloaded and unzipped the DSTC2 data. Next
 you can run the parse script as follows:</p>
 <div class="codehilite"><pre><span></span>plato parse --config Parse_DSTC2.yaml
@@ -1251,17 +1251,17 @@ training:
 
 
 <p>An example of this config file exists in 
-<code>plato/example/config/ludwig/ludwig_nlu_train.yaml</code>. The training job could be started
+<code>example/config/ludwig/ludwig_nlu_train.yaml</code>. The training job could be started
 by running:</p>
 <div class="codehilite"><pre><span></span>ludwig experiment \
-       --model_definition_file plato/example/config/ludwig/ludwig_nlu_train.yaml \
+       --model_definition_file example/config/ludwig/ludwig_nlu_train.yaml \
        --data_csv data/DSTC2_NLU_sys.csv \
        --output_directory models/camrest_nlu/sys/
 </pre></div>
 
 
 <p>The next step is to load the model in an application config. In 
-<code>plato/example/config/application/CamRest_model_nlu.yaml</code> we provide an
+<code>example/config/application/CamRest_model_nlu.yaml</code> we provide an
 application config that has a model based NLU and the other components are
 non-ML-based. By updating the path to the mode (<code>model_path</code>) to the value 
 that you provided to the <code>--output_directory</code> argument when you ran ludwig,
@@ -1433,7 +1433,7 @@ training:
 
 <p>We now need to train our model with ludwig:</p>
 <div class="codehilite"><pre><span></span>ludwig experiment \
-       --model_definition_file plato/example/config/ludwig/ludwig_dst_train.yaml \
+       --model_definition_file example/config/ludwig/ludwig_dst_train.yaml \
        --data_csv data/DST_sys.csv \
        --output_directory models/camrest_dst/sys/
 </pre></div>
@@ -1608,7 +1608,7 @@ training:
 
 <p>and train your model:</p>
 <div class="codehilite"><pre><span></span>ludwig experiment \
-       --model_definition_file plato/example/config/ludwig/ludwig_nlg_train.yaml \
+       --model_definition_file example/config/ludwig/ludwig_nlg_train.yaml \
        --data_csv data/DSTC2_NLG_sys.csv \
        --output_directory models/camrest_nlg/sys/
 </pre></div>
@@ -1728,7 +1728,7 @@ training:
 using Ludwig:</p>
 <div class="codehilite"><pre><span></span>ludwig train \
        --data_csv data/metalwoz.csv \
-       --model_definition_file plato/example/config/ludwig/metalWOZ_seq2seq_ludwig.yaml \
+       --model_definition_file example/config/ludwig/metalWOZ_seq2seq_ludwig.yaml \
        --output_directory &quot;models/joint_models/&quot;
 </pre></div>
 
@@ -1740,7 +1740,7 @@ wrap the input text into a pandas dataframe, grab the predicted tokens from
 the output and join them in a string that will be returned. See the class here:
 <code>plato.agent.component.joint_model.metal_woz_seq2seq.py</code></p>
 <h6 id="5-write-a-plato-generic-yaml-config-and-run-your-agent">5. Write a Plato generic yaml config and run your agent!<a class="headerlink" href="#5-write-a-plato-generic-yaml-config-and-run-your-agent" title="Permanent link">&para;</a></h6>
-<p>See <code>plato/example/config/application/metalwoz_generic.yaml</code> for an example generic 
+<p>See <code>example/config/application/metalwoz_generic.yaml</code> for an example generic 
 configuration file that interacts with the seq2seq agent over text. You can try
 it out as follows:</p>
 <div class="codehilite"><pre><span></span>plato run --config metalwoz_text.yaml

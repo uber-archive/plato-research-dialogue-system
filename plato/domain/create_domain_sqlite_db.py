@@ -158,7 +158,7 @@ def run(config):
 
         # __file__ points to __init__.py, which is 11 characters but we
         # want the root path only.
-        plato_path = "/".join(plato.__file__.split("/")[:-1]) + '/'
+        plato_path = "/".join(plato.__file__.split("/")[:-1])[:-6] + '/'
         config = plato_path + 'example/config/domain/' + config
 
     args = db_creator.arg_parse(config)

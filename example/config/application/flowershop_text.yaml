@@ -29,8 +29,8 @@ GENERAL:
   # to the arguments of each module of each agent. In this simple example we
   # provide the ontology, database, and domain that every module needs.
   global_arguments:
-    ontology: ../domains/flowershop-rules.json
-    database: ../domains/flowershop-dbase.db
+    ontology: domains/flowershop-rules.json
+    database: domains/flowershop-dbase.db
     db_type: sql
     domain: SlotFilling
 
@@ -45,10 +45,10 @@ DIALOGUE:
   domain: SlotFilling
 
   # The path to the ontology .json file (not needed if provided in global args)
-  ontology_path: ../domains/flowershop-rules.json
+  ontology_path: domains/flowershop-rules.json
 
   # The path to the database .db file (not needed if provided in global args)
-  db_path: ../domains/flowershop-dbase.db
+  db_path: domains/flowershop-dbase.db
 
   # The database type (not needed if provided in global args)
   db_type: sql

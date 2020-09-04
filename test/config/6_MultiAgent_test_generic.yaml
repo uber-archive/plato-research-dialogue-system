@@ -11,8 +11,8 @@ GENERAL:
     path: logs/CamRest_MultiAgent_Test_Generic
 
   global_arguments:
-    ontology: plato/example/domains/CamRestaurants-rules.json
-    database: plato/example/domains/CamRestaurants-dbase.db
+    ontology: example/domains/CamRestaurants-rules.json
+    database: example/domains/CamRestaurants-dbase.db
     db_type: sql
     domain: CamRest
 

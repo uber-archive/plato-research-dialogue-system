@@ -84,7 +84,7 @@ def check_file_path(path):
 
         # __file__ points to __init__.py, which is 11 characters but we
         # want the root path only.
-        plato_path = "/".join(plato.__file__.split("/")[:-1]) + '/'
+        plato_path = "/".join(plato.__file__.split("/")[:-1])[:-6] + '/'
         new_config_path = \
             plato_path + 'example/config/parser/' + path
 

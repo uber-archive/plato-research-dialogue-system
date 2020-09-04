@@ -9,8 +9,8 @@ GENERAL:
     path: ../logs/simulate_agenda
 
   global_arguments:
-    ontology: plato/example/domains/CamRestaurants-rules.json
-    database: plato/example/domains/CamRestaurants-dbase.db
+    ontology: example/domains/CamRestaurants-rules.json
+    database: example/domains/CamRestaurants-dbase.db
     db_type: sql
     domain: CamRest
   
@@ -20,8 +20,8 @@ DIALOGUE:
 
   domain: CamRest
 
-  ontology_path: plato/example/domains/CamRestaurants-rules.json
-  db_path: plato/example/domains/CamRestaurants-dbase.db
+  ontology_path: example/domains/CamRestaurants-rules.json
+  db_path: example/domains/CamRestaurants-dbase.db
   db_type: sql
 
 AGENT_0:

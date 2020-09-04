@@ -29,8 +29,8 @@ GENERAL:
   # to the arguments of each module of each agent. In this simple example we
   # provide the ontology, database, and domain that every module needs.
   global_arguments:
-    ontology: plato/example/domains/CamRestaurants-rules.json
-    database: plato/example/domains/CamRestaurants-dbase.db
+    ontology: example/domains/CamRestaurants-rules.json
+    database: example/domains/CamRestaurants-dbase.db
     db_type: sql
     domain: CamRest
 
@@ -45,10 +45,10 @@ DIALOGUE:
   domain: CamRest
 
   # The path to the ontology .json file (not needed if provided in global args)
-  ontology_path: plato/example/domains/CamRestaurants-rules.json
+  ontology_path: example/domains/CamRestaurants-rules.json
 
   # The path to the database .db file (not needed if provided in global args)
-  db_path: plato/example/domains/CamRestaurants-dbase.db
+  db_path: example/domains/CamRestaurants-dbase.db
 
   # The database type (not needed if provided in global args)
   db_type: sql

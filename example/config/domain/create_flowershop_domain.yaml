@@ -3,8 +3,8 @@
 GENERAL:
   csv_file_name: example/data/flowershop.csv
   db_table_name: flowershop
-  db_file_path: ../domains/flowershop-dbase.db
-  ontology_file_path: ../domains/flowershop-rules.json
+  db_file_path: domains/flowershop-dbase.db
+  ontology_file_path: domains/flowershop-rules.json
 
 
 ONTOLOGY:

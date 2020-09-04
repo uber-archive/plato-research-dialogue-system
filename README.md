@@ -257,15 +257,15 @@ Each of these sub-commands receives a value for the `--config` argument that poi
 a configuration file. We will describe these configuration files in detail later in the 
 document but remember that `plato run --config` and `plato gui --config` receive
  an application configuration file 
-(examples could be found here: `plato/example/config/application/`),
+(examples could be found here: `example/config/application/`),
 `plato domain --config` receives a domain configuration (examples could be found here: 
-`plato/example/config/domain/`), and `plato parse --config` receives a parser configuration
-file (examples could be found here: `plato/example/config/parser/`).
+`example/config/domain/`), and `plato parse --config` receives a parser configuration
+file (examples could be found here: `example/config/parser/`).
 
 For the value that is passed to `--config` Plato first checks to see if the value 
 is the address of a file on the machine. If it is, then Plato tries to parse that file. 
 If it is not, Plato checks to see if the value is a name of a file within the 
-`plato/example/config/<application, domain, or parser>` directory. 
+`example/config/<application, domain, or parser>` directory. 
 
 For some quick examples, try the following configuration files for the Cambridge
 Restaurants domain:
@@ -290,7 +290,7 @@ An application, i.e. conversational system, in Plato contains three major parts:
 * Agent
 
 These parts are declared in an application configuration file. Examples of 
-such configuration files could be found at `plato/example/config/application/`
+such configuration files could be found at `example/config/application/`
 In the rest of this section we describe each of these parts in details.
 
 ## Domain
@@ -302,7 +302,7 @@ components that constitute the *domain* of the dialog system:
 Plato provides a command for automating this process of building the ontology and database.
 Let's say for example that you want to build a conversational agent for a 
 flower shop, and you have the following items in a .csv (this file could be found at
-`plato/example/data/flowershop.csv`):
+`example/data/flowershop.csv`):
 
 ````
 id,type,color,price,occasion
@@ -318,14 +318,14 @@ To automatically generate a .db SQL file
 and a .json Ontology file you need to create a domain configuration file within which 
 you should specify the path to the csv file, output paths, as well as informable, 
 requestable, and system-requestable slots:
-(e.g. `plato/example/config/domain/create_flowershop_domain.yaml`):
+(e.g. `example/config/domain/create_flowershop_domain.yaml`):
 
 ````
 GENERAL:
-  csv_file_name: plato/example/data/flowershop.csv
+  csv_file_name: example/data/flowershop.csv
   db_table_name: flowershop
-  db_file_path: plato/example/domains/flowershop-dbase.db
-  ontology_file_path: plato/example/domains/flowershop-rules.json
+  db_file_path: example/domains/flowershop-dbase.db
+  ontology_file_path: example/domains/flowershop-rules.json
 
 ONTOLOGY:  # Optional
   informable_slots: [type, price, occasion]
@@ -343,7 +343,7 @@ plato domain --config create_flowershop_domain.yaml
 ````
 
 If all went well, you should have a `flowershop.json` and a 
-`flowershop.db` in the `plato/example/domains/` directory.
+`flowershop.db` in the `example/domains/` directory.
 
 If you receive this error:
 
@@ -379,13 +379,13 @@ with the appropriate configuration file:
 plato run --config <FULL PATH TO CONFIG YAML FILE>
 ````
 
-Please refer to `plato/example/config/application/` for example configuration files which contain 
+Please refer to `example/config/application/` for example configuration files which contain 
 settings on the environment and the agent(s) to be created as well as their components. 
-The examples in `plato/example/config/application/` could be run directly using just the name of 
+The examples in `example/config/application/` could be run directly using just the name of 
 the example YAML file: 
 
 ````
-plato run --config <NAME OF A FILE FROM plato/example/config/application/>
+plato run --config <NAME OF A FILE FROM example/config/application/>
 ````
 
 Alternatively a user could write their own config file and run Plato by passing the
@@ -398,7 +398,7 @@ plato run --config <FULL PATH TO CONFIG YAML FILE>
 For the value that is passed to `--config` plato first checks to see if the value 
 is the address of a file on the machine. If it is, the Plato tries to parse that file. 
 If it is not, Plato checks to see if the value is a name of a file within the 
-`plato/example/config/application` directory. 
+`example/config/application` directory. 
 
 ## Agent
 Each conversational AI application in Plato could have one or more agents. Each agent 
@@ -481,9 +481,9 @@ http://camdial.org/~mh521/dstc/downloads/dstc2_traindev.tar.gz
 ```` 
 
 Once the download is complete, you need to unzip the file. A config file for
-parsing this dataset is provided at `plato/example/config/parser/Parse_DSTC2.yaml`.
+parsing this dataset is provided at `example/config/parser/Parse_DSTC2.yaml`.
 You can parse the data that you downloaded by first editing 
-the value of `data_path` in `plato/example/config/parser/Parse_DSTC2.yaml` to
+the value of `data_path` in `example/config/parser/Parse_DSTC2.yaml` to
 point to the path to where you downloaded and unzipped the DSTC2 data. Next
 you can run the parse script as follows:
 
@@ -573,18 +573,18 @@ training:
 ````
 
 An example of this config file exists in 
-`plato/example/config/ludwig/ludwig_nlu_train.yaml`. The training job could be started
+`example/config/ludwig/ludwig_nlu_train.yaml`. The training job could be started
 by running:
 
 ````
 ludwig experiment \
-       --model_definition_file plato/example/config/ludwig/ludwig_nlu_train.yaml \
+       --model_definition_file example/config/ludwig/ludwig_nlu_train.yaml \
        --data_csv data/DSTC2_NLU_sys.csv \
        --output_directory models/camrest_nlu/sys/
 ````
 
 The next step is to load the model in an application config. In 
-`plato/example/config/application/CamRest_model_nlu.yaml` we provide an
+`example/config/application/CamRest_model_nlu.yaml` we provide an
 application config that has a model based NLU and the other components are
 non-ML-based. By updating the path to the mode (`model_path`) to the value 
 that you provided to the `--output_directory` argument when you ran ludwig,
@@ -668,7 +668,7 @@ We now need to train our model with ludwig:
 
 ````
 ludwig experiment \
-       --model_definition_file plato/example/config/ludwig/ludwig_dst_train.yaml \
+       --model_definition_file example/config/ludwig/ludwig_dst_train.yaml \
        --data_csv data/DST_sys.csv \
        --output_directory models/camrest_dst/sys/
 ````
@@ -862,7 +862,7 @@ and train your model:
 
 ````
 ludwig experiment \
-       --model_definition_file plato/example/config/ludwig/ludwig_nlg_train.yaml \
+       --model_definition_file example/config/ludwig/ludwig_nlg_train.yaml \
        --data_csv data/DSTC2_NLG_sys.csv \
        --output_directory models/camrest_nlg/sys/
 ````
@@ -973,7 +973,7 @@ using Ludwig:
 ````
 ludwig train \
        --data_csv data/metalwoz.csv \
-       --model_definition_file plato/example/config/ludwig/metalWOZ_seq2seq_ludwig.yaml \
+       --model_definition_file example/config/ludwig/metalWOZ_seq2seq_ludwig.yaml \
        --output_directory "models/joint_models/"
 ````
 
@@ -985,7 +985,7 @@ the output and join them in a string that will be returned. See the class here:
 `plato.agent.component.joint_model.metal_woz_seq2seq.py`
 
 ##### 5. Write a Plato generic yaml config and run your agent!
-See `plato/example/config/application/metalwoz_generic.yaml` for an example generic 
+See `example/config/application/metalwoz_generic.yaml` for an example generic 
 configuration file that interacts with the seq2seq agent over text. You can try
 it out as follows:
 

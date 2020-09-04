@@ -1,0 +1,8 @@
+---
+
+package: plato.utilities.parser.parse_dstc2
+class: Parser
+arguments:
+  data_path: <path to where you downloaded and unzipped DSTC2 data>/dstc2_traindev/data
+  ontology: example/domains/CamRestaurants-rules.json
+  database: example/domains/CamRestaurants-dbase.db

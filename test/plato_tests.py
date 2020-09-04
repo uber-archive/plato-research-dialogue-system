@@ -46,8 +46,8 @@ class unit_test(unittest.TestCase):
 
     def test_nlu(self):
         self.assertEqual(
-            SlotFillingNLU({'ontology': 'plato/example/domains/CamRestaurants-rules.json',
-                            'database': 'plato/example/domains/CamRestaurants-dbase.db'}).process_input(
+            SlotFillingNLU({'ontology': 'example/domains/CamRestaurants-rules.json',
+                            'database': 'example/domains/CamRestaurants-dbase.db'}).process_input(
                 'looking for an expensive restaurant'
             ),
             [DialogueAct('inform',
@@ -65,7 +65,7 @@ class unit_test(unittest.TestCase):
 
 
 '''
-The end_to_end_test class runs Plato on the test configurations defined in plato/example/test. These are the most
+The end_to_end_test class runs Plato on the test configurations defined in example/test. These are the most
 comprehensive tests, designed to test the entire pipeline on its various configurations (single agent, multi agent,
 end-to-end, with a user simulator, etc.).
 '''
