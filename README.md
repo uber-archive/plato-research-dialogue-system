@@ -96,7 +96,7 @@ when interacting with human users and with simulated users, respectively. Intera
 is  a common practice used in the research community to 
 jump-start learning (i.e., learn some basic behaviours before interacting 
 with humans). Each individual component can be trained online or offline 
-using any machine learning library (for instance, [Ludwig](https://uber.github.io/ludwig),
+using any machine learning library (for instance, [Ludwig](https://github.com/uber/ludwig),
 [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/), or 
 your own implementations) as Plato is a universal framework. Ludwig, Uber's open source deep 
 learning toolbox, makes for a good choice, as it does not require writing 
